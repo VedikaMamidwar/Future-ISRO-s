@@ -1,11 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>future isros</title>
+    <title>Quiz Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+    <link rel="stylesheet" href="./../css/header.css">
+    <link rel="stylesheet" href="./../css/footer.css">
+    <link rel="stylesheet" href="css/index.css">
+
 </head>
+
 <body>
-    <h1>this is home page</h1>
-</body>
+    <!--header section start -->
+
+    <body id="body" class="light-theme">
+        <header class="header">
+            <div class="container">
+                <div class="animative-movement">
+                    <span id="name1">F</span><span id="name2">U</span><span id="name3">T</span><span id="name4">U</span><span id="name4">R</span><span id="name4">E</span>
+                </div>
+                <h2> ISRO'S</h2>
+            </div>
+
+            <nav class="navbar">
+                <a href="home.html">Home</a>
+                <a href="./pages/aboutus.html">About</a>
+                <div class="dropdown">
+                    <a class="dropbtn" href="#">Quizz Category<i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="pages/educational-quizz.html">RESEARCH</a>
+                        <a href="pages/fun-quizz.html">PLAY</a>
+                        <a href="pages/gk-quizz.html">DO</a>
+                    </div>
+                </div>
+                <a href="pages/contactus.html">Contact Us</a>
+                <a href="pages/feedback.html">Feedback</a>
+            </nav>
+
+            <div class="icons">
+                <a href="pages/sign.html">
+                    <div class="fas fa-user" id="login-btn"></div>
+                </a>
+            </div>
+            <div class="nav__logo">
+                <a href="#">
+                    <img src="../icon/moon.png" alt="dark mode" class="logo-dark" id="dark-logo" onclick="toggleTheme()" />
+                    <img src="../icon/sun.png" alt="light mode" class="logo-light" id="light-logo"
+                        onclick="toggleTheme()" />
+                </a>
+            </div>
+            <div class="sidebar" id="sidebar">
+                <div class="close-btn" id="close-btn">
+                    <img src="icon/arrow.png" alt="Close" width="30px">
+                </div>
+                <nav class="sidebar-navbar">
+                    <a class="menu-item active-menu" href="./index.html"> <img src="icon/home.png" class="menu-icon">
+                        <span class="menu-text">Home</span></a>
+                    <a class="menu-item" href="./pages/aboutus.html">
+                        <img src="icon/aboutus.png" class="menu-icon">
+                        <span class="menu-text">AboutUs</span>
+                    </a>
+                    <a class="menu-item" href="./pages/quizz-list.html">
+                        <img src="icon/quizz.png" class="menu-icon">
+                        <span class="menu-text">explore</span>
+                    </a>
+                    <a class="menu-item" href="./pages/contactus.html">
+                        <img src="icon/contact-us.png" class="menu-icon">
+                        <span class="menu-text">Contact</span>
+                    </a>
+                    <a class="menu-item" href="./pages/feedback.html">
+                        <img src="icon/feedback.png" class="menu-icon">
+                        <span class="menu-text">Feedback</span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Open Sidebar Menu Button -->
+            <div class="menu-open" id="menu-open">
+                <img src="icon/menus.png" alt="Menu" width="30px">
+            </div>
+        </header>
+
+
+        <!-----body contain-->
+        <main>
+            <section id="intro">
+                <h2>Explore the Wonders of Space</h2>
+                <p>Join us on an exciting journey through space and learn about ISRO's upcoming missions and future projects!</p>
+                <img src="images/space-kids.jpg" alt="Kids Exploring Space" class="intro-image">
+            </section>
+            <section id="missions">
+                <h2>Upcoming Missions</h2>
+                <div class="card">
+                    <h3>Mission to Mars</h3>
+                    <p>Get ready for ISRO's next mission to Mars, where we'll explore the Red Planet like never before!</p>
+                    <img src="images/mars-mission.jpg" alt="Mission to Mars">
+                </div>
+                <div class="card">
+                    <h3>Chandrayaan 3</h3>
+                    <p>Discover the mysteries of the Moon with ISRO's Chandrayaan 3 mission.</p>
+                    <img src="images/chandrayaan-3.jpg" alt="Chandrayaan 3">
+                </div>
+            </section>
+            <section id="projects">
+                <h2>Future Projects</h2>
+                <div class="card">
+                    <h3>Space Station</h3>
+                    <p>Learn about ISRO's plans to build its very own space station!</p>
+                    <img src="images/space-station.jpg" alt="Space Station">
+                </div>
+                <div class="card">
+                    <h3>Gaganyaan</h3>
+                    <p>Find out how ISRO is preparing to send Indian astronauts into space with the Gaganyaan mission.</p>
+                    <img src="images/gaganyaan.jpg" alt="Gaganyaan">
+                </div>
+            </section>
+            <section id="learn">
+                <h2>Learn More</h2>
+                <p>Stay tuned for more exciting updates and educational content about space exploration!</p>
+                <button id="learnMoreBtn">Learn More</button>
+            </section>
+        </main>
+
+
+
+
+
+
+
+
+        <!--footer section start-->
+        <div class="footer">
+
+            <div class="box-container">
+
+                <div class="box">
+                    <span id="name1">K</span><span id="name2">I</span><span id="name3">D</span><span
+                        id="name4">S</span><br><span id="text">future isro's</span>
+
+                </div>
+
+                <div class="box">
+                    <h3>quick links</h3>
+                    <a href="pages/aboutus.html"><i class="fas fa-caret-right"></i>Aboutus</a>
+                    <a href="pages/quizz-list.html"><i class="fas fa-caret-right"></i>explore</a>
+                    <a href="pages/contactus.html"><i class="fas fa-caret-right"></i>Contactus</a>
+                    <a href="pages/feedback.html"><i class="fas fa-caret-right"></i>Feedback</a>
+                </div>
+
+
+
+
+
+            </div>
+
+            <div class="credit"> &copy; copyright @ 2024 by <span>future isro's</span></div>
+        </div>
+        <!--footer section end-->
+    </body>
+    <script src="js/header.js"></script>
+    <script src="../js/header.js"></script> 
+
 </html>

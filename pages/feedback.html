@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Feedback</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/feedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header Section Start -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Future ISROs</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="feedback.html" class="active">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Main Section Start -->
+    <main>
+        <section class="feedback-section">
+            <div class="feedback-banner">
+                <img src="images/images/5360730.jpg " alt="Feedback Banner" class="feedback-image">
+                <h1>Your Opinion Matters!</h1>
+                <p>We'd love to hear your thoughts and suggestions to improve your experience with Future ISROs.</p>
+            </div>
+
+            <div class="feedback-container">
+                <div class="feedback-form">
+                    <h2>Share Your Feedback</h2>
+                    <form id="feedbackForm">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="rating">Rate Your Experience:</label>
+                        <div class="rating" id="rating">
+                            <i class="fas fa-star" data-value="1"></i>
+                            <i class="fas fa-star" data-value="2"></i>
+                            <i class="fas fa-star" data-value="3"></i>
+                            <i class="fas fa-star" data-value="4"></i>
+                            <i class="fas fa-star" data-value="5"></i>
+                        </div>
+
+                        <label for="message">Message: <span id="charCount">0/200</span></label>
+                        <textarea id="message" name="message" rows="4" maxlength="200" required></textarea>
+
+                        <button type="submit">Submit Feedback</button>
+                    </form>
+                </div>
+
+                <!-- Flower effect container -->
+                <div class="flower-container" id="flowerContainer"></div>
+            </div>
+        </section>
+    </main>
+    <!-- Main Section End -->
+
+    <footer>
+        <p>© 2024 Future ISROs. All Rights Reserved.</p>
+    </footer>
+
+    <script src="feedback.js"></script>
+</body>
+
+</html>

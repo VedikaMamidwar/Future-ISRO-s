@@ -1,9 +1,6 @@
-from importlib.metadata import EntryPoint
 import random
 from tkinter import *
 from tkinter import messagebox
-import tkinter
-from tkinter import PhotoImage
 
 # List of words for the game
 WORDS = ['python', 'java', 'swift', 'javascript', 'ruby', 'hangman', 'programming']
@@ -77,7 +74,7 @@ word_label = Label(root, text="_ _ _ _ _", font=("Arial", 24))
 word_label.pack(pady=20)
 
 # Entry widget for player's guess
-guess_entry = EntryPoint(root, font=("Arial", 16), width=5)
+guess_entry = Entry(root, font=("Arial", 16), width=5)
 guess_entry.pack()
 
 # Button to check the player's guess

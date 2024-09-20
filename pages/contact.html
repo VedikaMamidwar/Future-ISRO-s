@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Contact</title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+
+<body>
+    <!-- Header Section Start -->
+    <header class="header">
+        <div class="container">
+            <div class="animative-movement">
+                <span id="name1">F</span><span id="name1">U</span><span id="name1">T</span><span id="name1">U</span><span id="name1">R</span><span id="name1">E</span>
+            </div>
+            <h2>ISRO'S</h2>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About us</a>
+            <div class="dropdown">
+                <a class="dropbtn" href="#">Quiz Category <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="research.html">RESEARCH</a>
+                    <a href="play.html">PLAY</a>
+                    <a href="Do.html">DO</a>
+                </div>
+            </div>
+            <a href="contact.html">Contact</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+
+        <div class="icons">
+            <a href="sign.html">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Main Content Start -->
+    <main>
+        <section class="contact-section">
+            <h1>Contact Us</h1>
+            <p>If you have any questions, feel free to reach out to us!</p>
+
+            <div class="contact-form">
+                <form action="submit_contact.php" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!-- Main Content End -->
+
+    <!-- Footer Section Start -->
+    <footer>
+        <p>© 2024 Future ISROs. All Rights Reserved.</p>
+    </footer>
+    <!-- Footer Section End -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>

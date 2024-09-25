@@ -3,7 +3,7 @@ from tkinter import messagebox
 import random
 
 # Word list
-words = ['python', 'javascript', 'java', 'hangman', 'programming', 'developer']
+words = ['space', 'moon', 'star', 'sun', 'planet', 'rocket','sattelit','isro','galaxy','earth','mercury','venus','mars','jupiter','saturn','uranus','neptune','milkyway','astroid','meteroid','dwarfstar']
 
 class HangmanGame:
     def __init__(self, root):

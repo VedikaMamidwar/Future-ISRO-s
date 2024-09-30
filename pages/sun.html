@@ -1,118 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
-    <link rel="stylesheet" href="./../css/header.css">
-    <link rel="stylesheet" href="./../css/footer.css">
-    <link rel="stylesheet" href="../css/sun.css">
+    <title>The Sun | Future ISROs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #000000; /* Black background to mimic space */
+            color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .sun-section {
+            padding: 50px 20px;
+        }
+
+        h1 {
+            color: #ffdd00; /* Bright yellow color for the Sun */
+            text-shadow: 3px 3px #000;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .fact-box {
+            background: #1e1e1e;
+            border: 3px solid #ffdd00; /* Border matching the Sun color */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(255, 221, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .fact-box:hover {
+            transform: scale(1.05);
+        }
+
+        .fact-box h2 {
+            color: #ffdd00;
+            font-size: 2rem;
+        }
+
+        .fact-box p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #fff;
+        }
+
+        #learnMore {
+            background-color: #ffdd00;
+            color: #121212;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            margin-top: 40px;
+        }
+
+        #learnMore:hover {
+            background-color: #ffcc00;
+            transform: scale(1.05);
+        }
+
+        .sun-image {
+            width: 300px;
+            height: 300px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            margin: 30px auto;
+            box-shadow: 0 10px 20px rgba(255, 221, 0, 0.5);
+            animation: rotateSun 10s linear infinite; /* Add rotation animation */
+        }
+
+        @keyframes rotateSun {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <!--header section start -->
 
-    <body id="body" class="light-theme">
-        <header class="header">
-            <div class="container">
-                <div class="animative-movement">
-                    <span id="name1">F</span><span id="name2">U</span><span id="name3">T</span><span
-                        id="name4">U</span><span id="name4">R</span><span id="name4">E</span>
-                </div>
-                <h2> ISRO'S</h2>
-            </div>
+    <section class="sun-section">
+        <h1>The Amazing Sun!</h1>
 
-            <nav class="navbar">
-                <a href="home.html">Home</a>
-                <a href="./pages/aboutus.html">About</a>
-                <div class="dropdown">
-                    <a class="dropbtn" href="#">Quizz Category<i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="pages/educational-quizz.html">RESEARCH</a>
-                        <a href="pages/fun-quizz.html">PLAY</a>
-                        <a href="pages/gk-quizz.html">DO</a>
-                    </div>
-                </div>
-                <a href="pages/contactus.html">Contact Us</a>
-                <a href="pages/feedback.html">Feedback</a>
-            </nav>
+        <div class="sun-image"></div>
 
-            <div class="icons">
-                <a href="pages/sign.html">
-                    <div class="fas fa-user" id="login-btn"></div>
-                </a>
-            </div>
-            <div class="nav__logo">
-                <a href="#">
-                    <img src="../icon/moon.png" alt="dark mode" class="logo-dark" id="dark-logo"
-                        onclick="toggleTheme()" />
-                    <img src="../icon/sun.png" alt="light mode" class="logo-light" id="light-logo"
-                        onclick="toggleTheme()" />
-                </a>
-            </div>
-            <div class="sidebar" id="sidebar">
-                <div class="close-btn" id="close-btn">
-                    <img src="icon/arrow.png" alt="Close" width="30px">
-                </div>
-                <nav class="sidebar-navbar">
-                    <a class="menu-item active-menu" href="./index.html"> <img src="icon/home.png" class="menu-icon">
-                        <span class="menu-text">Home</span></a>
-                    <a class="menu-item" href="./pages/aboutus.html">
-                        <img src="icon/aboutus.png" class="menu-icon">
-                        <span class="menu-text">AboutUs</span>
-                    </a>
-                    <a class="menu-item" href="./pages/quizz-list.html">
-                        <img src="icon/quizz.png" class="menu-icon">
-                        <span class="menu-text">explore</span>
-                    </a>
-                    <a class="menu-item" href="./pages/contactus.html">
-                        <img src="icon/contact-us.png" class="menu-icon">
-                        <span class="menu-text">Contact</span>
-                    </a>
-                    <a class="menu-item" href="./pages/feedback.html">
-                        <img src="icon/feedback.png" class="menu-icon">
-                        <span class="menu-text">Feedback</span>
-                    </a>
-                </nav>
-            </div>
-
-            <!-- Open Sidebar Menu Button -->
-            <div class="menu-open" id="menu-open">
-                <img src="icon/menus.png" alt="Menu" width="30px">
-            </div>
-        </header>
-
-
-        <!------header end----->
-
-        <main>
-        <div class="container">
-            <div class="sun">
-                <div class="sun-content">
-                    <h1>The Sun</h1>
-                    <p>Our bright and warm star</p>
-                    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos repellendus velit labore, exercitationem quos culpa aperiam, libero vero cupiditate blanditiis, possimus eligendi? Consequatur, magni. Recusandae non voluptas neque illum ex.</h1>
-                </div>
-            </div>
-            <div class="orbit orbit1">
-                <div class="star"></div>
-            </div>
-            <div class="orbit orbit2">
-                <div class="star"></div>
-            </div>
-            <div class="orbit orbit3">
-                <div class="star"></div>
-            </div>
-            <div class="orbit orbit4">
-                <div class="star"></div>
-            </div>
+        <div class="fact-box">
+            <h2>☀️ What is the Sun?</h2>
+            <p>The Sun is a huge ball of hot, glowing gases at the center of our solar system. It’s so big that more than 1 million Earths could fit inside it!</p>
         </div>
-    </main>
 
+        <div class="fact-box">
+            <h2>🔥 How Hot is the Sun?</h2>
+            <p>The Sun’s surface is about 5,500°C, but its core can reach temperatures of 15 million degrees Celsius! That’s hotter than a million ovens!</p>
+        </div>
 
+        <div class="fact-box">
+            <h2>🌞 How Does the Sun Help Us?</h2>
+            <p>The Sun gives us light and heat, which helps plants grow, keeps us warm, and makes life possible on Earth. Without the Sun, life couldn’t exist!</p>
+        </div>
 
-    </body>
+        <button id="learnMore">Learn More About the Sun</button>
+    </section>
 
+    <script>
+        document.getElementById('learnMore').addEventListener('click', function() {
+            window.location.href = 'explore-sun.html'; // Link to a page with more detailed info if available
+        });
+    </script>
+
+</body>
 </html>

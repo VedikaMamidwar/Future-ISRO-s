@@ -8,3 +8,7 @@ buttons.forEach(button => {
         // window.location.href = 'event-details.html';
     });
 });
+
+document.getElementById('backToHome').addEventListener('click', function() {
+    window.location.href = 'index.html';  // Replace with the correct URL of your homepage
+});

@@ -48,3 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Simple interaction for the contact form submission
+document.querySelector('.contact-form').addEventListener('submit', function(event) {
+    alert('Your message has been sent!'); // Alert on form submission
+});
+

@@ -61,3 +61,12 @@ h1 {
     background-color: #ff4f3b; /* Darker coral on hover */
     transform: scale(1.05); /* Slight enlargement on hover */
 }
+/* Keyframes for twinkling stars */
+@keyframes twinklingStars {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}

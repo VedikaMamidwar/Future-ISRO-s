@@ -4,18 +4,22 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     background: #1a1a1a;
-    color: white;
+    color: #ff6f61;
     overflow-x: hidden;
 }
 
+/* Header and Navbar */
 header {
     background-color: #2c2c2c;
     padding: 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar .logo {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #ff6f61;
     font-weight: bold;
 }
@@ -38,209 +42,252 @@ header {
 
 .nav-links a:hover {
     color: #ff6f61;
-}
-/* Dropdown Styles */
-.nav-links .dropdown {
-    position: relative;
+    text-shadow: 0 0 10px #ff6f61;
 }
 
-.nav-links .dropdown .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #2c2c2c;
-    padding: 10px 0;
-    list-style: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    min-width: 150px;
-    z-index: 1000;
-}
-
-.nav-links .dropdown .dropdown-menu li {
-    padding: 10px 20px;
-}
-
-.nav-links .dropdown .dropdown-menu li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    font-size: 1.1rem;
-}
-
-.nav-links .dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.nav-links .dropdown .dropdown-menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: #ff6f61;
-}
-
-
-/* Explore Page Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: white;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #2c2c2c;
-    padding: 20px;
-    text-align: center;
-}
-
-.navbar .logo {
-    font-size: 1.8rem;
-    color: #ff6f61;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    padding: 0;
-}
-
-.nav-links li {
-    display: inline;
-    margin: 0 20px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
+/* Main Section */
 .explore-section {
-    padding: 40px 20px;
     text-align: center;
-    background-color: #1c1c1c;
+    padding: 60px 20px;
+    color: white;
+    background: #1a1a1a;
 }
 
 .explore-section h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: #ff6f61;
+    margin-bottom: 20px;
 }
 
 .explore-section p {
     font-size: 1.2rem;
+    color: #c0c0c0;
     margin-bottom: 40px;
 }
 
-/* Flexbox Container */
 .card-container {
-    display: flex;
-    justify-content: center; /* Center cards in the flexbox */
-    flex-wrap: wrap; /* Allow wrapping of cards */
-    gap: 20px; /* Space between cards */
-    padding: 0 20px; /* Add padding to the container */
-}
-
-/* Individual Card Styles */
-.card {
-    width: 250px; /* Width of each card */
-    background-color: #fbf7f7;
-    border-radius: 10px;
-    box-shadow: 0 0 30px #808080;
-    cursor: pointer;
-    overflow: hidden; /* Hide overflow */
-    transition: transform 0.3s; /* Add a transition effect */
-}
-
-.card:hover {
-    transform: scale(1.05); /* Scale effect on hover */
-}
-
-.card-image {
-    width: 100%; /* Full width */
-    height: 150px; /* Set height */
-    object-fit: cover; /* Maintain aspect ratio */
-}
-
-.card-title {
-    font-size: 1.5em;
-    color: #121212; /* Title color */
-    margin: 10px 0; /* Margin above and below title */
-}
-
-.card-description {
-    font-size: 1em;
-    color: #333; /* Description color */
-    padding: 0 10px 10px; /* Padding for description */
-}
-
-.heading {
-    margin-top: 100px;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size: 50px;
-  }
-  
-  .changing-sentence {
-    font-size: 35px;
-    text-align: center;
-    font-family: rutu;
-    margin-top: 0px;
-    margin-bottom: 30px;
-    transition: color 0.5s ease;
-  }
-  
-  .activities .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Reduced gap */
-  }
-  
-  .activities .card-container .box {
-    height: 360px;
-    width: 300px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 .5rem 1rem rgba(9, 9, 9, 0.15);
-    border-radius: 10px;
-    outline: 1rem solid rgba(0, 0, 0, 0.1);
-    outline-offset: -1rem;
-    background-color: white;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .activities .card-container .box img {
-    height: 8rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .activities .card-container .box:hover img {
-    transform: scale(1.1);
-  }
-  
-  .activities .card-container .box h3 {
-    font-size: 2.2rem;
-    padding: 2rem 0;
-    color: var(--black);
-  }
-  
-  .activities .card-container .box p {
-    font-size: 15px;
-    font-weight: bold;
-    color: #4d4c4c;
-  }
-  
-  .card:hover {
-    transform: translateY(-10px);
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  }
+}
 
-footer {
-    background-color: #1c1c1c;
-    padding: 10px;
+/* Card Styles */
+.card {
+    background-color: #2a2a2a;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 20px;
+    width: 220px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
     text-align: center;
-    border-top: 2px solid #ff6f61;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 25px rgba(255, 111, 97, 0.8);
+}
+
+.card img {
+    width: 100px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover img {
+    transform: rotate(20deg);
+}
+
+.card-title {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #ff6f61;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #c0c0c0;
+    margin-bottom: 15px;
+}
+
+.explore-button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.explore-button:hover {
+    background-color: #ff8b80;
+    transform: scale(1.1);
+}
+
+/* Animation Effects for Cards */
+.card .card-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.sun-card .card-image {
+    animation: rotate-sun 10s infinite linear;
+}
+
+@keyframes rotate-sun {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.moon-card .card-image,
+.satellite-card .card-image,
+.rocket-card .card-image {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #2c2c2c;
+    padding: 20px;
+    text-align: center;
+    color: #c0c0c0;
+    font-size: 1rem;
+}
+
+footer p {
+    margin: 0;
+}
+/* Keyframes for twinkling stars */
+@keyframes twinklingStars {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+/* Sun Rotation */
+.sun-movement {
+    background-image: url('sun.png'); /* Add the Sun image */
+    animation: rotate 10s infinite linear;
+}
+
+/* Moon Movement */
+.moon-movement {
+    background-image: url('../icon/moon.png'); /* Add the Moon image */
+    animation: moon-move 5s infinite ease-in-out;
+}
+
+/* Satellite Orbit */
+.satellite-movement {
+    background-image: url('../icon/satellite-technology.png'); /* Add the satellite image */
+    animation: satellite-orbit 8s infinite linear;
+}
+
+/* Rocket Launch */
+.rocket-movement {
+    background-image: url('../icon/rocket.png'); /* Add the rocket image */
+    animation: rocket-launch 4s infinite ease-in-out;
+}
+
+/* Other elements (you can customize the animation) */
+.planets-movement {
+    background-image: url('../icon/');
+    animation: rotate 12s infinite linear;
+}
+
+.galaxy-movement {
+    background-image: url('galaxy.png');
+    animation: rotate 20s infinite linear;
+}
+
+.stars-movement {
+    background-image: url('stars.png');
+    animation: rotate 15s infinite linear;
+}
+
+/* General styles for the card images */
+.event-image {
+    width: 100px; /* Adjust the size */
+    height: 100px;
+    background-size: cover;
+    margin: 0 auto 15px;
+    border-radius: 50%; /* Make the images circular */
+}
+/* Animation for rotating elements */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animation for satellite orbiting */
+@keyframes satellite-orbit {
+    0% {
+        transform: rotate(0deg) translateX(50px);
+    }
+    100% {
+        transform: rotate(360deg) translateX(50px);
+    }
+}
+
+/* Animation for rocket launching up */
+@keyframes rocket-launch {
+    0% {
+        transform: translateY(20px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+/* Animation for the moon's movement */
+@keyframes moon-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

@@ -178,6 +178,27 @@ header {
     background-color: #ff8b80;
     box-shadow: 0 0 20px #ff6f61;
 }
+/* Icons Section */
+.icon-container {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    align-items: center; /* Align icons vertically */
+    margin-top: 20px; /* Space above the icons */
+}
+
+.icon {
+    width: 50px; /* Set size for icons */
+    height: 50px; /* Ensure icons are square */
+    margin: 0 15px; /* Increased margin for better spacing */
+    transition: transform 0.3s ease; /* Smooth scaling animation */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Add hover effect for icons */
+.icon:hover {
+    transform: scale(1.2); /* Scale icon on hover */
+    filter: brightness(1.2); /* Slightly brighten icon on hover */
+}
 
 /* Footer */
 footer {

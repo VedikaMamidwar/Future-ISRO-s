@@ -31,7 +31,7 @@
             <div class="card-container">
                 <div class="card-container">
                     <div class="card sun-card">
-                        <img src="../icon/sun.png" alt="Sun" class="card-image">
+                        <div class="event-image sun-movement"></div>
                         <h2 class="card-title">SUN</h2>
                         <p class="card-description">Learn about the massive ball of fire at the center of our solar system.</p>
                         <button class="explore-button">Explore</button>
@@ -46,27 +46,31 @@
                     <div class="event-image satellite-movement"></div>
                     <h2 class="card-title">Satellite</h2>
                     <p class="card-description">Discover how satellites help us communicate and observe the Earth.</p>
-                    <a href="../pages/satelite.html" class="explore-button">Explore</a> 
+                    <a href="satelite.html"><button class="explore-button">Explore</button></a>
+                    
                 </div>
                 <div class="card">
-                    <div class="event-image rocket-movement"></div>
+                 
                     <h2 class="card-title">Rockets</h2>
                     <p class="card-description">Uncover the technology behind space travel and rocket launches.</p>
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                 
                     <div class="event-image planets-movement"></div>
                     <h2 class="card-title">Planets</h2>
                     <p class="card-description">Explore the diverse planets in our solar system.</p>
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                    
                     <div class="event-image galaxy-movement"></div>
                     <h2 class="card-title">Galaxy</h2>
                     <p class="card-description">Delve into the vast galaxies that populate the universe.</p>
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                 
                     <div class="event-image stars-movement"></div>
                     <h2 class="card-title">Stars</h2>
                     <p class="card-description">Learn about the different types of stars and their life cycles.</p>
@@ -79,42 +83,49 @@
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                  
                     <div class="event-image topic9-movement"></div>
                     <h2 class="card-title"> white dwarf</h2>
                     <p class="card-description">Description for Topic 9.</p>
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                    
                     <div class="event-image topic10-movement"></div>
                     <h2 class="card-title">black dwarf</h2>
                     <p class="card-description">Description for Topic 10.</p>
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                  
                     <div class="event-image topic11-movement"></div>
                     <h2 class="card-title">Constellation</h2>
                     <p class="card-description">Description for Topic 11.</p>
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                   
                     <div class="event-image topic12-movement"></div>
                     <h2 class="card-title">Black hole</h2>
                     <p class="card-description">Description for Topic 12.</p>
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                    
                     <div class="event-image topic13-movement"></div>
                     <h2 class="card-title">Milky way</h2>
                     <p class="card-description">Description for Topic 13.</p>
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                    
                     <div class="event-image topic14-movement"></div>
                     <h2 class="card-title">cosmic dust</h2>
                     <p class="card-description">Description for Topic 14.</p>
                     <button class="explore-button">Explore</button>
                 </div>
                 <div class="card">
+                    
                     <div class="event-image topic15-movement"></div>
                     <h2 class="card-title">Astronaut</h2>
                     <p class="card-description">Description for Topic 15.</p>
@@ -124,6 +135,14 @@
             </div>
         </section>
     </main>
+    <script>
+        document.querySelectorAll('.explore-button').forEach(button => {
+         button.addEventListener('click', () => {
+        alert('Exploration content coming soon!');
+    });
+});
+
+    </script>
 
     <footer>
         <p>© 2024 Future ISROs. All Rights Reserved.</p>

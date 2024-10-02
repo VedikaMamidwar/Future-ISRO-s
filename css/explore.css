@@ -200,7 +200,7 @@ footer p {
 }
 /* Sun Rotation */
 .sun-movement {
-    background-image: url('sun.png'); /* Add the Sun image */
+    background-image: url('../icon/sunshine.png'); /* Add the Sun image */
     animation: rotate 10s infinite linear;
 }
 
@@ -218,23 +218,23 @@ footer p {
 
 /* Rocket Launch */
 .rocket-movement {
-    background-image: url('../icon/rocket.png'); /* Add the rocket image */
+    background-image: url('../icon/'); /* Add the rocket image */
     animation: rocket-launch 4s infinite ease-in-out;
 }
 
 /* Other elements (you can customize the animation) */
 .planets-movement {
-    background-image: url('../icon/');
+    background-image: url('../icon/dwarf-planet.png');
     animation: rotate 12s infinite linear;
 }
 
 .galaxy-movement {
-    background-image: url('galaxy.png');
+    background-image: url('../icon/galaxy.png');
     animation: rotate 20s infinite linear;
 }
 
 .stars-movement {
-    background-image: url('stars.png');
+    background-image: url('../icon/shooting-star.png');
     animation: rotate 15s infinite linear;
 }
 

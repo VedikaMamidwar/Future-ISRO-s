@@ -234,9 +234,42 @@ footer p {
 }
 
 .stars-movement {
+    background-image: url('../icon/star.png');
+    animation: rotate 15s infinite linear;
+}
+.nebula-movement {
+    background-image: url('../icon/nebula.png');
+    animation: rotate 15s infinite linear;
+}
+.whitedwarf-movement {
+    background-image: url('../icon/');
+    animation: rotate 15s infinite linear;
+}
+.blackdwarf-movement {
     background-image: url('../icon/shooting-star.png');
     animation: rotate 15s infinite linear;
 }
+.Constellation-movement {
+    background-image: url('../icon/big-dipper.png');
+    animation: rotate 15s infinite linear;
+}
+.blackhole-movement {
+    background-image: url('../icon/black-hole.png');
+    animation: rotate 15s infinite linear;
+}
+.milkyway-movement {
+    background-image: url('../icon/universe\ \(1\).png');
+    animation: rotate 15s infinite linear;
+}
+.cosmosicdust-movement {
+    background-image: url('../icon/shooting-star.png');
+    animation: rotate 15s infinite linear;
+}
+.astronaut-movement {
+    background-image: url('../icon/astronaut.png');
+    animation: rotate 15s infinite linear;
+}
+
 
 /* General styles for the card images */
 .event-image {

@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Future ISROs - Home</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .letter {
+            display: inline-block; /* Ensure letters are treated as inline blocks */
+            opacity: 0; /* Start invisible */
+            transform: translateY(20px); /* Start lower than normal */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Animation effects */
+        }
+
+        .visible {
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Move to normal position */
+        }
+    </style>
 </head>
 
 <body>
@@ -18,9 +31,9 @@
                 <li class="dropdown">
                     <a href="explore.html" class="dropdown-toggle">Explore</a>
                     <ul class="dropdown-menu">
-                        <li><a href="play.html">Play</a></li>
-                        <li><a href="do.html">Do</a></li>
-                        <li><a href="fact.html">fact</a></li>
+                        <li><a href="../pages/game.html">Play</a></li>
+                        <li><a href="../pages/do..html">Do</a></li>
+                        <li><a href="fact.html">Fact</a></li>
                         <li><a href="events.html">Events</a></li>
                     </ul>
                 </li>
@@ -28,13 +41,9 @@
                 <li><a href="feedback.html">Feedback</a></li>
             </ul>
         </nav>
-        
     </header>
-    
 
     <main>
-        
-        
         <section class="hero-section">
             <div class="video-background">
                 <video autoplay muted loop>
@@ -42,7 +51,7 @@
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <h1>Welcome to the Future of ISRO!</h1>
+            <h1 id="headline">Welcome to the Future of ISRO!</h1>
             <p>Explore the amazing world of space with ISRO. Learn, play, and discover the universe!</p>
             <button id="startJourney">Start Your Journey</button>
         </section>
@@ -65,9 +74,6 @@
                     <h3>Satellites in Space</h3>
                     <p>Discover how satellites are changing our world and connecting us all.</p>
                 </div>
-
-                
-        
             </div>
         </section>
     </main>
@@ -76,7 +82,29 @@
         <p>© 2024 Future ISROs. All Rights Reserved.</p>
     </footer>
 
-    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const headline = document.getElementById("headline");
+            const text = headline.textContent; // Get the original text
+            headline.innerHTML = ""; // Clear the headline
+            
+            // Create spans for each letter and append to headline
+            for (let letter of text) {
+                const span = document.createElement("span");
+                span.className = "letter";
+                span.textContent = letter === " " ? "\u00A0" : letter; // Use non-breaking space for spaces
+                headline.appendChild(span);
+            }
+
+            // Animate letters
+            const letters = document.querySelectorAll(".letter");
+            letters.forEach((letter, index) => {
+                setTimeout(() => {
+                    letter.classList.add("visible");
+                }, index * 100); // Delay based on index for sequential animation
+            });
+        });
+    </script>
 </body>
 
 </html>

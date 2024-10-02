@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Play</title>
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1c; /* Dark background for contrast */
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            animation: fadeIn 1s; /* Fade-in effect for the body */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color:  #ff4f3b; /* Bright color for the title */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .game-section {
+            background-color: #333; /* Darker background for each section */
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+            position: relative; /* For absolute positioning of graphics */
+            overflow: hidden; /* To hide overflow from animations */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow effect */
+        }
+
+        .game-section:hover {
+            transform: scale(1.1); /* Slightly enlarges the fact box when hovered */
+            box-shadow:  0 8px 20px   #ff6f61;
+        }
+
+        .game-title {
+            text-align: center;
+            font-size: 1.8em;
+            margin: 0;
+            color:  #ff4f3b; /* Bright color for titles */
+        }
+
+        .game-description {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.2em; /* Increase font size */
+            color: #ccc; /* Lighter color for descriptions */
+        }
+
+        .start-button {
+            display: block;
+            margin: 10px auto;
+            padding: 12px 25px;
+            background-color: #ff6f61; /* Bright button color */
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            font-size: 1.1em; /* Slightly larger font size */
+        }
+
+        .start-button:hover {
+            transform: scale(1.1); /* Slightly enlarges the fact box when hovered */
+            box-shadow: 0 8px 20px  #ff4f3b;
+        }
+
+        /* Back button styling */
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background-color: #ff6f61;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            font-size: 1.1em; /* Slightly larger font size */
+            text-align: center; /* Center text */
+        }
+
+        .back-button:hover {
+            transform: scale(1.1); /* Slightly enlarges the fact box when hovered */
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8); /* Adds a glowing effect */
+        }
+
+        /* Animation for the floating graphics */
+        .floating {
+            position: absolute;
+            width: 60px; /* Slightly larger for visibility */
+            height: 60px;
+            animation: float 3s infinite ease-in-out;
+            opacity: 0.8; /* Slight transparency */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .game-section {
+                padding: 15px;
+            }
+
+            .game-title {
+                font-size: 1.5em;
+            }
+
+            .game-description {
+                font-size: 1em;
+            }
+
+            .start-button, .back-button {
+                padding: 8px 15px;
+                font-size: 1em;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <h2>Play Games!</h2>
+
+        <div class="game-section">
+            <h3 class="game-title">Game 1: Space Quiz</h3>
+            <p class="game-description">Test your knowledge about space with our fun quiz!</p>
+            <button class="start-button" onclick="startGame('Space Quiz')">Start Game</button>
+            <img src="../icon/rocket.png" alt="Rocket" class="floating" style="top: 10px; left: 10px;">
+        </div>
+
+        <div class="game-section">
+            <h3 class="game-title">Game 2: Asteroid Dodger</h3>
+            <p class="game-description">Dodge the asteroids and collect points!</p>
+            <button class="start-button" onclick="startGame('Asteroid Dodger')">Start Game</button>
+            <img src="../images/asteroid.png" alt="Asteroid" class="floating" style="top: 40px; right: 10px;">
+        </div>
+
+        <div class="game-section">
+            <h3 class="game-title">Game 3: Star Catcher</h3>
+            <p class="game-description">Catch the falling stars before they hit the ground!</p>
+            <button class="start-button" onclick="startGame('Star Catcher')">Start Game</button>
+            <img src="../images/star.png" alt="Star" class="floating" style="top: 10px; right: 10px;">
+        </div>
+
+        <div class="game-section">
+            <h3 class="game-title">Game 4: Planet Explorer</h3>
+            <p class="game-description">Explore the planets and learn about them!</p>
+            <button class="start-button" onclick="startGame('Planet Explorer')">Start Game</button>
+            <img src="../images/planet.png" alt="Planet" class="floating" style="top: 20px; left: 20px;">
+        </div>
+
+        <div class="game-section">
+            <h3 class="game-title">Game 5: Space Race</h3>
+            <p class="game-description">Race against your friends in a thrilling space race!</p>
+            <button class="start-button" onclick="startGame('Space Race')">Start Game</button>
+            <img src="../images/spaceship.png" alt="Spaceship" class="floating" style="top: 30px; right: 30px;">
+        </div>
+        
+        <!-- Back Button -->
+        <button class="back-button" onclick="goHome()">Back to Home</button>
+    </main>
+
+    <script>
+        function startGame(gameName) {
+            alert(`Starting ${gameName}!`); 
+        }
+
+        function goHome() {
+            window.location.href = '../pages/index.html';
+        }
+    </script>
+</body>
+
+</html>

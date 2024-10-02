@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future ISROs - Satellite Page</title>
+  <style>
+    /* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #1a1a1a;
+    color: white;
+    overflow-x: hidden;
+}
+
+@keyframes headerGlow {
+    0% { color: #ff6f61; }
+    100% { color: #ff6f61; }
+}
+
+.container {
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+/* Satellite Information Flexboxes */
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.flex-item {
+    background: #1e1e1e; /* Dark gray background for the fact boxes */
+    border: 3px solid #ff6f61; 
+    padding: 30px;
+    width: 30%;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* Allow effects to stay within the card */
+}
+
+.flex-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.flex-item:hover {
+    transform: scale(1.1); /* Slightly enlarges the fact box when hovered */
+    box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8); /* Adds a glowing effect */
+}
+
+.flex-item:hover::before {
+    opacity: 1; /* Add overlay effect on hover */
+}
+
+h2 {
+    font-size: 2.2em;
+    color:  #ff6f61;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.3em;
+    line-height: 1.8;
+}
+
+
+
+/* Quiz Section */
+.quiz-section {
+    margin: 50px auto;
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, rgba(255, 107, 97, 0.7), rgba(255, 97, 183, 0.7));
+}
+
+/* Centered Heading for Quiz Section */
+.quiz-section h2 {
+    font-size: 2.5em;
+    text-align: center;
+    align-items: center; 
+    margin-bottom: 20px; /* Add some margin for spacing */
+    color: #ff6f61; /* Maintain heading color */
+}
+
+.quiz-question p {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    margin: 12px 0;
+    padding: 15px;
+    background-color:  #ff6f61;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.option:hover {
+    background-color: #ff4f3b; /* Darker coral on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+/* Back Button Styles */
+.back-button {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.back-button button {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    color: white;
+    background-color:  #ff6f61;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button button:hover {
+    background-color: #ff4f3b; /* Darker coral on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+/* Next Button Styles */
+.next-option {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    color: white;
+    background-color:  #ff6f61;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.next-option:hover {
+    background-color: #ff4f3b; /* Darker coral on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+.hidden {
+    display: none; /* Ensure hidden elements are not shown */
+}
+
+/* Footer */
+footer {
+    background-color: #2c2c2c;
+    padding: 20px;
+    text-align: center;
+    color: #c0c0c0;
+    font-size: 1rem;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+  </style>
+</head>
+<body>
+   
+    <div class="container">
+        <header class="page-header">
+            <h1>Explore Satellites</h1>
+            <p>Discover amazing facts about satellites, play an interactive game, and test your knowledge with a fun quiz!</p>
+        </header>
+
+        <!-- Satellite Information in Flexboxes -->
+        <section class="satellite-info">
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h2>What is a Satellite?</h2>
+                    <p>Satellites orbit planets or stars. Some are natural, like moons, while others are man-made for communication, navigation, and more.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Uses of Satellites</h2>
+                    <p>Satellites are used for various purposes, such as communication, GPS, weather forecasting, and scientific research.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>ISRO's First Satellite</h2>
+                    <p>Aryabhata, launched in 1975, was India's first satellite and helped lay the foundation for future space missions.</p>
+                </div>
+            </div>
+        </section>
+
+   
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>Space Quiz</h2>
+            <div class="quiz-question">
+                <p id="question-text">What is the closest planet to the Sun?</p>
+            </div>
+            <div class="options">
+                <button class="option" onclick="checkAnswer('Mercury')">Mercury</button>
+                <button class="option" onclick="checkAnswer('Venus')">Venus</button>
+                <button class="option" onclick="checkAnswer('Earth')">Earth</button>
+                <button class="option" onclick="checkAnswer('Mars')">Mars</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+            <div class="flowers" id="flowers"></div>
+        </div>
+        
+
+        <!-- Back to Explore Page Button -->
+        <div class="back-button">
+            <button id="backToExplore">Back to Explore Page</button>
+        </div>
+    </div>
+
+    
+
+    <script>
+        // Add event listener for back button
+        document.getElementById('backToExplore').addEventListener('click', function() {
+            window.location.href = 'explore.html';  // Replace with the correct URL of your explore page
+        });
+
+        const questions = [
+    {
+        question: "What is the closest planet to the Sun?",
+        options: ["Mercury", "Venus", "Earth", "Mars"],
+        answer: "Mercury",
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Mars", "Jupiter", "Saturn"],
+        answer: "Mars",
+    },
+    {
+        question: "What is the largest planet in our solar system?",
+        options: ["Earth", "Saturn", "Jupiter", "Neptune"],
+        answer: "Jupiter",
+    },
+    {
+        question: "Which planet has rings?",
+        options: ["Mars", "Earth", "Saturn", "Venus"],
+        answer: "Saturn",
+    },
+    {
+        question: "What is the name of our galaxy?",
+        options: ["Milky Way", "Andromeda", "Sombrero", "Whirlpool"],
+        answer: "Milky Way",
+    },
+    {
+        question: "Which planet is famous for its Great Red Spot?",
+        options: ["Earth", "Mars", "Jupiter", "Saturn"],
+        answer: "Jupiter",
+    },
+    {
+        question: "What celestial body is known as a 'shooting star'?",
+        options: ["Asteroid", "Comet", "Meteor", "Planet"],
+        answer: "Meteor",
+    },
+    {
+        question: "Which planet is known for its beautiful rings?",
+        options: ["Jupiter", "Earth", "Mars", "Saturn"],
+        answer: "Saturn",
+    },
+    {
+        question: "What is the smallest planet in our solar system?",
+        options: ["Mars", "Mercury", "Venus", "Earth"],
+        answer: "Mercury",
+    },
+    {
+        question: "Which planet is the hottest in our solar system?",
+        options: ["Earth", "Venus", "Mercury", "Mars"],
+        answer: "Venus",
+    },
+];
+
+let currentQuestionIndex = 0;
+
+function loadQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    document.getElementById("question-text").textContent = currentQuestion.question;
+    const optionsContainer = document.getElementById("options-container");
+    optionsContainer.innerHTML = ""; // Clear previous options
+
+    currentQuestion.options.forEach(option => {
+        const button = document.createElement("button");
+        button.className = "option";
+        button.textContent = option;
+        button.onclick = () => checkAnswer(option);
+        optionsContainer.appendChild(button);
+    });
+}
+
+function checkAnswer(selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const feedback = document.getElementById("feedback");
+    const flowers = document.getElementById("flowers");
+
+    if (selectedOption === currentQuestion.answer) {
+        feedback.textContent = "Correct! 🎉";
+        flowers.innerHTML = "🌸🌼🌻"; // Display flowers
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            setTimeout(() => {
+                feedback.textContent = "";
+                flowers.innerHTML = "";
+                loadQuestion();
+            }, 2000); // Load the next question after 2 seconds
+        } else {
+            feedback.textContent = "Congratulations! You've completed the quiz!";
+            flowers.innerHTML = "";
+        }
+    } else {
+        feedback.textContent = "Try again! 😊"; // Incorrect answer feedback
+        flowers.innerHTML = ""; // Reset flowers on wrong answer
+    }
+}
+
+// Initialize the quiz
+loadQuestion();
+
+    </script>
+</body>
+</html>

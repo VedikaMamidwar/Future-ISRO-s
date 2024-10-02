@@ -218,7 +218,7 @@ footer p {
 
 /* Rocket Launch */
 .rocket-movement {
-    background-image: url('../icon/'); /* Add the rocket image */
+    background-image: url('../icon/rocket.png'); /* Add the rocket image */
     animation: rocket-launch 4s infinite ease-in-out;
 }
 

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Fun Activities</title>
+    
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background-color: #001f3f; /* Dark blue background */
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffcc00;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #aad8e6;
+            margin: 20px;
+        }
+
+        .activity-section {
+            background-color: #004080;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .activity-title {
+            font-size: 2em;
+            color: #ffcc00;
+        }
+
+        .activity-description {
+            color: #fff;
+            margin: 15px 0;
+        }
+
+        .start-button {
+            padding: 12px 20px;
+            background-color: #ffcc00;
+            color: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.2em;
+        }
+
+        .start-button:hover {
+            background-color: #ff9900;
+            transform: scale(1.1);
+        }
+
+        /* Fun floating animation */
+        .floating {
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        .space-object {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            opacity: 0.8;
+        }
+
+        .rocket { top: 50px; left: 20px; }
+        .planet { top: 100px; right: 30px; }
+        .star { top: 300px; left: 60px; }
+        
+        /* Creative elements */
+        .fun-quote {
+            margin: 20px;
+            font-size: 1.8em;
+            color: #ffcc00;
+            background-color: rgba(255, 204, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Hidden content styling */
+        .hidden-content {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            background-color: #002b5c;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hidden-content h3 {
+            color: #ffcc00;
+        }
+
+        .hidden-content ul {
+            text-align: left;
+            font-size: 1.2em;
+            color: #aad8e6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+
+            .activity-title {
+                font-size: 1.8em;
+            }
+
+            .start-button {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Fun Space Activities for Kids!</h1>
+    
+    <div class="fun-quote">
+        "The sky is not the limit, it's just the beginning!" 🚀
+    </div>
+    
+    <p>Explore the wonders of space with fun, interactive activities! Become a little astronaut with these exciting challenges.</p>
+
+    <!-- Build Your Own Rocket Section -->
+    <div class="activity-section">
+        <h2 class="activity-title">Build Your Own Rocket</h2>
+        <p class="activity-description">Create your own paper rocket and launch it to see how far it can go. How high can you fly?</p>
+        <button class="start-button" onclick="toggleRocketContent()">Start Building</button>
+
+        <!-- Hidden content -->
+        <div id="rocket-content" class="hidden-content">
+            <h3>Build Your Own Rocket Instructions</h3>
+            <p>Follow these steps to build a simple paper rocket:</p>
+            <ul>
+                <li>1. Grab a piece of paper and fold it in half.</li>
+                <li>2. Cut out a triangle shape for the rocket's body.</li>
+                <li>3. Use a small piece of straw or stick to form the rocket’s tail.</li>
+                <li>4. Decorate your rocket with colors, stars, or even glitter!</li>
+                <li>5. Blow air through the straw to launch your rocket.</li>
+            </ul>
+            <p>How far did your rocket go? Try adjusting the shape or weight to see if you can make it fly even farther!</p>
+        </div>
+    </div>
+
+    <!-- Floating Space Objects -->
+    <img src="../images/rocket.png" alt="Rocket" class="space-object floating rocket">
+    <img src="../images/planet.png" alt="Planet" class="space-object floating planet">
+    <img src="../images/star.png" alt="Star" class="space-object floating star">
+
+    <script>
+        function toggleRocketContent() {
+            const rocketContent = document.getElementById('rocket-content');
+            if (rocketContent.style.display === 'none' || rocketContent.style.display === '') {
+                rocketContent.style.display = 'block'; // Show the content
+            } else {
+                rocketContent.style.display = 'none'; // Hide the content
+            }
+        }
+    </script>
+
+</body>
+
+</html>

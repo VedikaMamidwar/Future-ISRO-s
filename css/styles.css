@@ -195,7 +195,8 @@ header {
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.1); /* Slightly enlarges the fact box when hovered */
+    box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8); /* Adds a glowing effect */
 }
 
 .card img {
@@ -215,11 +216,12 @@ header {
     color: #ddd;
 }
 
-/* Footer */
 footer {
-    background-color: #2c2c2c;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: white;
+    background-color: #1c1c1c; /* Footer background color */
+    padding: 10px; /* Padding in footer */
+    text-align: center; /* Center text in footer */
+    border-top: 2px solid #ff6f61; /* Top border for footer */
+    position: relative; /* Relative positioning for footer */
+    z-index: 1; /* Ensure footer is above other elements */
 }
+

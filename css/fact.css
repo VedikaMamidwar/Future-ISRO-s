@@ -1,0 +1,72 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #000000; /* Set the background color to black */
+    color: #f1f1f1; /* Make the text color lighter to contrast with the dark background */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.fact-section {
+    padding: 50px 20px;
+}
+
+h1 {
+    color: #ff6f61; /* Bright coral color for the header */
+    text-shadow: 2px 2px #000; /* Adds shadow for better readability */
+    font-size: 2.5rem;
+}
+
+.fact-box {
+    background: #1e1e1e; /* Dark gray background for the fact boxes */
+    border: 3px solid #ff6f61; /* Bright coral border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 30px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow for a more modern effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.fact-box:hover {
+    transform: scale(1.1); /* Slightly enlarges the fact box when hovered */
+    box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8); /* Adds a glowing effect */
+}
+
+.fact-box h2 {
+    color: #ff6f61;
+    font-size: 2rem;
+}
+
+.fact-box p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #fff;
+}
+
+#backToHome {
+    background-color: #ff6f61;
+    color: #121212;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    border-radius: 50px; /* Rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin-top: 40px;
+}
+
+#backToHome:hover {
+    background-color: #ff4f3b; /* Darker coral on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+/* Keyframes for twinkling stars */
+@keyframes twinklingStars {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}

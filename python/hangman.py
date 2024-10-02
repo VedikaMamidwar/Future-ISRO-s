@@ -1,0 +1,107 @@
+from importlib.metadata import EntryPoint
+import random
+from tkinter import *
+from tkinter import messagebox
+import tkinter
+from tkinter import PhotoImage
+
+# List of words for the game
+WORDS = ['python', 'java', 'swift', 'javascript', 'ruby', 'hangman', 'programming']
+
+# Initialize global variables
+score = 0
+max_tries = 6
+selected_word = ""
+guessed_word = ""
+guessed_letters = []
+tries = 0
+
+# Function to choose a new word and reset the game
+def new_game():
+    global selected_word, guessed_word, guessed_letters, tries
+    selected_word = random.choice(WORDS)
+    guessed_word = "_" * len(selected_word)
+    guessed_letters = []
+    tries = 0
+    word_label.config(text=" ".join(guessed_word))
+    tries_label.config(text=f"Tries left: {max_tries - tries}")
+    guess_entry.delete(0, END)
+    guessed_letters_label.config(text="Guessed letters: ")
+    hangman_image_label.config(image=hangman_images[0])  # Reset to the initial image
+
+# Function to check the player's guess
+def check_guess():
+    global guessed_word, tries
+    guess = guess_entry.get().lower()
+    
+    if not guess.isalpha() or len(guess) != 1:
+        messagebox.showerror("Invalid Input", "Please enter a single letter.")
+        return
+
+    if guess in guessed_letters:
+        messagebox.showinfo("Already Guessed", f"You already guessed '{guess}'. Try another letter.")
+        return
+
+    guessed_letters.append(guess)
+    guessed_letters_label.config(text=f"Guessed letters: {', '.join(guessed_letters)}")
+    
+    if guess in selected_word:
+        guessed_word = list(guessed_word)
+        for i, letter in enumerate(selected_word):
+            if letter == guess:
+                guessed_word[i] = guess
+        guessed_word = "".join(guessed_word)
+        word_label.config(text=" ".join(guessed_word))
+        
+        if guessed_word == selected_word:
+            messagebox.showinfo("You Won!", f"Congratulations! You guessed the word '{selected_word}'!")
+            new_game()
+    else:
+        tries += 1
+        hangman_image_label.config(image=hangman_images[tries])  # Update the hangman image
+        tries_label.config(text=f"Tries left: {max_tries - tries}")
+        if tries >= max_tries:
+            messagebox.showerror("You Lost", f"You ran out of tries! The word was '{selected_word}'.")
+            new_game()
+
+# Create the main window
+root = Tk()
+root.title("Hangman Game")
+root.geometry("400x500")
+
+# Load hangman images
+hangman_images = [PhotoImage(file=f'hangman{i}.png') for i in range(7)]  # Images named as hangman0.png, hangman1.png, etc.
+
+# Word label (displays the blanks and correctly guessed letters)
+word_label = Label(root, text="_ _ _ _ _", font=("Arial", 24))
+word_label.pack(pady=20)
+
+# Entry widget for player's guess
+guess_entry = EntryPoint(root, font=("Arial", 16), width=5)
+guess_entry.pack()
+
+# Button to check the player's guess
+guess_button = Button(root, text="Guess", font=("Arial", 16), command=check_guess)
+guess_button.pack(pady=10)
+
+# Label to display remaining tries
+tries_label = Label(root, text=f"Tries left: {max_tries}", font=("Arial", 16))
+tries_label.pack()
+
+# Label to show guessed letters
+guessed_letters_label = Label(root, text="Guessed letters: ", font=("Arial", 12))
+guessed_letters_label.pack(pady=10)
+
+# Hangman image display label
+hangman_image_label = Label(root, image=hangman_images[0])  # Initial image (no mistakes)
+hangman_image_label.pack(pady=20)
+
+# Button to start a new game
+new_game_button = Button(root, text="New Game", font=("Arial", 16), command=new_game)
+new_game_button.pack(pady=10)
+
+# Start the first game
+new_game()
+
+# Run the application
+root.mainloop()

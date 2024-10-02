@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Contact</title>
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+
+<body>
+    <!-- Header Section Start -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Future ISROs</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="explore.html" class="dropdown-toggle">Explore</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="play.html">Play</a></li>
+                        <li><a href="do.html">Do</a></li>
+                        <li><a href="fact.html">fact</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Header Section End -->
+
+    <!-- Main Content Start -->
+    <main>
+        <section class="contact-section">
+            <h1>Contact Us</h1>
+            <p>If you have any questions, feel free to reach out to us!</p>
+
+            <div class="contact-form">
+                <form action="submit_contact.php" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+        <div class="icon-container">
+            <img src="../icon/mobile.png" alt="Mobile Icon" class="icon">
+            <img src="../icon/linkedin.png" alt="LinkedIn Icon" class="icon" >
+            <img src="../icon/instagram.png" alt="Instagram Icon" class="icon">
+        </div>
+    </section>
+    </main>
+    <!-- Main Content End -->
+
+    <!-- Footer Section Start -->
+    <footer>
+        <p>© 2024 Future ISROs. All Rights Reserved.</p>
+    </footer>
+    <!-- Footer Section End -->
+
+    <script src="../js/contact.js"></script>
+</body>
+
+</html>

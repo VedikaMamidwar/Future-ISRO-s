@@ -1,0 +1,137 @@
+/* Basic styling */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #000; /* Black background for a space theme */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Events section styling */
+.events-section {
+    padding: 50px 20px;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png'), black;
+    animation: twinklingStars 100s linear infinite; /* Slow twinkling background */
+}
+
+/* Title styling */
+h1 {
+    font-size: 3rem;
+    color:#ff6f61;
+    text-shadow: 2px 2px 10px #000;
+}
+
+p {
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+    color: #ddd;
+}
+
+/* Event cards grid */
+.event-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Individual event card */
+.event-card {
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Hover effect for event card */
+.event-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 111, 97, 0.8);
+}
+
+/* Event image as background */
+.event-image {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Specific event images */
+.event-1 {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/97/ISRO_PSLV_C37_launch.jpg'); /* Rocket image */
+}
+
+.event-2 {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/NASA_JSC_Photo_NASA_JSC2005-E-19279.jpg'); /* Robotics image */
+}
+
+.event-3 {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Deep_Space.jpg/1920px-Deep_Space.jpg'); /* Star gazing image */
+}
+
+/* Event card heading */
+.event-card h2 {
+    font-size: 1.8rem;
+    color:#ff6f61;
+    margin-bottom: 15px;
+}
+
+/* Event card description */
+.event-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* Learn more button */
+.learn-more {
+    background-color:#ff6f61;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+.learn-more:hover {
+    background-color: #ff4f3b;
+    transform: scale(1.05);
+}
+
+/* Keyframes for twinkling stars */
+@keyframes twinklingStars {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+/* Back to Home Button Styles */
+#backToHome {
+    background-color: #ff6f61;
+    color: #121212;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    border-radius: 50px; /* Rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin-top: 40px;
+}
+
+#backToHome:hover {
+    background-color: #ff4f3b; /* Darker coral on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
+}

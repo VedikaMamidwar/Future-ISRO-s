@@ -1,107 +1,106 @@
-from importlib.metadata import EntryPoint
-import random
-from tkinter import *
+import tkinter as tk
 from tkinter import messagebox
-import tkinter
-from tkinter import PhotoImage
+import random
 
-# List of words for the game
-WORDS = ['python', 'java', 'swift', 'javascript', 'ruby', 'hangman', 'programming']
+# Word list
+words = ['space', 'moon', 'star', 'sun', 'planet', 'rocket','sattelit','isro','galaxy','earth','mercury','venus','mars','jupiter','saturn','uranus','neptune','milkyway','astroid','meteroid','dwarfstar']
 
-# Initialize global variables
-score = 0
-max_tries = 6
-selected_word = ""
-guessed_word = ""
-guessed_letters = []
-tries = 0
-
-# Function to choose a new word and reset the game
-def new_game():
-    global selected_word, guessed_word, guessed_letters, tries
-    selected_word = random.choice(WORDS)
-    guessed_word = "_" * len(selected_word)
-    guessed_letters = []
-    tries = 0
-    word_label.config(text=" ".join(guessed_word))
-    tries_label.config(text=f"Tries left: {max_tries - tries}")
-    guess_entry.delete(0, END)
-    guessed_letters_label.config(text="Guessed letters: ")
-    hangman_image_label.config(image=hangman_images[0])  # Reset to the initial image
-
-# Function to check the player's guess
-def check_guess():
-    global guessed_word, tries
-    guess = guess_entry.get().lower()
-    
-    if not guess.isalpha() or len(guess) != 1:
-        messagebox.showerror("Invalid Input", "Please enter a single letter.")
-        return
-
-    if guess in guessed_letters:
-        messagebox.showinfo("Already Guessed", f"You already guessed '{guess}'. Try another letter.")
-        return
-
-    guessed_letters.append(guess)
-    guessed_letters_label.config(text=f"Guessed letters: {', '.join(guessed_letters)}")
-    
-    if guess in selected_word:
-        guessed_word = list(guessed_word)
-        for i, letter in enumerate(selected_word):
-            if letter == guess:
-                guessed_word[i] = guess
-        guessed_word = "".join(guessed_word)
-        word_label.config(text=" ".join(guessed_word))
+class HangmanGame:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Hangman Game")
+        self.root.geometry("500x600")
         
-        if guessed_word == selected_word:
-            messagebox.showinfo("You Won!", f"Congratulations! You guessed the word '{selected_word}'!")
-            new_game()
-    else:
-        tries += 1
-        hangman_image_label.config(image=hangman_images[tries])  # Update the hangman image
-        tries_label.config(text=f"Tries left: {max_tries - tries}")
-        if tries >= max_tries:
-            messagebox.showerror("You Lost", f"You ran out of tries! The word was '{selected_word}'.")
-            new_game()
+        # Set the background color of the main window
+        self.root.config(bg="lightblue")
 
-# Create the main window
-root = Tk()
-root.title("Hangman Game")
-root.geometry("400x500")
+        self.word = random.choice(words)
+        self.guesses = ''
+        self.max_attempts = 6
+        self.remaining_attempts = self.max_attempts
 
-# Load hangman images
-hangman_images = [PhotoImage(file=f'hangman{i}.png') for i in range(7)]  # Images named as hangman0.png, hangman1.png, etc.
+        # Load and resize hangman images
+        self.hangman_images = [tk.PhotoImage(file=f"hangman{i}.png").subsample(2, 2) for i in range(7)]
+        self.hangman_label = tk.Label(root, image=self.hangman_images[0], bg="lightblue")
+        self.hangman_label.pack(pady=10)
 
-# Word label (displays the blanks and correctly guessed letters)
-word_label = Label(root, text="_ _ _ _ _", font=("Arial", 24))
-word_label.pack(pady=20)
+        self.label_word = tk.Label(root, text="Guess the word: ", font=("Helvetica", 18), bg="lightblue")
+        self.label_word.pack(pady=20)
 
-# Entry widget for player's guess
-guess_entry = EntryPoint(root, font=("Arial", 16), width=5)
-guess_entry.pack()
+        self.display_word = tk.Label(root, text=self.get_display_word(), font=("Helvetica", 24), bg="lightblue")
+        self.display_word.pack(pady=20)
 
-# Button to check the player's guess
-guess_button = Button(root, text="Guess", font=("Arial", 16), command=check_guess)
-guess_button.pack(pady=10)
+        self.label_attempts = tk.Label(root, text=f"Remaining Attempts: {self.remaining_attempts}", font=("Helvetica", 14), bg="lightblue")
+        self.label_attempts.pack(pady=10)
 
-# Label to display remaining tries
-tries_label = Label(root, text=f"Tries left: {max_tries}", font=("Arial", 16))
-tries_label.pack()
+        self.create_alphabet_buttons()
 
-# Label to show guessed letters
-guessed_letters_label = Label(root, text="Guessed letters: ", font=("Arial", 12))
-guessed_letters_label.pack(pady=10)
+        self.button_frame = tk.Frame(root, bg="lightblue")
+        self.button_frame.pack(pady=20)
 
-# Hangman image display label
-hangman_image_label = Label(root, image=hangman_images[0])  # Initial image (no mistakes)
-hangman_image_label.pack(pady=20)
+        self.button_replay = tk.Button(self.button_frame, text="Replay", command=self.replay, font=("Helvetica", 14))
+        self.button_replay.grid(row=0, column=0, padx=10)
 
-# Button to start a new game
-new_game_button = Button(root, text="New Game", font=("Arial", 16), command=new_game)
-new_game_button.pack(pady=10)
+        self.button_exit = tk.Button(self.button_frame, text="Exit", command=self.root.quit, font=("Helvetica", 14))
+        self.button_exit.grid(row=0, column=1, padx=10)
 
-# Start the first game
-new_game()
+    def create_alphabet_buttons(self):
+        self.alphabet_frame = tk.Frame(self.root, bg="lightblue")
+        self.alphabet_frame.pack()
 
-# Run the application
+        alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        self.buttons = {}
+        for i, letter in enumerate(alphabets):
+            button = tk.Button(self.alphabet_frame, text=letter, width=4, height=2, font=("Helvetica", 12),
+                               command=lambda letter=letter: self.check_letter(letter.lower()))
+            button.grid(row=i // 6, column=i % 6, padx=5, pady=5)
+            self.buttons[letter.lower()] = button
+
+    def get_display_word(self):
+        return ' '.join([letter if letter in self.guesses else '_' for letter in self.word])
+
+    def check_letter(self, letter):
+        if letter in self.guesses:
+            return
+        self.guesses += letter
+
+        if letter not in self.word:
+            self.remaining_attempts -= 1
+            self.label_attempts.config(text=f"Remaining Attempts: {self.remaining_attempts}")
+            self.hangman_label.config(image=self.hangman_images[self.max_attempts - self.remaining_attempts])
+
+        self.display_word.config(text=self.get_display_word())
+
+        self.buttons[letter].config(state="disabled")
+
+        if all(letter in self.guesses for letter in self.word):
+            self.end_game("You won!")
+
+        if self.remaining_attempts == 0:
+            self.end_game("You lost!")
+
+    def end_game(self, message):
+        messagebox.showinfo("Game Over", f"{message}\nThe word was: {self.word}")
+        self.disable_all_buttons()
+
+    def disable_all_buttons(self):
+        for button in self.buttons.values():
+            button.config(state="disabled")
+
+    def replay(self):
+        self.word = random.choice(words)
+        self.guesses = ''
+        self.remaining_attempts = self.max_attempts
+
+        self.display_word.config(text=self.get_display_word())
+        self.label_attempts.config(text=f"Remaining Attempts: {self.remaining_attempts}")
+        self.hangman_label.config(image=self.hangman_images[0])
+
+        for button in self.buttons.values():
+            button.config(state="normal")
+
+
+# Initialize the main window
+root = tk.Tk()
+game = HangmanGame(root)
 root.mainloop()

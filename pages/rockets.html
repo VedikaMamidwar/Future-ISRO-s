@@ -1,1 +1,326 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future ISROs - Rocket Page</title>
+  <style>
+    /* General Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #1a1a1a;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    @keyframes headerGlow {
+        0% { color: #ff6f61; }
+        100% { color: #ff6f61; }
+    }
+
+    .container {
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    /* Rocket Information Flexboxes */
+    .flex-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 40px 0;
+    }
+
+    .flex-item {
+        background: #1e1e1e;
+        border: 3px solid #ff6f61;
+        padding: 30px;
+        width: 30%;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .flex-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .flex-item:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+    }
+
+    .flex-item:hover::before {
+        opacity: 1;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        color: #ff6f61;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.3em;
+        line-height: 1.8;
+    }
+
+    /* Quiz Section */
+    .quiz-section {
+        margin: 50px auto;
+        max-width: 700px;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .quiz-section h2 {
+        font-size: 2.5em;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 20px;
+        color: #ff6f61;
+    }
+
+    .quiz-question p {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .option {
+        margin: 12px 0;
+        padding: 15px;
+        background-color: #ff6f61;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.3em;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .option:hover {
+        background-color: #ff4f3b;
+        transform: scale(1.05);
+    }
+
+    .back-button {
+        text-align: center;
+        margin: 30px 0;
+    }
+
+    .back-button button {
+        padding: 12px 25px;
+        font-size: 1.2em;
+        color: white;
+        background-color: #ff6f61;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button button:hover {
+        background-color: #ff4f3b;
+        transform: scale(1.05);
+    }
+
+    /* Rocket Animation */
+    .rocket {
+        position: absolute;
+        width: 150px;
+        animation: orbit 10s linear infinite;
+    }
+
+    @keyframes orbit {
+        0% {
+            transform: rotate(0deg) translateX(150px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg) translateX(150px) rotate(-360deg);
+        }
+    }
+
+    .rocket1 {
+        top: 20%;
+        left: 80%;
+        animation-delay: 0s;
+    }
+
+    .rocket2 {
+        top: 30%;
+        left: 5%;
+        animation-delay: 3s;
+    }
+
+    .rocket3 {
+        top: 50%;
+        left: 50%;
+        animation-delay: 6s;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>Explore Rockets</h1>
+            <p>Discover interesting facts about rockets, test your knowledge, and have fun with an interactive quiz!</p>
+        </header>
+
+        <!-- Three Rockets Animation -->
+        <div class="rocket rocket1">
+            <img src="../icon/rocket.png" alt="Rocket 1" />
+        </div>
+        <div class="rocket rocket2">
+            <img src="../icon/rocket-technology.png" alt="Rocket 2" />
+        </div>
+        <div class="rocket rocket3">
+            <img src="../icon/rocket-launch.png" alt="Rocket 3" />
+        </div>
+
+        <!-- Rocket Information in Flexboxes -->
+        <section class="rocket-info">
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h2>What is a Rocket?</h2>
+                    <p>Rockets are vehicles used to carry payloads into space, powered by engines that generate thrust through high-speed exhaust gases.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Rocket Uses</h2>
+                    <p>Rockets are used for space exploration, launching satellites, and carrying astronauts and cargo to space stations and beyond.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>ISRO's PSLV</h2>
+                    <p>The Polar Satellite Launch Vehicle (PSLV) is one of ISRO's most successful rockets, used for launching satellites into polar orbits.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>Rocket Quiz</h2>
+            <div class="quiz-question">
+                <p id="question-text">Which gas is commonly used in rocket engines?</p>
+            </div>
+            <div class="options">
+                <button class="option" onclick="checkAnswer('Hydrogen')">Hydrogen</button>
+                <button class="option" onclick="checkAnswer('Oxygen')">Oxygen</button>
+                <button class="option" onclick="checkAnswer('Carbon Dioxide')">Carbon Dioxide</button>
+                <button class="option" onclick="checkAnswer('Nitrogen')">Nitrogen</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- Back to Explore Page Button -->
+        <div class="back-button">
+            <button id="backToExplore">Back to Explore Page</button>
+        </div>
+    </div>
+
+    <script>
+        // Add event listener for back button
+        document.getElementById('backToExplore').addEventListener('click', function() {
+            window.location.href = 'explore.html';
+        });
+
+        const questions = [
+            {
+                question: "Which gas is commonly used in rocket engines?",
+                options: ["Hydrogen", "Oxygen", "Carbon Dioxide", "Nitrogen"],
+                answer: "Hydrogen",
+            },
+            {
+                question: "What is the name of the first manned mission to the moon?",
+                options: ["Apollo 11", "Voyager", "Challenger", "Columbia"],
+                answer: "Apollo 11",
+            },
+            {
+                question: "Which country was the first to send a human into space?",
+                options: ["USA", "Russia", "China", "India"],
+                answer: "Russia",
+            },
+            {
+                question: "What does ISRO stand for?",
+                options: ["Indian Space Research Organization", "International Space Research Organization", "Indian Satellite Research Organization", "International Satellite Research Organization"],
+                answer: "Indian Space Research Organization",
+            },
+            {
+                question: "What is the name of the first artificial satellite launched by ISRO?",
+                options: ["Aryabhata", "Rohini", "Bhaskara", "INSAT"],
+                answer: "Aryabhata",
+            },
+            {
+                question: "Which ISRO rocket is known as the 'Workhorse'?",
+                options: ["PSLV", "GSLV", "ASLV", "SSLV"],
+                answer: "PSLV",
+            },
+            {
+                question: "What is the escape velocity required to leave Earth's atmosphere?",
+                options: ["11.2 km/s", "15.2 km/s", "8.4 km/s", "20.5 km/s"],
+                answer: "11.2 km/s",
+            },
+            {
+                question: "Who was the first Indian astronaut to go to space?",
+                options: ["Kalpana Chawla", "Rakesh Sharma", "Sunita Williams", "Yuri Gagarin"],
+                answer: "Rakesh Sharma",
+            },
+            {
+                question: "What is the name of the rocket launched by ISRO that put Chandrayaan-2 into orbit?",
+                options: ["GSLV Mk III", "PSLV-C40", "SSLV-D1", "ASLV"],
+                answer: "GSLV Mk III",
+            },
+            {
+                question: "Which ISRO mission was India's first interplanetary mission to Mars?",
+                options: ["Mangalyaan", "Chandrayaan", "Gaganyaan", "Astrosat"],
+                answer: "Mangalyaan",
+            },
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function checkAnswer(selectedAnswer) {
+            const feedback = document.getElementById('feedback');
+            if (selectedAnswer === questions[currentQuestionIndex].answer) {
+                feedback.innerHTML = "Correct!";
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    loadNextQuestion();
+                } else {
+                    feedback.innerHTML = "You completed the quiz!";
+                }
+            } else {
+                feedback.innerHTML = "Incorrect. Try again!";
+            }
+        }
+
+        function loadNextQuestion() {
+            const questionText = document.getElementById('question-text');
+            questionText.textContent = questions[currentQuestionIndex].question;
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.textContent = questions[currentQuestionIndex].options[index];
+            });
+            document.getElementById('feedback').innerHTML = "";
+        }
+    </script>
+</body>
+</html>

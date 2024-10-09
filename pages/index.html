@@ -60,17 +60,17 @@
             <h2>Our Latest Missions</h2>
             <div class="mission-cards">
                 <div class="card">
-                    <img src="images/mission1.png" alt="Mission 1">
+                    <img src="../images/mars-planet-view-4k-rn.jpg" alt="Mission 1">
                     <h3>Mission to Mars</h3>
                     <p>Join us on our exciting mission to Mars and discover the red planet!</p>
                 </div>
                 <div class="card">
-                    <img src="images/mission2.png" alt="Mission 2">
+                    <img src="../images/pexels-pixabay-47367.jpg" alt="Mission 2">
                     <h3>Exploring the Moon</h3>
                     <p>Learn about our adventures on the moon and the mysteries we're uncovering.</p>
                 </div>
                 <div class="card">
-                    <img src="images/mission3.png" alt="Mission 3">
+                    <img src="../images/satellite.jpg" alt="Mission 3">
                     <h3>Satellites in Space</h3>
                     <p>Discover how satellites are changing our world and connecting us all.</p>
                 </div>
@@ -95,7 +95,7 @@
                 span.textContent = letter === " " ? "\u00A0" : letter; // Use non-breaking space for spaces
                 headline.appendChild(span);
             }
-
+    
             // Animate letters
             const letters = document.querySelectorAll(".letter");
             letters.forEach((letter, index) => {
@@ -103,8 +103,15 @@
                     letter.classList.add("visible");
                 }, index * 100); // Delay based on index for sequential animation
             });
+    
+            // Add event listener for the button to navigate to the Explore page
+            const startJourneyButton = document.getElementById("startJourney");
+            startJourneyButton.addEventListener("click", () => {
+                window.location.href = "explore.html"; // Navigate to the explore page
+            });
         });
     </script>
+    
 </body>
 
 </html>

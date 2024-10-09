@@ -176,8 +176,9 @@ header {
 
 .contact-form button:hover {
     background-color: #ff8b80;
-    box-shadow: 0 0 20px #ff6f61;
+    box-shadow: 0 0 20px #fb4736;
 }
+
 /* Icons Section */
 .icon-container {
     display: flex;

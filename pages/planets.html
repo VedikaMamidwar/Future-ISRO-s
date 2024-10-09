@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future ISROs - Planet Page</title>
+  <style>
+    /* General Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #1a1a1a;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    @keyframes headerGlow {
+        0% { color: #ff6f61; }
+        100% { color: #ff6f61; }
+    }
+
+    .container {
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    /* Planet Information Flexboxes */
+    .flex-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 40px 0;
+    }
+
+    .flex-item {
+        background: #1e1e1e;
+        border: 3px solid #ff6f61;  /* Updated border color */
+        padding: 30px;
+        width: 30%;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .flex-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .flex-item:hover {
+        transform: scale(1.1); /* Slightly enlarges the box */
+        box-shadow: 0 8px 20px rgba(255, 110, 97, 0.8); /* Updated glowing effect color */
+    }
+
+    .flex-item:hover::before {
+        opacity: 1;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        color: #ff6f61;  /* Updated heading color */
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.3em;
+        line-height: 1.8;
+    }
+
+    /* Quiz Section */
+    .quiz-section {
+        margin: 50px auto;
+        max-width: 700px;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Centered Heading for Quiz Section */
+    .quiz-section h2 {
+        font-size: 2.5em;
+        text-align: center;
+        align-items: center; 
+        margin-bottom: 20px;
+        color:#ff6f61 ;  /* Updated color */
+    }
+
+    .quiz-question p {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .option {
+        margin: 12px 0;
+        padding: 15px;
+        background-color:#ff6f61 ;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.3em;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .option:hover {
+        background-color: #ff6f61; /* Darker blue on hover */
+        transform: scale(1.05); /* Slight enlargement */
+    }
+
+    /* Back Button Styles */
+    .back-button {
+        text-align: center;
+        margin: 30px 0;
+    }
+
+    .back-button button {
+        padding: 12px 25px;
+        font-size: 1.2em;
+        color: white;
+        background-color: #ff6f61;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button button:hover {
+        background-color: #ff6f61;
+        transform: scale(1.05);
+    }
+
+    /* Next Button Styles */
+    .next-option {
+        padding: 12px 25px;
+        font-size: 1.2em;
+        color: white;
+        background-color: #ff6f61;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .next-option:hover {
+        background-color: #ff6f61;
+        transform: scale(1.05);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .feedback {
+        font-size: 20px;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+   
+    <div class="container">
+        <header class="page-header">
+            <h1>Explore Planets</h1>
+            <p>Learn fascinating facts about planets, play a fun quiz, and challenge yourself!</p>
+        </header>
+
+        <!-- Planet Information in Flexboxes -->
+        <section class="planet-info">
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h2>Mercury</h2>
+                    <p>Mercury is the closest planet to the Sun and has extremely hot days and freezing nights.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Venus</h2>
+                    <p>Venus is the hottest planet in our solar system, with a thick atmosphere of carbon dioxide.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Earth</h2>
+                    <p>Earth is the only planet known to support life, with 70% of its surface covered by water.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Mars</h2>
+                    <p>Mars, known as the Red Planet, has the tallest volcano in the solar system, Olympus Mons.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Jupiter</h2>
+                    <p>Jupiter is the largest planet, famous for its Great Red Spot, a giant storm raging for centuries.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Saturn</h2>
+                    <p>Saturn is well known for its stunning rings, made of ice and rock particles.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Uranus</h2>
+                    <p>Uranus rotates on its side and has a unique blue-green color due to methane in its atmosphere.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Neptune</h2>
+                    <p>Neptune is the farthest planet from the Sun and is known for its intense winds and dark storms.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Pluto</h2>
+                    <p>Though no longer classified as a planet, Pluto remains a beloved member of our solar system.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>Planet Quiz</h2>
+            <div class="quiz-question">
+                <p id="question-text">What planet is known as the Red Planet?</p>
+            </div>
+            <div class="options">
+                <button class="option" onclick="checkAnswer('Earth')">Earth</button>
+                <button class="option" onclick="checkAnswer('Mars')">Mars</button>
+                <button class="option" onclick="checkAnswer('Venus')">Venus</button>
+                <button class="option" onclick="checkAnswer('Jupiter')">Jupiter</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- Back to Explore Page Button -->
+        <div class="back-button">
+            <button id="backToExplore">Back to Explore Page</button>
+        </div>
+    </div>
+
+    <script>
+        // Add event listener for back button
+        document.getElementById('backToExplore').addEventListener('click', function() {
+            window.location.href = 'explore.html';  // Replace with the correct URL of your explore page
+        });
+
+        const questions = [
+            {
+                question: "What planet is known as the Red Planet?",
+                options: ["Earth", "Mars", "Venus", "Jupiter"],
+                answer: "Mars",
+            },
+            {
+                question: "Which planet is known for its rings?",
+                options: ["Earth", "Venus", "Saturn", "Mars"],
+                answer: "Saturn",
+            },
+            {
+                question: "Which planet is closest to the Sun?",
+                options: ["Mercury", "Earth", "Venus", "Jupiter"],
+                answer: "Mercury",
+            },
+            {
+                question: "Which planet is famous for its Great Red Spot?",
+                options: ["Jupiter", "Mars", "Venus", "Earth"],
+                answer: "Jupiter",
+            },
+            {
+                question: "Which planet is known as the Morning Star?",
+                options: ["Venus", "Mercury", "Earth", "Neptune"],
+                answer: "Venus",
+            },
+            {
+                question: "What planet has the tallest volcano in the solar system?",
+                options: ["Earth", "Mars", "Jupiter", "Saturn"],
+                answer: "Mars",
+            },
+            {
+                question: "Which planet is famous for its extreme winds?",
+                options: ["Earth", "Neptune", "Mars", "Venus"],
+                answer: "Neptune",
+            },
+            {
+                question: "Which planet rotates on its side?",
+                options: ["Venus", "Uranus", "Earth", "Mars"],
+                answer: "Uranus",
+            },
+            {
+                question: "What planet is the farthest from the Sun?",
+                options: ["Neptune", "Pluto", "Saturn", "Uranus"],
+                answer: "Neptune",
+            },
+            {
+                question: "What is the smallest planet in the solar system?",
+                options: ["Mercury", "Mars", "Venus", "Earth"],
+                answer: "Mercury",
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function loadQuestion() {
+            const questionElement = document.getElementById('question-text');
+            const options = document.querySelectorAll('.option');
+            questionElement.textContent = questions[currentQuestion].question;
+            options.forEach((option, index) => {
+                option.textContent = questions[currentQuestion].options[index];
+                option.onclick = () => checkAnswer(questions[currentQuestion].options[index]);
+            });
+        }
+
+        function checkAnswer(answer) {
+            const feedbackElement = document.getElementById('feedback');
+            if (answer === questions[currentQuestion].answer) {
+                feedbackElement.textContent = 'Correct!';
+                feedbackElement.style.color = 'green';
+            } else {
+                feedbackElement.textContent = 'Incorrect!';
+                feedbackElement.style.color = 'red';
+            }
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                setTimeout(() => {
+                    loadQuestion();
+                    feedbackElement.textContent = '';
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    feedbackElement.textContent = 'You have completed the quiz!';
+                }, 1000);
+            }
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

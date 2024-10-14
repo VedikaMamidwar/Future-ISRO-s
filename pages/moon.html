@@ -1,396 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moon Exploration - ISRO</title>
-  <style>
-    /* Basic styling for the page */
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: black;
-      color: white;
-      text-align: center;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore the Moon</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
+        }
 
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
+        .container {
+            margin: 40px auto;
+            padding: 0 20px;
+            max-width: 1200px;
+        }
 
-    /* Stars twinkling and space animation in the background */
-    .stars {
-      width: 100%;
-      height: 100vh;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(to bottom, #000428, #004e92);
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      animation: starMove 50s linear infinite;
-    }
+        /* Moon Animation */
+        @keyframes moonOrbit {
+            from {
+                transform: rotate(0deg) translateX(100px) rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg) translateX(100px) rotate(-360deg);
+            }
+        }
 
-    /* Animation to move the stars */
-    @keyframes starMove {
-      0% { background-position: 0 0; }
-      100% { background-position: 10000px 10000px; }
-    }
+        .moon {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #f0f0f0 30%, #cccccc 70%, #999999 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -75px;
+            animation: moonOrbit 10s linear infinite;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
 
-    /* Star layers to simulate twinkling effect */
-    .stars::before, .stars::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      z-index: -1;
-      opacity: 0.8;
-      animation: twinkling 4s infinite alternate;
-    }
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    .stars::after {
-      background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      opacity: 0.4;
-      animation: twinkling 6s infinite alternate;
-    }
+        h1 {
+            font-size: 2.5em;
+            color: #ff6f61;
+        }
 
-    /* Twinkling star animation */
-    @keyframes twinkling {
-      0% {
-        opacity: 0.7;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.1);
-      }
-      100% {
-        opacity: 0.5;
-        transform: scale(0.9);
-      }
-    }
+        /* Moon Information Flexboxes */
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
 
-    /* Container for Moon content */
-    .moon-container {
-      margin-top: 50px;
-      padding: 20px;
-    }
+        .flex-item {
+            background: #1e1e1e;
+            border: 3px solid #ff6f61;
+            padding: 30px;
+            width: 30%;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Moon image styling, responsive size */
-    .moon {
-      width: 15vw;
-      height: 15vw;
-      max-width: 200px;
-      max-height: 200px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg') no-repeat center/cover;
-      border-radius: 50%;
-      margin: 0 auto;
-      transition: transform 0.3s ease;
-      position: relative;
-      animation: moonMove 10s linear infinite, moonRotate 10s linear infinite;
-    }
+        .flex-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-    /* Animation for the moon to move horizontally */
-    @keyframes moonMove {
-      0% { transform: translateX(-100vw); }
-      100% { transform: translateX(100vw); }
-    }
+        .flex-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 110, 97, 0.8);
+        }
 
-    /* Animation for the moon to rotate */
-    @keyframes moonRotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+        .flex-item:hover::before {
+            opacity: 1;
+        }
 
-    /* Hover effect on moon */
-    .moon:hover {
-      transform: scale(1.2);
-    }
+        h2 {
+            font-size: 2.2em;
+            color: #ff6f61;
+            margin-bottom: 15px;
+        }
 
-    /* Short information about the Moon */
-    .info {
-      margin-top: 20px;
-      font-size: 18px;
-      transition: transform 0.3s ease, color 0.3s ease;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+        p {
+            font-size: 1.1em;
+            line-height: 1.5;
+            margin: 0;
+        }
 
-    /* Flex boxes for information items */
-    .info-box {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 20px;
-      border-radius: 20px; /* Curved corners */
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      flex-basis: 30%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
+        /* Quiz Section */
+        .quiz-section {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        }
 
-    /* Hover effect on flex boxes */
-    .info-box:hover {
-    color: #ff6f61 (255, 255, 255, 0.2);
-      transform: scale(1.05);
-    color: #ff6f61; /* Bright coral color for the header */
-    
-    }
+        /* Centered Heading for Quiz Section */
+        .quiz-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
 
-    /* ISRO mission button */
-    .btn {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      font-size: 16px;
-      margin: 20px 0;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
+        .quiz-question p {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-    .btn:hover {
-      background-color: #45a049;
-    }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* Footer with ISRO credits */
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      padding: 10px;
-      color: #999;
-    }
+        .option {
+            margin: 12px 0;
+            padding: 15px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-    /* Quiz styling */
-    .quiz-question {
-      width: 300px;
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 20px; /* Curved corners */
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      text-align: left;
-      margin: 0 auto;
-    }
+        .option:hover {
+            background-color: #ff6f61;
+            transform: scale(1.05);
+        }
 
-    .quiz-question:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: scale(1.05);
-    color: #ff6f61; /* Bright coral color for the header */
-    
-    }
+        /* Back Button Styles */
+        .back-button {
+            text-align: center;
+            margin: 30px 0;
+        }
 
-    .feedback {
-      margin-top: 10px;
-      font-size: 18px;
-    color: #ff6f61; /* Bright coral color for the header */
-    
-    }
+        .back-button button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-    .options {
-      margin-top: 10px;
-    }
+        .back-button button:hover {
+            background-color: #ff6f61;
+            transform: scale(1.05);
+        }
 
-    .option {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 10px;
-      border-radius: 5px;
-      margin: 5px 0;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .option:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .try-again {
-      margin-top: 20px;
-      display: none;
-      cursor: pointer;
-    }
-
-    .back-home {
-      margin-top: 20px;
-      display: none;
-      cursor: pointer;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      border: none;
-      border-radius: 20px; /* Curved corners */
-      color: white;
-      transition: background-color 0.3s;
-    }
-
-    .back-home:hover {
-      background-color: #45a049;
-      transform: scale(1.05);
-    }
-
-  </style>
+        .feedback {
+            font-size: 20px;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Star animation background -->
-  <div class="stars"></div>
+    <div class="container">
+        <header class="page-header">
+            <h1>Explore the Moon</h1>
+            <p>Learn fascinating facts about the Moon, play a fun quiz, and challenge yourself!</p>
+        </header>
 
-  <!-- Moon and Information Section -->
-  <div class="moon-container">
-    <div class="moon"></div>
-    <div class="info">
-      <div class="info-box">
-        <h1>The Moon</h1>
-        <p>The Moon is Earth's only natural satellite and the fifth largest in the solar system.</p>
-      </div>
-      <div class="info-box">
-        <h1>ISRO's Chandrayaan</h1>
-        <p>ISRO reached the Moon through Chandrayaan missions, exploring and studying its surface.</p>
-      </div>
-      <div class="info-box">
-        <h1>Discoveries</h1>
-        <p>Chandrayaan-2 contributed valuable data and helped us learn more about the Moon's surface.</p>
-      </div>
+        <div class="moon"></div>
+
+        <!-- Moon Information in Flexboxes -->
+        <section class="moon-info">
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h2>Formation</h2>
+                    <p>The Moon formed about 4.5 billion years ago, likely after a Mars-sized body collided with Earth. This impact ejected debris that eventually coalesced into the Moon.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Surface</h2>
+                    <p>The Moon's surface is covered in craters, dust, and rocky debris. Its landscape includes mountains, valleys, and flat plains called maria, formed by ancient volcanic activity.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Atmosphere</h2>
+                    <p>The Moon has a very thin atmosphere, called an exosphere, which cannot support life as we know it. This lack of atmosphere leads to extreme temperature variations.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Exploration</h2>
+                    <p>The Moon has been the target of human exploration since the 1960s. NASA's Apollo missions successfully landed astronauts on the lunar surface, with Apollo 11 being the first in 1969.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Gravity</h2>
+                    <p>The Moon's gravity is about one-sixth that of Earth's, allowing astronauts to jump much higher. This lower gravity affects the Moon's geological processes and surface features.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Phases</h2>
+                    <p>The Moon goes through eight distinct phases, from new moon to full moon and back again. These phases are caused by the changing angles of sunlight as the Moon orbits Earth.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Tidal Effects</h2>
+                    <p>The Moon's gravitational pull affects Earth's tides, creating high and low tides. This interaction plays a crucial role in the Earth's ecosystems and climate.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Future Missions</h2>
+                    <p>Upcoming missions aim to explore the Moon further, including NASA's Artemis program, which plans to return humans to the Moon and establish a sustainable presence by the end of the decade.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>Moon Quiz</h2>
+            <div class="quiz-question">
+                <p id="question-text">What is the Moon's primary influence on Earth?</p>
+            </div>
+            <div class="options">
+                <button class="option" onclick="checkAnswer('Gravity')">Gravity</button>
+                <button class="option" onclick="checkAnswer('Wind')">Wind</button>
+                <button class="option" onclick="checkAnswer('Weather')">Weather</button>
+                <button class="option" onclick="checkAnswer('Light')">Light</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <div class="back-button">
+            <button onclick="window.location.href='explore.html'">Back to Explore</button>
+        </div>
     </div>
 
-    <!-- ISRO Mission Button -->
-    <button class="btn" onclick="showMission()">Learn about ISRO's Moon Missions</button>
-    <div id="missionInfo"></div>
+    <script>
+        const questions = [
+            {
+                question: "What is the Moon's primary influence on Earth?",
+                options: ["Gravity", "Wind", "Weather", "Light"],
+                answer: "Gravity",
+            },
+            {
+                question: "How many times can you fit Earth in the Moon's volume?",
+                options: ["About 50", "About 10", "About 100", "About 20"],
+                answer: "About 50",
+            },
+            {
+                question: "What is the name of the first human to walk on the Moon?",
+                options: ["Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "John Glenn"],
+                answer: "Neil Armstrong",
+            },
+            {
+                question: "What causes the phases of the Moon?",
+                options: ["Sunlight", "Earth's shadow", "Mars' shadow", "All of the above"],
+                answer: "Sunlight",
+            },
+            {
+                question: "Which Apollo mission first landed humans on the Moon?",
+                options: ["Apollo 10", "Apollo 11", "Apollo 12", "Apollo 13"],
+                answer: "Apollo 11",
+            },
+            {
+                question: "What is the Moon's largest crater?",
+                options: ["Tycho", "Copernicus", "Clavius", "Humboldt"],
+                answer: "Tycho",
+            },
+            {
+                question: "How long does it take the Moon to orbit Earth?",
+                options: ["27 days", "30 days", "29.5 days", "31 days"],
+                answer: "27 days",
+            },
+            {
+                question: "What is the Moon made of?",
+                options: ["Rock and dust", "Gas and dust", "Ice and rock", "Liquid and gas"],
+                answer: "Rock and dust",
+            },
+            {
+                question: "What do we call the dark plains on the Moon's surface?",
+                options: ["Maria", "Lava", "Craters", "Basins"],
+                answer: "Maria",
+            },
+            {
+                question: "Which of the following is true about the Moon?",
+                options: ["It has no atmosphere", "It has a thick atmosphere", "It has water", "It has life"],
+                answer: "It has no atmosphere",
+            }
+        ];
 
-    <!-- Quiz Button -->
-    <button class="btn" onclick="startQuiz()">Take the Moon Quiz!</button>
-    <div id="quiz"></div>
-    <div class="back-home" id="backHome" onclick="backToHome()">Back to Home</div>
-  </div>
+        let currentQuestion = 0;
 
-  <footer>
-    <p>© 2024 ISRO - Indian Space Research Organisation</p>
-  </footer>
-
-  <script>
-    // Function to display ISRO mission information on button click
-    function showMission() {
-      const missionInfo = document.getElementById('missionInfo');
-      missionInfo.innerHTML = `
-        <p>Chandrayaan-1 (2008) was India’s first mission to the Moon, discovering water on the lunar surface.</p>
-        <p>Chandrayaan-2 (2019) aimed to land near the South Pole of the Moon.</p>
-        <p>Chandrayaan-3 (2023) successfully landed on the Moon, marking a new achievement.</p>
-      `;
-      missionInfo.classList.add('show');
-    }
-
-    // Quiz questions and answers
-    const questions = [
-      {
-        question: "1. What was the first mission to the Moon by ISRO?<br>A) Chandrayaan-1 <br> B) Apollo-11 <br> C) Vikram <br> D) Mangalyan",
-        correctAnswer: "A"
-      },
-      {
-        question: "2. In which year did ISRO’s Chandrayaan-1 discover water molecules on the Moon?<br>A) 2008 <br> B) 2019 <br> C) 2012 <br> D) 2021",
-        correctAnswer: "A"
-      },
-      {
-        question: "3. What is the main aim of ISRO's Chandrayaan-3 mission?<br>A) Land on the Moon <br> B) Orbit around Mars <br> C) Explore Jupiter <br> D) Study the Sun",
-        correctAnswer: "A"
-      },
-      {
-        question: "4. Which part of the Moon was Chandrayaan-2 trying to explore?<br>A) The North Pole <br> B) The Equator <br> C) The South Pole <br> D) The Far Side",
-        correctAnswer: "C"
-      },
-      {
-        question: "5. How long does it take for the Moon to complete one orbit around the Earth?<br>A) 1 Day <br> B) 365 Days <br> C) 7 Days <br> D) 27 Days",
-        correctAnswer: "D"
-      },
-      {
-        question: "6. Which ISRO mission was responsible for mapping the Moon's surface in detail?<br>A) Chandrayaan-1 <br> B) Chandrayaan-2 <br> C) Mars Orbiter Mission <br> D) Voyager",
-        correctAnswer: "A"
-      },
-      {
-        question: "7. What is the primary purpose of space missions to the Moon?<br>A) To find aliens <br> B) To explore the Moon’s surface and discover new elements <br> C) To bring back moon rocks for study <br> D) To build houses on the Moon",
-        correctAnswer: "B"
-      },
-      {
-        question: "8. What does the word 'Chandrayaan' mean in Sanskrit?<br>A) Mars Explorer <br> B) Moon Vehicle <br> C) Sun Mission <br> D) Space Rover",
-        correctAnswer: "B"
-      }
-    ];
-
-    // Variables to keep track of quiz progress
-    let currentQuestionIndex = 0;
-
-    // Function to start the quiz and display the first question
-    function startQuiz() {
-      currentQuestionIndex = 0;
-      displayQuestion();
-      const quiz = document.getElementById('quiz');
-      quiz.classList.add('show');
-      document.getElementById('backHome').style.display = 'none'; // Hide back home button
-    }
-
-    // Function to display the current question
-    function displayQuestion() {
-      const quiz = document.getElementById('quiz');
-      const questionData = questions[currentQuestionIndex];
-      quiz.innerHTML = `
-        <div class="quiz-question">${questionData.question}</div>
-        <div class="options">
-          <div class="option" onclick="checkAnswer('A')">A</div>
-          <div class="option" onclick="checkAnswer('B')">B</div>
-          <div class="option" onclick="checkAnswer('C')">C</div>
-          <div class="option" onclick="checkAnswer('D')">D</div>
-        </div>
-        <div class="feedback" id="feedback"></div>
-        <div class="try-again" id="tryAgain" onclick="tryAgain()">Try Again</div>
-      `;
-      document.getElementById('tryAgain').style.display = 'none'; // Hide the "Try Again" option initially
-    }
-
-    // Function to check the selected answer
-    function checkAnswer(selected) {
-      const questionData = questions[currentQuestionIndex];
-      const feedback = document.getElementById('feedback');
-      if (selected === questionData.correctAnswer) {
-        feedback.innerHTML = "<span style='color: green;'>Correct!</span>";
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-          setTimeout(displayQuestion, 1000); // Wait for 1 second before displaying the next question
-        } else {
-          feedback.innerHTML += "<br><span style='color: yellow;'>You've completed the quiz!</span>";
-          document.getElementById('tryAgain').style.display = 'none'; // Hide the "Try Again" option
-          document.getElementById('backHome').style.display = 'block'; // Show the "Back to Home" option
+        function loadQuestion() {
+            const questionElement = document.getElementById('question-text');
+            const options = document.querySelectorAll('.option');
+            questionElement.textContent = questions[currentQuestion].question;
+            options.forEach((option, index) => {
+                option.textContent = questions[currentQuestion].options[index];
+                option.onclick = () => checkAnswer(questions[currentQuestion].options[index]);
+            });
         }
-      } else {
-        feedback.innerHTML = "<span style='color: red;'>Wrong answer! Try again.</span>";
-        document.getElementById('tryAgain').style.display = 'block'; // Show the "Try Again" option
-      }
-    }
 
-    // Function to allow the user to try the quiz again
-    function tryAgain() {
-      currentQuestionIndex = 0;
-      displayQuestion();
-      document.getElementById('feedback').innerHTML = ''; // Clear feedback
-      document.getElementById('tryAgain').style.display = 'none'; // Hide the "Try Again" option
-    }
+        function checkAnswer(answer) {
+            const feedbackElement = document.getElementById('feedback');
+            if (answer === questions[currentQuestion].answer) {
+                feedbackElement.textContent = 'Correct! 🌕';
+                feedbackElement.style.color = 'green';
+            } else {
+                feedbackElement.innerHTML = `Incorrect! Try again! 😞 <br> Correct answer: ${questions[currentQuestion].answer}`;
+                feedbackElement.style.color = 'red';
+            }
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                setTimeout(() => {
+                    loadQuestion();
+                    feedbackElement.textContent = '';
+                }, 3000); // Wait for 3 seconds before loading the next question
+            } else {
+                setTimeout(() => {
+                    feedbackElement.textContent = 'You have completed the quiz! 🎉';
+                }, 3000); // Wait for 3 seconds to show completion message
+            }
+        }
 
-    // Function to go back to home
-    function backToHome() {
-      const quiz = document.getElementById('quiz');
-      quiz.innerHTML = ''; // Clear quiz
-      quiz.classList.remove('show'); // Hide quiz
-      document.getElementById('missionInfo').innerHTML = ''; // Clear mission info
-      document.getElementById('backHome').style.display = 'none'; // Hide back home button
-    }
-  </script>
-
+        loadQuestion();
+    </script>
 </body>
 </html>

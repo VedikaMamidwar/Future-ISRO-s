@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future ISROs - White Dwarf Page</title>
+  <style>
+    /* General Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #1a1a1a;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    @keyframes headerGlow {
+        0% { color: #ff6f61; }
+        100% { color: #ff6f61; }
+    }
+
+    .container {
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    /* White Dwarf Information Flexboxes */
+    .flex-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 40px 0;
+    }
+
+    .flex-item {
+        background: #1e1e1e;
+        border: 3px solid #ff6f61;
+        padding: 30px;
+        width: 30%;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .flex-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .flex-item:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+    }
+
+    .flex-item:hover::before {
+        opacity: 1;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        color: #ff6f61;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.3em;
+        line-height: 1.8;
+    }
+
+    /* Quiz Section */
+    .quiz-section {
+        margin: 50px auto;
+        max-width: 700px;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .quiz-section h2 {
+        font-size: 2.5em;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ff6f61;
+    }
+
+    .quiz-question p {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .option {
+        margin: 12px 0;
+        padding: 15px;
+        background-color: #ff6f61;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.3em;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .option:hover {
+        background-color: #ff4f3b;
+        transform: scale(1.05);
+    }
+
+    .back-button {
+        text-align: center;
+        margin: 30px 0;
+    }
+
+    .back-button button {
+        padding: 12px 25px;
+        font-size: 1.2em;
+        color: white;
+        background-color: #ff6f61;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button button:hover {
+        background-color: #ff4f3b;
+        transform: scale(1.05);
+    }
+
+    /* White Dwarf Animation */
+    .white-dwarf {
+        position: absolute;
+        width: 150px;
+        animation: spin 10s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg) translateX(150px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg) translateX(150px) rotate(-360deg);
+        }
+    }
+
+    .dwarf1 {
+        top: 20%;
+        left: 80%;
+        animation-delay: 0s;
+    }
+
+    .dwarf2 {
+        top: 30%;
+        left: 5%;
+        animation-delay: 3s;
+    }
+
+    .dwarf3 {
+        top: 50%;
+        left: 50%;
+        animation-delay: 6s;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>Explore White Dwarfs</h1>
+            <p>Learn about white dwarfs, their characteristics, and take a fun quiz to test your knowledge!</p>
+        </header>
+
+        <!-- Three White Dwarfs Animation -->
+        <div class="white-dwarf dwarf1">
+            <img src="../icon/white-dwarf.png" alt="White Dwarf 1" />
+        </div>
+        <div class="white-dwarf dwarf2">
+            <img src="../icon/white-dwarf.png" alt="White Dwarf 2" />
+        </div>
+        <div class="white-dwarf dwarf3">
+            <img src="../icon/white-dwarf.png" alt="White Dwarf 3" />
+        </div>
+
+        <!-- White Dwarf Information in Flexboxes -->
+        <section class="white-dwarf-info">
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h2>What is a White Dwarf?</h2>
+                    <p>A white dwarf is a small, dense star that is the remnants of a star that has exhausted its nuclear fuel and shed its outer layers.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Characteristics</h2>
+                    <p>White dwarfs are incredibly dense, with mass comparable to that of the Sun but volume similar to that of Earth.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Life Cycle</h2>
+                    <p>After a star becomes a white dwarf, it cools and fades over billions of years, eventually becoming a cold, dark "black dwarf."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>White Dwarf Quiz</h2>
+            <div class="quiz-question">
+                <p id="question-text">What is the main component of a white dwarf?</p>
+            </div>
+            <div class="options">
+                <button class="option" onclick="checkAnswer('Helium')">Helium</button>
+                <button class="option" onclick="checkAnswer('Carbon')">Carbon</button>
+                <button class="option" onclick="checkAnswer('Oxygen')">Oxygen</button>
+                <button class="option" onclick="checkAnswer('Hydrogen')">Hydrogen</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- Back to Explore Page Button -->
+        <div class="back-button">
+            <button id="backToExplore">Back to Explore Page</button>
+        </div>
+    </div>
+
+    <script>
+        // Add event listener for back button
+        document.getElementById('backToExplore').addEventListener('click', function() {
+            window.location.href = 'explore.html';
+        });
+
+        const questions = [
+            {
+                question: "What is the main component of a white dwarf?",
+                options: ["Helium", "Carbon", "Oxygen", "Hydrogen"],
+                answer: "Carbon",
+            },
+            {
+                question: "What happens to a star after it becomes a white dwarf?",
+                options: ["It becomes a red giant", "It explodes as a supernova", "It cools and fades", "It forms a black hole"],
+                answer: "It cools and fades",
+            },
+            {
+                question: "How dense are white dwarfs?",
+                options: ["Less dense than water", "Similar density to Earth", "Very dense, like a neutron star", "Similar to the Sun"],
+                answer: "Very dense, like a neutron star",
+            },
+            {
+                question: "What is the fate of a white dwarf in the long term?",
+                options: ["It becomes a black dwarf", "It explodes", "It turns into a neutron star", "It merges with another star"],
+                answer: "It becomes a black dwarf",
+            },
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            const questionText = document.getElementById('question-text');
+            questionText.textContent = question.question;
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.textContent = question.options[index];
+            });
+        }
+
+        function checkAnswer(selectedAnswer) {
+            const feedback = document.getElementById('feedback');
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            if (selectedAnswer === correctAnswer) {
+                feedback.textContent = "Correct! 🎉";
+            } else {
+                feedback.textContent = `Wrong! The correct answer is: ${correctAnswer}.`;
+            }
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length; // Cycle through questions
+            setTimeout(() => {
+                feedback.textContent = ""; // Clear feedback
+                displayQuestion(); // Show next question
+            }, 2000);
+        }
+
+        // Initialize the first question
+        displayQuestion();
+    </script>
+</body>
+</html>

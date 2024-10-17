@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future ISROs - Nebula Page</title>
+  <style>
+    /* General Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #1a1a1a;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    @keyframes headerGlow {
+        0% { color: #ff6f61; }
+        100% { color: #ff6f61; }
+    }
+
+    .container {
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    /* Nebula Information Flexboxes */
+    .flex-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 40px 0;
+    }
+
+    .flex-item {
+        background: #1e1e1e;
+        border: 3px solid #ff6f61;
+        padding: 30px;
+        width: 30%;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .flex-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .flex-item:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+    }
+
+    .flex-item:hover::before {
+        opacity: 1;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        color: #ff6f61;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.3em;
+        line-height: 1.8;
+    }
+
+    /* Quiz Section */
+    .quiz-section {
+        margin: 50px auto;
+        max-width: 700px;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .quiz-section h2 {
+        font-size: 2.5em;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ff6f61;
+    }
+
+    .quiz-question p {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .option {
+        margin: 12px 0;
+        padding: 15px;
+        background-color: #ff6f61;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.3em;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .option:hover {
+        background-color: #ff4f3b;
+        transform: scale(1.05);
+    }
+
+    .back-button {
+        text-align: center;
+        margin: 30px 0;
+    }
+
+    .back-button button {
+        padding: 12px 25px;
+        font-size: 1.2em;
+        color: white;
+        background-color: #ff6f61;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button button:hover {
+        background-color: #ff4f3b;
+        transform: scale(1.05);
+    }
+
+    /* Nebula Animation */
+    .nebula {
+        position: absolute;
+        width: 150px;
+        animation: spin 10s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg) translateX(150px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg) translateX(150px) rotate(-360deg);
+        }
+    }
+
+    .nebula1 {
+        top: 20%;
+        left: 80%;
+        animation-delay: 0s;
+    }
+
+    .nebula2 {
+        top: 30%;
+        left: 5%;
+        animation-delay: 3s;
+    }
+
+    .nebula3 {
+        top: 50%;
+        left: 50%;
+        animation-delay: 6s;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>Explore Nebulae</h1>
+            <p>Discover the beauty and mysteries of nebulae, their types, and take a fun quiz to test your knowledge!</p>
+        </header>
+
+        <!-- Three Nebulae Animation -->
+        <div class="nebula nebula1">
+            <img src="../icon/emission-nebula.png" alt="Nebula 1" />
+        </div>
+        <div class="nebula nebula2">
+            <img src="../icon/reflection-nebula.png" alt="Nebula 2" />
+        </div>
+        <div class="nebula nebula3">
+            <img src="../icon planetary-nebula.png" alt="Nebula 3" />
+        </div>
+
+        <!-- Nebula Information in Flexboxes -->
+        <section class="nebula-info">
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h2>What is a Nebula?</h2>
+                    <p>A nebula is a giant cloud of dust and gas in space. Some nebulae form stars, while others are remnants of dead or dying stars.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Types of Nebulae</h2>
+                    <p>Nebulae can be classified into three main types: emission nebulae, reflection nebulae, and planetary nebulae.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Famous Nebulae</h2>
+                    <p>Some of the most famous nebulae include the Orion Nebula, the Crab Nebula, and the Ring Nebula.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>Nebula Quiz</h2>
+            <div class="quiz-question">
+                <p id="question-text">What type of nebula is known for glowing gas and forming new stars?</p>
+            </div>
+            <div class="options">
+                <button class="option" onclick="checkAnswer('Planetary Nebula')">Planetary Nebula</button>
+                <button class="option" onclick="checkAnswer('Emission Nebula')">Emission Nebula</button>
+                <button class="option" onclick="checkAnswer('Reflection Nebula')">Reflection Nebula</button>
+                <button class="option" onclick="checkAnswer('Dark Nebula')">Dark Nebula</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- Back to Explore Page Button -->
+        <div class="back-button">
+            <button id="backToExplore">Back to Explore Page</button>
+        </div>
+    </div>
+
+    <script>
+        // Add event listener for back button
+        document.getElementById('backToExplore').addEventListener('click', function() {
+            window.location.href = 'explore.html';
+        });
+
+        const questions = [
+            {
+                question: "What type of nebula is known for glowing gas and forming new stars?",
+                options: ["Planetary Nebula", "Emission Nebula", "Reflection Nebula", "Dark Nebula"],
+                answer: "Emission Nebula",
+            },
+            {
+                question: "Which nebula is famous for its bright colors and is located in the Orion constellation?",
+                options: ["Crab Nebula", "Orion Nebula", "Eagle Nebula", "Ring Nebula"],
+                answer: "Orion Nebula",
+            },
+            {
+                question: "What type of nebula reflects light from nearby stars?",
+                options: ["Planetary Nebula", "Emission Nebula", "Reflection Nebula", "Supernova Remnant"],
+                answer: "Reflection Nebula",
+            },
+            {
+                question: "What nebula is formed from the remnants of a dying star?",
+                options: ["Planetary Nebula", "Emission Nebula", "Dark Nebula", "Eagle Nebula"],
+                answer: "Planetary Nebula",
+            },
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            const questionText = document.getElementById('question-text');
+            questionText.textContent = question.question;
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.textContent = question.options[index];
+            });
+        }
+
+        function checkAnswer(selectedAnswer) {
+            const feedback = document.getElementById('feedback');
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            if (selectedAnswer === correctAnswer) {
+                feedback.textContent = "Correct! 🎉";
+            } else {
+                feedback.textContent = `Wrong! The correct answer is: ${correctAnswer}.`;
+            }
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length; // Cycle through questions
+            setTimeout(() => {
+                feedback.textContent = ""; // Clear feedback
+                displayQuestion(); // Show next question
+            }, 2000);
+        }
+
+        // Initialize the first question
+        displayQuestion();
+    </script>
+</body>
+</html>

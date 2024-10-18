@@ -144,39 +144,7 @@
         transform: scale(1.05);
     }
 
-    /* Galaxy Animation */
-    .galaxy {
-        position: absolute;
-        width: 150px;
-        animation: spin 10s linear infinite;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg) translateX(150px) rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg) translateX(150px) rotate(-360deg);
-        }
-    }
-
-    .galaxy1 {
-        top: 20%;
-        left: 80%;
-        animation-delay: 0s;
-    }
-
-    .galaxy2 {
-        top: 30%;
-        left: 5%;
-        animation-delay: 3s;
-    }
-
-    .galaxy3 {
-        top: 50%;
-        left: 50%;
-        animation-delay: 6s;
-    }
+    
   </style>
 </head>
 <body>
@@ -186,16 +154,7 @@
             <p>Discover the wonders of galaxies, their types, and take a fun quiz to test your knowledge!</p>
         </header>
 
-        <!-- Three Galaxies Animation -->
-        <div class="galaxy galaxy1">
-            <img src="../icon/spiral-galaxy.png" alt="Galaxy 1" />
-        </div>
-        <div class="galaxy galaxy2">
-            <img src="../icon/elliptical-galaxy.png" alt="Galaxy 2" />
-        </div>
-        <div class="galaxy galaxy3">
-            <img src="../icon/irregular-galaxy.png" alt="Galaxy 3" />
-        </div>
+        
 
         <!-- Galaxy Information in Flexboxes -->
         <section class="galaxy-info">

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Stars Page</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .star-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://your-image-url.com/stars-background.jpg') no-repeat center center fixed;
+            /* Replace with your background image URL */
+            background-size: cover;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* Image Styling */
+        .flex-item img {
+            width: 100%;
+            /* Adjust image to fill the flex-item width */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 10px;
+            /* Rounded corners for the images */
+            margin-bottom: 15px;
+            /* Add space between the image and text */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            /* Add shadow to make images stand out */
+            transition: transform 0.3s ease;
+            /* Add a hover effect */
+        }
+
+        .flex-item:hover img {
+            transform: scale(1.05);
+            /* Slight zoom on hover */
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+            }
+
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .falling-star {
+            position: absolute;
+            top: -10%;
+            width: 2px;
+            height: 10px;
+            background: #ffcc00;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        .container {
+            margin-top: 40px;
+            padding: 0 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Stars Information Flexboxes */
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: nowrap;
+            margin: 40px 0;
+        }
+
+        .flex-item {
+            background: rgba(30, 30, 30, 0.8);
+            border: 3px solid #ff6f61;
+            padding: 30px;
+            width: 30%;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flex-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #ff6f61;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+
+        /* Information Section */
+        .info-section {
+            display: none;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            z-index: 3;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .info-section h3 {
+            color: #ff6f61;
+        }
+
+        .info-section p {
+            font-size: 1.2em;
+            color: white;
+        }
+
+        /* Button to close info section */
+        .close-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .close-button:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .quiz-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+
+        .quiz-question p {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option {
+            margin: 12px 0;
+            padding: 15px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .back-button button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="star-background"></div>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Explore Stars</h1>
+            <p>Discover fascinating facts about stars and their wonders!</p>
+        </header>
+
+        <!-- Stars Information in Flexboxes -->
+        <section class="stars-info">
+            <div class="flex-container">
+                <div class="flex-item" onclick="showInfo('info1')">
+                    <h2>Red Giant</h2>
+                    <img src="../images/red giant.jpg" alt="Red Giant" />
+                    <p>A stage in a star's life where it expands and cools after exhausting its hydrogen fuel.</p>
+                </div>
+                <div class="flex-item" onclick="showInfo('info2')">
+                    <h2>White Dwarf</h2>
+                    <img src="../images/white dwarf.webp" alt="White Dwarf" />
+                    <p>The remnants of a star that has exhausted its nuclear fuel and shed its outer layers.</p>
+                </div>
+                <div class="flex-item" onclick="showInfo('info3')">
+                    <h2>Neutron Star</h2>
+                    <img src="../images/neutran.jpg" alt="Neutron Star" />
+                    <p>A very dense star formed from the remnants of a supernova explosion, made mostly of neutrons.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Sections -->
+        <div class="info-section" id="info1">
+            <h3>Red Giant</h3>
+            <p>Red giants are stars that have consumed the hydrogen in their cores and have begun to burn helium or
+                heavier elements. They are characterized by their large size and reddish color.</p>
+            <button class="close-button" onclick="closeInfo()">Close</button>
+        </div>
+
+        <div class="info-section" id="info2">
+            <h3>White Dwarf</h3>
+            <p>White dwarfs are the final stage in the evolution of stars like our Sun. They are very dense, and their
+                light comes from the residual heat of their former self.</p>
+            <button class="close-button" onclick="closeInfo()">Close</button>
+        </div>
+
+        <div class="info-section" id="info3">
+            <h3>Neutron Star</h3>
+            <p>Neutron stars are incredibly dense remnants left after supernova explosions. They are composed mostly of
+                neutrons and have extremely strong gravitational fields.</p>
+            <button class="close-button" onclick="closeInfo()">Close</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>Stars Quiz</h2>
+            <div class="quiz-question">
+                <p id="question-text">What type of star is our Sun?</p>
+            </div>
+            <div class="options">
+                <button class="option" onclick="checkAnswer('Red Dwarf')">Red Dwarf</button>
+                <button class="option" onclick="checkAnswer('Yellow Dwarf')">Yellow Dwarf</button>
+                <button class="option" onclick="checkAnswer('Blue Giant')">Blue Giant</button>
+                <button class="option" onclick="checkAnswer('Supergiant')">Supergiant</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- Back to Explore Page Button -->
+        <div class="back-button">
+            <button id="backToExplore">Back to Explore Page</button>
+        </div>
+    </div>
+    <script>
+
+        // Add event listener for back button
+        document.getElementById('backToExplore').addEventListener('click', function () {
+            window.location.href = 'explore.html';
+        });
+        // Function to show info section
+        function showInfo(infoId) {
+            const infoSections = document.querySelectorAll('.info-section');
+            infoSections.forEach(section => section.style.display = 'none');
+            document.getElementById(infoId).style.display = 'block';
+        }
+
+        // Function to close info section
+        function closeInfo() {
+            const infoSections = document.querySelectorAll('.info-section');
+            infoSections.forEach(section => section.style.display = 'none');
+        }
+
+
+
+
+        // Function to show stars info again
+        function showStars() {
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('quizButton').style.display = 'block';
+            closeInfo();
+        }
+
+        // Falling stars animation
+        function createFallingStars() {
+            const starCount = 100; // Adjust the number of falling stars
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('falling-star');
+                star.style.left = Math.random() * window.innerWidth + 'px';
+                star.style.animationDuration = Math.random() * 2 + 2 + 's';
+                document.body.appendChild(star);
+            }
+        }
+
+        createFallingStars();
+
+        const questions = [
+            {
+                question: "What type of star is our Sun?",
+                options: ["Red Dwarf", "Yellow Dwarf", "Blue Giant", "Supergiant"],
+                answer: "Yellow Dwarf"
+            },
+            {
+                question: "What is the largest type of star?",
+                options: ["Red Dwarf", "Yellow Dwarf", "Blue Giant", "Supergiant"],
+                answer: "Supergiant"
+            },
+            {
+                question: "Which star is known for its brightness?",
+                options: ["Sirius", "Polaris", "Betelgeuse", "Alpha Centauri"],
+                answer: "Sirius"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            const questionText = document.getElementById('question-text');
+            questionText.textContent = question.question;
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.textContent = question.options[index];
+            });
+        }
+
+        function checkAnswer(selectedAnswer) {
+            const feedback = document.getElementById('feedback');
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            if (selectedAnswer === correctAnswer) {
+                feedback.textContent = "Correct! 🎉";
+            } else {
+                feedback.textContent = `Wrong! The correct answer is: ${correctAnswer}.`;
+            }
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length; // Cycle through questions
+            setTimeout(() => {
+                feedback.textContent = ""; // Clear feedback
+                displayQuestion(); // Show next question
+            }, 2000);
+        }
+
+    </script>
+</body>
+
+</html>

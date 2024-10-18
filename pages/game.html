@@ -142,7 +142,7 @@
         <div class="game-section">
             <h3 class="game-title">Game 1: Space Quiz</h3>
             <p class="game-description">Test your knowledge about space with our fun quiz!</p>
-            <button class="start-button" onclick="startGame('Space Quiz')">Start Game</button>
+            <button class="start-button" onclick="startGame('game1')">Start Game</button>
             <img src="../icon/rocket.png" alt="Rocket" class="floating" style="top: 10px; left: 10px;">
         </div>
 
@@ -186,6 +186,34 @@
         function goHome() {
             window.location.href = '../pages/index.html';
         }
+
+        
+    function startGame(gameName) {
+        switch(gameName) {
+            case 'Space Quiz':
+                window.location.href = '../pages/game1.html'; 
+            case 'Asteroid Dodger':
+                window.location.href = '../pages/game2.html'; 
+                break;
+            case 'Star Catcher':
+                window.location.href = '../pages/game3.html'; 
+                break;
+            case 'Planet Explorer':
+                window.location.href = '../pages/game4.html'; 
+                break;
+            case 'Space Race':
+                window.location.href = '../pages/game5.html'; 
+                break;
+            default:
+                alert('Game not found!');
+        }
+    }
+
+    function goHome() {
+        window.location.href = '../pages/index.html';
+    }
+
+
     </script>
 </body>
 

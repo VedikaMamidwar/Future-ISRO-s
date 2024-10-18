@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Race</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+            background-color: black; /* Black space background */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set the canvas dimensions to match the window size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Spaceship properties
+        let spaceship = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            width: 40,
+            height: 60,
+            speed: 3,
+            boostSpeed: 6,
+            rotation: 0,
+            velocityX: 0,
+            velocityY: 0,
+            boost: false
+        };
+
+        // Keyboard controls
+        const keys = {
+            ArrowUp: false,
+            ArrowLeft: false,
+            ArrowRight: false,
+            Space: false
+        };
+
+        // Event listeners for key presses
+        window.addEventListener('keydown', (e) => {
+            if (keys.hasOwnProperty(e.code)) keys[e.code] = true;
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (keys.hasOwnProperty(e.code)) keys[e.code] = false;
+        });
+
+        // Obstacles
+        let obstacles = [
+            { x: 200, y: 200, radius: 30 },
+            { x: 500, y: 300, radius: 50 }
+        ];
+
+        // Power-ups
+        let powerUps = [
+            { x: 400, y: 500, radius: 15, type: 'boost' }
+        ];
+
+        // Game loop
+        function gameLoop() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Update spaceship movement
+            moveSpaceship();
+
+            // Draw the spaceship
+            drawSpaceship();
+
+            // Draw obstacles and power-ups
+            drawObstacles();
+            drawPowerUps();
+
+            // Check for power-up collisions
+            checkPowerUpCollision();
+
+            // Continue the game loop
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Move the spaceship based on input
+        function moveSpaceship() {
+            let speed = spaceship.boost ? spaceship.boostSpeed : spaceship.speed;
+
+            // Rotation (Left and Right Arrows)
+            if (keys['ArrowLeft']) spaceship.rotation -= 0.05;
+            if (keys['ArrowRight']) spaceship.rotation += 0.05;
+
+            // Forward movement (Up Arrow)
+            if (keys['ArrowUp']) {
+                spaceship.velocityX += Math.cos(spaceship.rotation) * speed;
+                spaceship.velocityY += Math.sin(spaceship.rotation) * speed;
+            }
+
+            // Boost (Spacebar)
+            spaceship.boost = keys['Space'];
+
+            // Apply velocity to position
+            spaceship.x += spaceship.velocityX;
+            spaceship.y += spaceship.velocityY;
+
+            // Friction to slow down the ship gradually
+            spaceship.velocityX *= 0.99;
+            spaceship.velocityY *= 0.99;
+
+            // Boundary detection - wrap around screen
+            if (spaceship.x > canvas.width) spaceship.x = 0;
+            if (spaceship.x < 0) spaceship.x = canvas.width;
+            if (spaceship.y > canvas.height) spaceship.y = 0;
+            if (spaceship.y < 0) spaceship.y = canvas.height;
+        }
+
+        // Draw the spaceship on the canvas
+        function drawSpaceship() {
+            ctx.save();
+            ctx.translate(spaceship.x, spaceship.y);
+            ctx.rotate(spaceship.rotation);
+
+            // Draw the ship as a simple triangle
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.moveTo(0, -spaceship.height / 2);
+            ctx.lineTo(-spaceship.width / 2, spaceship.height / 2);
+            ctx.lineTo(spaceship.width / 2, spaceship.height / 2);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        // Function to draw obstacles
+        function drawObstacles() {
+            ctx.fillStyle = 'red';
+            obstacles.forEach(obstacle => {
+                ctx.beginPath();
+                ctx.arc(obstacle.x, obstacle.y, obstacle.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        // Function to draw power-ups
+        function drawPowerUps() {
+            ctx.fillStyle = 'green';
+            powerUps.forEach(powerUp => {
+                ctx.beginPath();
+                ctx.arc(powerUp.x, powerUp.y, powerUp.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        // Collision detection for power-ups
+        function checkPowerUpCollision() {
+            powerUps.forEach((powerUp, index) => {
+                const dist = Math.hypot(spaceship.x - powerUp.x, spaceship.y - powerUp.y);
+                if (dist < powerUp.radius + spaceship.width / 2) {
+                    // Apply the power-up effect
+                    if (powerUp.type === 'boost') {
+                        spaceship.boost = true;
+                    }
+                    // Remove the power-up from the array
+                    powerUps.splice(index, 1);
+                }
+            });
+        }
+
+        // Start the game loop
+        gameLoop();
+    </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Planet Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a; /* Dark background */
+            color: white; /* White text for contrast */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        .container {
+            max-width: 800px; /* Maximum width for the container */
+            margin: 0 auto; /* Centering the container */
+            padding: 20px; /* Padding inside the container */
+            background-color: #2b2b2b; /* Slightly lighter background for the content area */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            margin-top: 40px; /* Margin on top for spacing */
+        }
+
+        h1 {
+            color: #ff6347; /* Title color */
+            text-align: center; /* Centered title */
+            margin-bottom: 20px; /* Margin below the title */
+            font-size: 2.5em; /* Larger font size for the title */
+        }
+
+        h2 {
+            color: #ff6f61; /* Subheading color */
+            text-align: center;
+            font-size: 1.8em; /* Reduced font size for subheadings */
+            margin-bottom: 15px; /* Margin below subheadings */
+        }
+
+        h3 {
+            color: #ff6347; /* Color for step headings */
+            text-align: center;
+            margin-top: 15px; /* Margin on top for step headings */
+            font-size: 1.5em; /* Reduced font size for step headings */
+        }
+
+        ul {
+            list-style-type: disc; /* Bullet points */
+            margin-left: 20px; /* Margin on the left */
+        }
+
+        p {
+            line-height: 1.6; /* Line height for better readability */
+            font-size: 1.2em; /* Font size for paragraphs */
+        }
+
+        /* Box Styles with Hover Effects */
+        .hover-box {
+            background-color: #3c3c3c; /* Box background color */
+            border-radius: 8px; /* Rounded corners */
+            padding: 15px; /* Padding inside the box */
+            transition: background-color 0.3s, transform 0.3s; /* Transition for hover effects */
+            margin-bottom: 20px; /* Margin below the box */
+        }
+
+        .hover-box:hover {
+            background-color: #484848; /* Darker background on hover */
+            transform: scale(1.03); /* Slightly enlarges the box on hover */
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+        }
+
+        /* Video Section */
+        .video {
+            text-align: center; /* Centering the video section */
+            margin-top: 30px; /* Margin on top */
+        }
+
+        .video-box {
+            background-color: #ff6347; /* Box color for video link */
+            border-radius: 8px; /* Rounded corners */
+            padding: 15px; /* Padding inside the box */
+            transition: background-color 0.3s, transform 0.3s; /* Transition for hover effects */
+            display: inline-block; /* Inline block for centering */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        .video-box:hover {
+            background-color: #ff6347; /* Darker box color on hover */
+            transform: scale(1.05); /* Slightly enlarges the box on hover */
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+        }
+
+        /* Button Container */
+        .button-container {
+            text-align: center; /* Centering button container */
+            margin-top: 20px; /* Margin on top */
+        }
+
+        .button-container button {
+            background-color: #ff6f61; /* Button color */
+            color: white; /* Text color */
+            padding: 10px 20px; /* Padding for button */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners for button */
+            cursor: pointer; /* Cursor pointer on hover */
+            transition: background-color 0.3s; /* Transition effect */
+            font-size: 1.2em; /* Font size for button */
+            margin: 0 10px; /* Margin for spacing between buttons */
+        }
+
+        .button-container button:hover {
+            background-color: #ff6347; /* Darker button color on hover */
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8)
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Feedback Section */
+        .feedback {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        /* Add additional styles as necessary */
+    </style>
+</head>
+<body>
+    <div class="container" id="content">
+        <h1>DIY Galaxy in a Jar</h1>
+
+        <div class="hover-box">
+            <h2>Materials Needed:</h2>
+            <ul id="material-list">
+                <li>A clean glass jar (with a lid)</li>
+                <li>Cotton balls</li>
+                <li>Water</li>
+                <li>Blue and purple food coloring</li>
+                <li>Glitter (optional)</li>
+                <li>Glow-in-the-dark stars or stickers (optional)</li>
+                <li>A wooden stick or straw for mixing</li>
+            </ul>
+        </div>
+
+        <div class="hover-box">
+            <h2>Step-by-Step Instructions:</h2>
+            <div id="instruction-list">
+                <h3>Step 1: Prepare the Jar</h3>
+                <p>Take a clean glass jar and make sure the lid fits securely. Add a few cotton balls to the bottom of the jar. Make sure they are loosely placed, not too compact.</p>
+
+                <h3>Step 2: Create the Galaxy Colors</h3>
+                <p>In a separate cup, mix water with a few drops of blue food coloring. Pour some of the blue-colored water into the jar, letting it soak into the cotton balls.</p>
+
+                <h3>Step 3: Add More Layers</h3>
+                <p>Place another layer of cotton balls on top of the soaked ones. In a different cup, mix water with purple food coloring and pour this over the second layer of cotton.</p>
+
+                <h3>Step 4: Add the Stars</h3>
+                <p>Sprinkle some glitter on top of each layer to mimic stars and stardust. You can add glow-in-the-dark stars or stickers on the outside of the jar for extra space vibes.</p>
+
+                <h3>Step 5: Seal the Galaxy</h3>
+                <p>Once you've added enough layers of color and cotton, seal the jar tightly with the lid. Give the jar a gentle shake to distribute the colors and glitter evenly.</p>
+
+                <h3>Step 6: Enjoy Your Mini Galaxy</h3>
+                <p>Place the jar on a shelf or use it as a nightlight by placing it near a soft light source.</p>
+            </div>
+        </div>
+
+        <div class="video">
+            <h2>Watch the Video Tutorial:</h2>
+            <div class="video-box">
+                <a href="https://www.youtube.com/watch?v=YOUR_FIRST_VIDEO_ID" target="_blank">DIY Tutorial</a>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button onclick="showPreviousCraft()">Previous</button>
+            <button onclick="showNextCraft()">Next</button>
+            <button onclick="goHome()">Home</button>
+        </div>
+    </div>
+
+    <script>
+        const crafts = [
+            {
+                title: 'DIY Galaxy in a Jar',
+                materials: [
+                    'A clean glass jar (with a lid)',
+                    'Cotton balls',
+                    'Water',
+                    'Blue and purple food coloring',
+                    'Glitter (optional)',
+                    'Glow-in-the-dark stars or stickers (optional)',
+                    'A wooden stick or straw for mixing'
+                ],
+                instructions: [
+                    { step: 'Step 1: Prepare the Jar', desc: 'Take a clean glass jar and make sure the lid fits securely. Add a few cotton balls to the bottom of the jar. Make sure they are loosely placed, not too compact.' },
+                    { step: 'Step 2: Create the Galaxy Colors', desc: 'In a separate cup, mix water with a few drops of blue food coloring. Pour some of the blue-colored water into the jar, letting it soak into the cotton balls.' },
+                    { step: 'Step 3: Add More Layers', desc: 'Place another layer of cotton balls on top of the soaked ones. In a different cup, mix water with purple food coloring and pour this over the second layer of cotton.' },
+                    { step: 'Step 4: Add the Stars', desc: 'Sprinkle glitter on top of each layer for stars and stardust.' },
+                    { step: 'Step 5: Seal the Galaxy', desc: 'Once done, seal the jar with the lid. Shake gently to distribute the colors.' },
+                    { step: 'Step 6: Enjoy Your Mini Galaxy', desc: 'Place on a shelf or use as a nightlight.' }
+                ],
+                video: 'https://www.youtube.com/watch?v=YOUR_FIRST_VIDEO_ID' // Replace with actual link
+            },
+            {
+                title: 'DIY Solar System Mobile',
+                materials: [
+                    'Styrofoam balls (various sizes)',
+                    'Acrylic paint (various colors)',
+                    'Wire or a wooden dowel',
+                    'String',
+                    'Glue',
+                    'Scissors',
+                    'Paintbrushes'
+                ],
+                instructions: [
+                    { step: 'Step 1: Paint the Planets', desc: 'Paint each styrofoam ball to represent a planet. Let them dry completely.' },
+                    { step: 'Step 2: Prepare the Structure', desc: 'Use wire or a wooden dowel to create a mobile structure.' },
+                    { step: 'Step 3: Assemble the Mobile', desc: 'Use string to hang the planets from sticks or rods.' },
+                    { step: 'Step 4: Hang the Mobile', desc: 'Find a nice spot to hang your mobile and enjoy your creation!' }
+                ],
+                video: 'https://www.youtube.com/watch?v=YOUR_SECOND_VIDEO_ID' // Replace with actual link
+            }
+        ];
+
+        let currentCraftIndex = 0;
+
+        function showNextCraft() {
+            currentCraftIndex++;
+            if (currentCraftIndex < crafts.length) {
+                loadCraft(currentCraftIndex);
+            } else {
+                alert('You have reached the end of the crafts!');
+            }
+        }
+
+        function showPreviousCraft() {
+            currentCraftIndex--;
+            if (currentCraftIndex >= 0) {
+                loadCraft(currentCraftIndex);
+            } else {
+                alert('This is the first craft!');
+            }
+        }
+
+        function goHome() {
+            // Redirect to the home page or reset the currentCraftIndex
+            currentCraftIndex = 0; // Reset to the first craft
+            loadCraft(currentCraftIndex);
+        }
+
+        function loadCraft(index) {
+            const craft = crafts[index];
+            document.getElementById('content').innerHTML = `
+                <h1>${craft.title}</h1>
+                <div class="hover-box">
+                    <h2>Materials Needed:</h2>
+                    <ul>${craft.materials.map(material => `<li>${material}</li>`).join('')}</ul>
+                </div>
+                <div class="hover-box">
+                    <h2>Step-by-Step Instructions:</h2>
+                    <div>${craft.instructions.map(instruction => `
+                        <h3>${instruction.step}</h3>
+                        <p>${instruction.desc}</p>
+                    `).join('')}</div>
+                </div>
+                <div class="video">
+                    <h2>Watch the Video Tutorial:</h2>
+                    <div class="video-box">
+                        <a href="${craft.video}" target="_blank">DIY Tutorial</a>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button onclick="showPreviousCraft()">Previous</button>
+                    <button onclick="showNextCraft()">Next</button>
+                    <button onclick="goHome()">Home</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

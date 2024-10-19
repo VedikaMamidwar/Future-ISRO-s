@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future ISROs - Galaxy Page</title>
+  <title>Future ISROs - Satellite Page</title>
   <style>
     /* General Styles */
     body {
@@ -25,7 +25,7 @@
         padding: 0 20px;
     }
 
-    /* Galaxy Information Flexboxes */
+    /* Satellite Information Flexboxes */
     .flex-container {
         display: flex;
         justify-content: space-around;
@@ -144,14 +144,14 @@
         transform: scale(1.05);
     }
 
-    /* Galaxy Animation */
-    .galaxy {
+    /* Satellite Animation */
+    .satellite {
         position: absolute;
         width: 150px;
-        animation: spin 10s linear infinite;
+        animation: orbit 10s linear infinite;
     }
 
-    @keyframes spin {
+    @keyframes orbit {
         0% {
             transform: rotate(0deg) translateX(150px) rotate(0deg);
         }
@@ -160,19 +160,19 @@
         }
     }
 
-    .galaxy1 {
+    .satellite1 {
         top: 20%;
         left: 80%;
         animation-delay: 0s;
     }
 
-    .galaxy2 {
+    .satellite2 {
         top: 30%;
         left: 5%;
         animation-delay: 3s;
     }
 
-    .galaxy3 {
+    .satellite3 {
         top: 50%;
         left: 50%;
         animation-delay: 6s;
@@ -182,50 +182,50 @@
 <body>
     <div class="container">
         <header class="page-header">
-            <h1>Explore Galaxies</h1>
-            <p>Discover the wonders of galaxies, their types, and take a fun quiz to test your knowledge!</p>
+            <h1>Explore Satellites</h1>
+            <p>Learn about satellites, their functions, and take a fun quiz to test your knowledge!</p>
         </header>
 
-        <!-- Three Galaxies Animation -->
-        <div class="galaxy galaxy1">
-            <img src="../icon/spiral-galaxy.png" alt="Galaxy 1" />
+        <!-- Three Satellites Animation -->
+        <div class="satellite satellite1">
+            <img src="../icon/satellite.png" alt="Satellite 1" />
         </div>
-        <div class="galaxy galaxy2">
-            <img src="../icon/elliptical-galaxy.png" alt="Galaxy 2" />
+        <div class="satellite satellite2">
+            <img src="../icon/satellite-technology.png" alt="Satellite 2" />
         </div>
-        <div class="galaxy galaxy3">
-            <img src="../icon/irregular-galaxy.png" alt="Galaxy 3" />
+        <div class="satellite satellite3">
+            <img src="../icon/satellite-launch.png" alt="Satellite 3" />
         </div>
 
-        <!-- Galaxy Information in Flexboxes -->
-        <section class="galaxy-info">
+        <!-- Satellite Information in Flexboxes -->
+        <section class="satellite-info">
             <div class="flex-container">
                 <div class="flex-item">
-                    <h2>What is a Galaxy?</h2>
-                    <p>A galaxy is a massive system of stars, stellar remnants, interstellar gas, dust, and dark matter bound together by gravity.</p>
+                    <h2>What is a Satellite?</h2>
+                    <p>Satellites are objects placed into orbit around Earth or other celestial bodies for purposes such as communication, weather monitoring, and scientific research.</p>
                 </div>
                 <div class="flex-item">
-                    <h2>Types of Galaxies</h2>
-                    <p>Galaxies can be classified into three main types: spiral galaxies, elliptical galaxies, and irregular galaxies.</p>
+                    <h2>Types of Satellites</h2>
+                    <p>There are various types of satellites including communication satellites, weather satellites, and reconnaissance satellites.</p>
                 </div>
                 <div class="flex-item">
-                    <h2>Our Galaxy: The Milky Way</h2>
-                    <p>The Milky Way is a spiral galaxy that contains billions of stars, including our sun, and is part of the Local Group of galaxies.</p>
+                    <h2>ISRO's Satellites</h2>
+                    <p>ISRO has launched numerous satellites for various purposes, including the GSAT series for communication and the INSAT series for meteorology.</p>
                 </div>
             </div>
         </section>
 
         <!-- Quiz Section -->
         <div class="quiz-section">
-            <h2>Galaxy Quiz</h2>
+            <h2>Satellite Quiz</h2>
             <div class="quiz-question">
-                <p id="question-text">What is the name of our galaxy?</p>
+                <p id="question-text">What type of satellite is used for weather monitoring?</p>
             </div>
             <div class="options">
-                <button class="option" onclick="checkAnswer('Andromeda Galaxy')">Andromeda Galaxy</button>
-                <button class="option" onclick="checkAnswer('Milky Way Galaxy')">Milky Way Galaxy</button>
-                <button class="option" onclick="checkAnswer('Sombrero Galaxy')">Sombrero Galaxy</button>
-                <button class="option" onclick="checkAnswer('Whirlpool Galaxy')">Whirlpool Galaxy</button>
+                <button class="option" onclick="checkAnswer('Communication Satellite')">Communication Satellite</button>
+                <button class="option" onclick="checkAnswer('Weather Satellite')">Weather Satellite</button>
+                <button class="option" onclick="checkAnswer('Reconnaissance Satellite')">Reconnaissance Satellite</button>
+                <button class="option" onclick="checkAnswer('Navigation Satellite')">Navigation Satellite</button>
             </div>
             <div class="feedback" id="feedback"></div>
         </div>
@@ -244,29 +244,54 @@
 
         const questions = [
             {
-                question: "What is the name of our galaxy?",
-                options: ["Andromeda Galaxy", "Milky Way Galaxy", "Sombrero Galaxy", "Whirlpool Galaxy"],
-                answer: "Milky Way Galaxy",
+                question: "What type of satellite is used for weather monitoring?",
+                options: ["Communication Satellite", "Weather Satellite", "Reconnaissance Satellite", "Navigation Satellite"],
+                answer: "Weather Satellite",
             },
             {
-                question: "What type of galaxy is characterized by spiral arms?",
-                options: ["Elliptical Galaxy", "Spiral Galaxy", "Irregular Galaxy", "Lenticular Galaxy"],
-                answer: "Spiral Galaxy",
+                question: "Which ISRO satellite is used for communication?",
+                options: ["GSAT", "INSAT", "NavIC", "Chandrayaan"],
+                answer: "GSAT",
             },
             {
-                question: "Which galaxy is closest to the Milky Way?",
-                options: ["Andromeda Galaxy", "Triangulum Galaxy", "Sombrero Galaxy", "Whirlpool Galaxy"],
-                answer: "Andromeda Galaxy",
+                question: "What is the primary purpose of reconnaissance satellites?",
+                options: ["Weather Monitoring", "Communication", "Military Surveillance", "Scientific Research"],
+                answer: "Military Surveillance",
             },
             {
-                question: "What galaxy is known for its prominent dust lanes?",
-                options: ["Milky Way Galaxy", "Andromeda Galaxy", "Whirlpool Galaxy", "Sombrero Galaxy"],
-                answer: "Whirlpool Galaxy",
+                question: "Which satellite helps in disaster management?",
+                options: ["GSAT", "INSAT", "Cartosat", "NavIC"],
+                answer: "Cartosat",
             },
             {
-                question: "What is the primary component of galaxies?",
-                options: ["Planets", "Stars", "Comets", "Dust"],
-                answer: "Stars",
+                question: "What is the primary function of navigation satellites?",
+                options: ["Communication", "Weather Monitoring", "Global Positioning", "Scientific Research"],
+                answer: "Global Positioning",
+            },
+            {
+                question: "Which satellite is used to track cyclones?",
+                options: ["INSAT", "GSAT", "Cartosat", "NavIC"],
+                answer: "INSAT",
+            },
+            {
+                question: "What do communication satellites primarily do?",
+                options: ["Transmit Data", "Monitor Weather", "Take Pictures", "Help Navigation"],
+                answer: "Transmit Data",
+            },
+            {
+                question: "What is the lifespan of a typical satellite?",
+                options: ["1-2 Years", "5-10 Years", "15-20 Years", "30+ Years"],
+                answer: "5-10 Years",
+            },
+            {
+                question: "What is the term for the area of space around Earth where satellites orbit?",
+                options: ["Lunar Orbit", "Geostationary Orbit", "Magnetosphere", "Satellite Zone"],
+                answer: "Geostationary Orbit",
+            },
+            {
+                question: "Which satellite system is used for mobile communications?",
+                options: ["INSAT", "GSAT", "NavIC", "IRNSS"],
+                answer: "GSAT",
             },
         ];
 

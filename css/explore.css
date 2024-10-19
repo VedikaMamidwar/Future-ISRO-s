@@ -276,11 +276,11 @@ footer p {
     animation: rotate 15s infinite linear;
 }
 .whitedwarf-movement {
-    background-image: url('../icon/');
+    background-image: url('../images/white\ dwarf.jpeg');
     animation: rotate 15s infinite linear;
 }
 .blackdwarf-movement {
-    background-image: url('../icon/shooting-star.png');
+    background-image: url('../images/black\ dwarf.jpeg');
     animation: rotate 15s infinite linear;
 }
 .Constellation-movement {
@@ -296,11 +296,11 @@ footer p {
     animation: rotate 15s infinite linear;
 }
 .cosmosicdust-movement {
-    background-image: url('../icon/shooting-star.png');
+    background-image: url('../images/cosmosicdust.jpg');
     animation: rotate 15s infinite linear;
 }
 .astronaut-movement {
-    background-image: url('../icon/astronaut.png');
+    background-image: url('../icon/astranaut.jpg');
     animation: rotate 15s infinite linear;
 }
 

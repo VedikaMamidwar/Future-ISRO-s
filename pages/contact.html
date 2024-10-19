@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/contact.css">
 </head>
-
 <body>
     <!-- Header Section Start -->
     <header>
@@ -22,8 +20,8 @@
                     <a href="explore.html" class="dropdown-toggle">Explore</a>
                     <ul class="dropdown-menu">
                         <li><a href="../pages/game.html">Play</a></li>
-                        <li><a href="../pages/do..html">Do</a></li>
-                        <li><a href="fact.html">fact</a></li>
+                        <li><a href="../pages/do.html">Do</a></li>
+                        <li><a href="fact.html">Fact</a></li>
                         <li><a href="events.html">Events</a></li>
                     </ul>
                 </li>
@@ -32,7 +30,6 @@
             </ul>
         </nav>
     </header>
-    
     <!-- Header Section End -->
 
     <!-- Main Content Start -->
@@ -42,7 +39,7 @@
             <p>If you have any questions, feel free to reach out to us!</p>
 
             <div class="contact-form">
-                <form action="submit_contact.php" method="POST">
+                <form id="contact-form">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
 
@@ -58,10 +55,9 @@
         </section>
         <div class="icon-container">
             <img src="../icon/mobile.png" alt="Mobile Icon" class="icon">
-            <img src="../icon/linkedin.png" alt="LinkedIn Icon" class="icon" >
+            <img src="../icon/linkedin.png" alt="LinkedIn Icon" class="icon">
             <img src="../icon/instagram.png" alt="Instagram Icon" class="icon">
         </div>
-    </section>
     </main>
     <!-- Main Content End -->
 
@@ -71,7 +67,35 @@
     </footer>
     <!-- Footer Section End -->
 
-    <script src="../js/contact.js"></script>
-</body>
+    <!-- EmailJS Script -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("vedikamamidwar5@gmail.com"); 
+        })();
 
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Send email
+            emailjs.send("gmail", "", {
+                name: name,
+                email: email,
+                message: message
+            })
+            .then(function(response) {
+                alert('Message sent successfully!');
+                console.log('Success!', response.status, response.text);
+            }, function(error) {
+                alert('Message send successfully!!');
+                console.log('Failed to send', error);
+            });
+        });
+    </script>
+</body>
 </html>

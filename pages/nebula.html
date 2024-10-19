@@ -28,7 +28,8 @@
     /* Nebula Information Flexboxes */
     .flex-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        align-items: flex-start;
         gap: 30px;
         flex-wrap: wrap;
         margin: 40px 0;
@@ -37,46 +38,38 @@
     .flex-item {
         background: #1e1e1e;
         border: 3px solid #ff6f61;
-        padding: 30px;
-        width: 30%;
+        padding: 20px;
+        width: 300px;
         border-radius: 15px;
         text-align: center;
         transition: transform 0.4s ease, box-shadow 0.4s ease;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
         position: relative;
         overflow: hidden;
+        margin: 10px;
     }
 
-    .flex-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
+    .flex-item img {
         width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .flex-item:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
-    }
-
-    .flex-item:hover::before {
-        opacity: 1;
-    }
-
-    h2 {
-        font-size: 2.2em;
-        color: #ff6f61;
+        height: auto;
+        border-radius: 10px;
         margin-bottom: 15px;
     }
 
+    .flex-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+    }
+
+    h2 {
+        font-size: 2em;
+        color: #ff6f61;
+        margin-bottom: 10px;
+    }
+
     p {
-        font-size: 1.3em;
-        line-height: 1.8;
+        font-size: 1.2em;
+        line-height: 1.6;
     }
 
     /* Quiz Section */
@@ -143,39 +136,7 @@
         transform: scale(1.05);
     }
 
-    /* Nebula Animation */
-    .nebula {
-        position: absolute;
-        width: 150px;
-        animation: spin 10s linear infinite;
-    }
 
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg) translateX(150px) rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg) translateX(150px) rotate(-360deg);
-        }
-    }
-
-    .nebula1 {
-        top: 20%;
-        left: 80%;
-        animation-delay: 0s;
-    }
-
-    .nebula2 {
-        top: 30%;
-        left: 5%;
-        animation-delay: 3s;
-    }
-
-    .nebula3 {
-        top: 50%;
-        left: 50%;
-        animation-delay: 6s;
-    }
   </style>
 </head>
 <body>
@@ -185,31 +146,24 @@
             <p>Discover the beauty and mysteries of nebulae, their types, and take a fun quiz to test your knowledge!</p>
         </header>
 
-        <!-- Three Nebulae Animation -->
-        <div class="nebula nebula1">
-            <img src="../icon/emission-nebula.png" alt="Nebula 1" />
-        </div>
-        <div class="nebula nebula2">
-            <img src="../icon/reflection-nebula.png" alt="Nebula 2" />
-        </div>
-        <div class="nebula nebula3">
-            <img src="../icon planetary-nebula.png" alt="Nebula 3" />
-        </div>
-
+       
         <!-- Nebula Information in Flexboxes -->
         <section class="nebula-info">
             <div class="flex-container">
                 <div class="flex-item">
+                    <img src="../images/nebula.jpg" alt="Nebula Image">
                     <h2>What is a Nebula?</h2>
-                    <p>A nebula is a giant cloud of dust and gas in space. Some nebulae form stars, while others are remnants of dead or dying stars.</p>
+                    <p>A nebula is a giant cloud of dust and gas in space. Some nebulae form stars, while others are remnants of dead or dying stars. They can be large, bright clouds like the famous Orion Nebula or dark, dense regions of space where stars are still forming.</p>
                 </div>
                 <div class="flex-item">
+                    <img src="../images/tnebula.jpeg" alt="Types of Nebulae">
                     <h2>Types of Nebulae</h2>
-                    <p>Nebulae can be classified into three main types: emission nebulae, reflection nebulae, and planetary nebulae.</p>
+                    <p>Nebulae can be classified into three main types: emission nebulae, which glow due to the ionization of their gas; reflection nebulae, which shine by reflecting the light of nearby stars; and planetary nebulae, which are shells of gas expelled by dying stars.</p>
                 </div>
                 <div class="flex-item">
+                    <img src="../images/famous nebula.jpg" alt="Famous Nebulae">
                     <h2>Famous Nebulae</h2>
-                    <p>Some of the most famous nebulae include the Orion Nebula, the Crab Nebula, and the Ring Nebula.</p>
+                    <p>Some of the most famous nebulae include the <strong>Orion Nebula</strong>, a massive star-forming region; the <strong>Crab Nebula</strong>, a remnant of a supernova explosion; and the <strong>Ring Nebula</strong>, a glowing shell of gas surrounding a dying star.</p>
                 </div>
             </div>
         </section>
@@ -253,46 +207,37 @@
                 answer: "Orion Nebula",
             },
             {
-                question: "What type of nebula reflects light from nearby stars?",
-                options: ["Planetary Nebula", "Emission Nebula", "Reflection Nebula", "Supernova Remnant"],
+                question: "What type of nebula reflects the light of nearby stars?",
+                options: ["Emission Nebula", "Planetary Nebula", "Reflection Nebula", "Supernova Remnant"],
                 answer: "Reflection Nebula",
-            },
-            {
-                question: "What nebula is formed from the remnants of a dying star?",
-                options: ["Planetary Nebula", "Emission Nebula", "Dark Nebula", "Eagle Nebula"],
-                answer: "Planetary Nebula",
             },
         ];
 
         let currentQuestionIndex = 0;
 
-        function displayQuestion() {
-            const question = questions[currentQuestionIndex];
-            const questionText = document.getElementById('question-text');
-            questionText.textContent = question.question;
-            const options = document.querySelectorAll('.option');
-            options.forEach((option, index) => {
-                option.textContent = question.options[index];
-            });
-        }
-
         function checkAnswer(selectedAnswer) {
             const feedback = document.getElementById('feedback');
-            const correctAnswer = questions[currentQuestionIndex].answer;
-            if (selectedAnswer === correctAnswer) {
-                feedback.textContent = "Correct! 🎉";
+            if (selectedAnswer === questions[currentQuestionIndex].answer) {
+                feedback.innerHTML = "<p style='color: green;'>Correct! Let's move to the next question.</p>";
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    loadNextQuestion();
+                } else {
+                    feedback.innerHTML = "<p style='color: green;'>Congratulations! You've completed the quiz.</p>";
+                }
             } else {
-                feedback.textContent = `Wrong! The correct answer is: ${correctAnswer}.`;
+                feedback.innerHTML = "<p style='color: red;'>Oops! That's not correct. Try again.</p>";
             }
-            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length; // Cycle through questions
-            setTimeout(() => {
-                feedback.textContent = ""; // Clear feedback
-                displayQuestion(); // Show next question
-            }, 2000);
         }
 
-        // Initialize the first question
-        displayQuestion();
+        function loadNextQuestion() {
+            const questionText = document.getElementById('question-text');
+            const options = document.querySelectorAll('.option');
+            questionText.textContent = questions[currentQuestionIndex].question;
+            options.forEach((option, index) => {
+                option.textContent = questions[currentQuestionIndex].options[index];
+            });
+        }
     </script>
 </body>
 </html>

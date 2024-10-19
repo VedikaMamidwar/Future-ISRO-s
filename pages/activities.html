@@ -48,7 +48,8 @@
 
         ul {
             list-style-type: disc; /* Bullet points */
-            margin-left: 20px; /* Margin on the left */
+            margin-left: 20px;
+            color: white; /* Margin on the left */
         }
 
         p {
@@ -177,7 +178,7 @@
         <div class="video">
             <h2>Watch the Video Tutorial:</h2>
             <div class="video-box">
-                <a href="https://www.youtube.com/watch?v=YOUR_FIRST_VIDEO_ID" target="_blank">DIY Tutorial</a>
+                <a href="https://youtu.be/-cK0ymM5azE?si=1QLtYYEgCv39bWzk" target="_blank">DIY Tutorial</a>
             </div>
         </div>
 
@@ -209,7 +210,7 @@
                     { step: 'Step 5: Seal the Galaxy', desc: 'Once done, seal the jar with the lid. Shake gently to distribute the colors.' },
                     { step: 'Step 6: Enjoy Your Mini Galaxy', desc: 'Place on a shelf or use as a nightlight.' }
                 ],
-                video: 'https://www.youtube.com/watch?v=YOUR_FIRST_VIDEO_ID' // Replace with actual link
+                video: 'https://youtu.be/-cK0ymM5azE?si=1QLtYYEgCv39bWzk' // Replace with actual link
             },
             {
                 title: 'DIY Solar System Mobile',
@@ -228,8 +229,28 @@
                     { step: 'Step 3: Assemble the Mobile', desc: 'Use string to hang the planets from sticks or rods.' },
                     { step: 'Step 4: Hang the Mobile', desc: 'Find a nice spot to hang your mobile and enjoy your creation!' }
                 ],
-                video: 'https://www.youtube.com/watch?v=YOUR_SECOND_VIDEO_ID' // Replace with actual link
+                video: 'https://youtu.be/wCeS2QtggOA?si=DBcW7RCJxUx8HLsd' // Replace with actual link
+            },
+            {
+                title: 'Handmade Rocket',
+                materials: [
+                'A cardboard tube (like from toilet paper or paper towels)',
+                'Colored paper or paint',
+                'Scissors',
+                'Glue or tape',
+                'Markers',
+                'Star stickers or other decorations'
+                ],
+                instructions: [
+                { step: 'Step 1: Decorate the Tube', desc: 'Use colored paper or paint to decorate the cardboard tube as your rocket body.' },
+                { step: 'Step 2: Create the Rocket Nose', desc: 'Cut a triangle from colored paper to create the rocket nose cone. Attach it to one end of the tube with glue or tape.' },
+                { step: 'Step 3: Add Fins', desc: 'Cut out fins from colored paper. Attach them around the bottom of the tube for stability.' },
+                { step: 'Step 4: Final Touches', desc: 'Use markers and stickers to add details to your rocket. You can draw windows, flames, or stars.' },
+                { step: 'Step 5: Launch Your Rocket', desc: 'Hold your rocket and pretend to launch it into space! You can also create a launch pad from a cardboard base.' }
+                ],
+                video: 'https://youtu.be/RjkK88CXCkk' // Replace with actual video link
             }
+
         ];
 
         let currentCraftIndex = 0;
@@ -254,8 +275,8 @@
 
         function goHome() {
             // Redirect to the home page or reset the currentCraftIndex
-            currentCraftIndex = 0; // Reset to the first craft
-            loadCraft(currentCraftIndex);
+           
+            window.location.href = '../pages/index.html';
         }
 
         function loadCraft(index) {

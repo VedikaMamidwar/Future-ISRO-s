@@ -55,10 +55,10 @@
       background-color: #ff5733;
     }
 
-    /* Position the end game button to the right outside the canvas */
-    #endGameBtn {
+    /* Adjust the position of the back button */
+    #backBtn {
       position: absolute;
-      right: 10px;
+      right: 50px; /* Moved it slightly to the right */
       top: 90%;
       transform: translateY(-50%);
     }
@@ -68,9 +68,8 @@
 <body>
   <h1>Asteroid Dodger</h1>
   <div class="info" id="infoText">Save your spaceship from the asteroid!</div>
-  <!-- Reduced canvas size -->
   <canvas id="gameCanvas"></canvas>
-  <button id="endGameBtn">End Game</button>
+  <button id="backBtn">Back</button> <!-- Renamed Home button to Back -->
 
   <script>
     // Get canvas and context
@@ -209,14 +208,13 @@
       requestAnimationFrame(gameLoop);
     }
 
-    // End game function
-    function endGame() {
-      gameRunning = false;
-      alert('Game has been stopped. Your score: ' + score);
+    // Go Back function
+    function goBack() {
+      window.location.href = '../pages/game.html'; // Redirect to home page
     }
 
-    // End Game button functionality
-    document.getElementById('endGameBtn').addEventListener('click', endGame);
+    // Back button functionality
+    document.getElementById('backBtn').addEventListener('click', goBack); // Attach event to Back button
 
     // Keyboard events
     document.addEventListener('keydown', (e) => {

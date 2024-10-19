@@ -69,8 +69,8 @@
             font-size: 24px; /* Increased score font size */
         }
 
-        /* End Game Button */
-        #end-game {
+        /* Back Button */
+        #back {
             position: absolute;
             bottom: 50px;
             right: 50px;
@@ -88,15 +88,15 @@
         <div id="catcher"></div>
         <div id="score">Score: 0</div>
     </div>
-    <button id="end-game">End Game</button>
+    <button id="back">Back</button> <!-- Single button for back -->
 
     <script>
         // Get the game elements
         const catcher = document.getElementById('catcher');
         const gameContainer = document.getElementById('game-container');
         const scoreDisplay = document.getElementById('score');
-        const endGameButton = document.getElementById('end-game');
-
+        const backButton = document.getElementById('back'); // Get the Back button
+        
         let score = 0;
         let catcherX = (gameContainer.offsetWidth - catcher.offsetWidth) / 2; // Initial catcher position
         let starFallSpeed = 2; // Initial speed of the stars
@@ -172,14 +172,12 @@
             increaseDifficulty();
         }, starInterval);
 
-        // Function to handle ending the game
-        endGameButton.addEventListener('click', () => {
+        // Function to go back (end game)
+        backButton.addEventListener('click', () => {
             gameRunning = false;
             clearInterval(gameInterval); // Stop the game loop
             alert(`Game Over! Your final score is: ${score}`);
-            
-            // Exit the game (either reload or redirect)
-            window.location.reload(); // Reload the page to restart the game
+            window.location.href = '../pages/game.html'; // Redirect to home or any specified page
         });
     </script>
 </body>

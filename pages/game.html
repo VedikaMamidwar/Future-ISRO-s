@@ -142,35 +142,35 @@
         <div class="game-section">
             <h3 class="game-title">Game 1: Space Quiz</h3>
             <p class="game-description">Test your knowledge about space with our fun quiz!</p>
-            <button class="start-button" onclick="startGame('Space Quiz')">Start Game</button>
+            <button class="start-button" onclick="startGame('game1')">Start Game</button>
             <img src="../icon/rocket.png" alt="Rocket" class="floating" style="top: 10px; left: 10px;">
         </div>
 
         <div class="game-section">
             <h3 class="game-title">Game 2: Asteroid Dodger</h3>
             <p class="game-description">Dodge the asteroids and collect points!</p>
-            <button class="start-button" onclick="startGame('Asteroid Dodger')">Start Game</button>
+            <button class="start-button" onclick="startGame('game2')">Start Game</button>
             <img src="../icon/dwarf-planet.png" alt="Asteroid" class="floating" style="top: 40px; right: 10px;">
         </div>
 
         <div class="game-section">
             <h3 class="game-title">Game 3: Star Catcher</h3>
             <p class="game-description">Catch the falling stars before they hit the ground!</p>
-            <button class="start-button" onclick="startGame('Star Catcher')">Start Game</button>
+            <button class="start-button" onclick="startGame('game3')">Start Game</button>
             <img src="../icon/star.png" alt="Star" class="floating" style="top: 10px; right: 10px;">
         </div>
 
         <div class="game-section">
             <h3 class="game-title">Game 4: Planet Explorer</h3>
             <p class="game-description">Explore the planets and learn about them!</p>
-            <button class="start-button" onclick="startGame('Planet Explorer')">Start Game</button>
+            <button class="start-button" onclick="startGame('game4')">Start Game</button>
             <img src="../icon/satellite-technology.png" alt="Planet" class="floating" style="top: 20px; left: 20px;">
         </div>
 
         <div class="game-section">
             <h3 class="game-title">Game 5: Space Race</h3>
             <p class="game-description">Race against your friends in a thrilling space race!</p>
-            <button class="start-button" onclick="startGame('Space Race')">Start Game</button>
+            <button class="start-button" onclick="startGame('game5')">Start Game</button>
             <img src="../icon/galaxy.png" alt="Spaceship" class="floating" style="top: 30px; right: 30px;">
         </div>
         
@@ -186,6 +186,35 @@
         function goHome() {
             window.location.href = '../pages/index.html';
         }
+
+        
+        function startGame(gameName) {
+    switch (gameName) {
+        case 'game1':
+            window.location.href = '../pages/game1.html';
+            break;
+        case 'game2':
+            window.location.href = '../pages/game2.html';
+            break;
+        case 'game3':
+            window.location.href = '../pages/game3.html';
+            break;
+        case 'game4':
+            window.location.href = '../pages/game4.html';
+            break;
+        case 'game5':
+            window.location.href = '../pages/game5.html';
+            break;
+        default:
+            alert('Game not found!');
+    }
+}
+
+    function goHome() {
+        window.location.href = '../pages/index.html';
+    }
+
+
     </script>
 </body>
 

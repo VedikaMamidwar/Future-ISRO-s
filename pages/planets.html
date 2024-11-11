@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +17,13 @@
         }
 
         @keyframes headerGlow {
-            0% { color: #ff6f61; }
-            100% { color: #ff6f61; }
+            0% {
+                color: #ff6f61;
+            }
+
+            100% {
+                color: #ff6f61;
+            }
         }
 
         .container {
@@ -60,7 +66,8 @@
         }
 
         .flex-item:hover {
-            transform: scale(1.05); /* Slightly enlarges the box */
+            transform: scale(1.05);
+            /* Slightly enlarges the box */
             box-shadow: 0 8px 20px rgba(255, 110, 97, 0.8);
         }
 
@@ -111,7 +118,7 @@
         .option {
             margin: 12px 0;
             padding: 15px;
-            background-color: #ff6f61 ;
+            background-color: #ff6f61;
             border: none;
             border-radius: 10px;
             font-size: 1.3em;
@@ -120,7 +127,7 @@
         }
 
         .option:hover {
-            background-color:  #ff6f61;
+            background-color: #ff6f61;
             transform: scale(1.05);
         }
 
@@ -134,7 +141,7 @@
             padding: 12px 25px;
             font-size: 1.2em;
             color: white;
-            background-color:  #ff6f61;
+            background-color: #ff6f61;
             border: none;
             border-radius: 10px;
             cursor: pointer;
@@ -142,7 +149,7 @@
         }
 
         .back-button button:hover {
-            background-color:  #ff6f61;
+            background-color: #ff6f61;
             transform: scale(1.05);
         }
 
@@ -151,54 +158,125 @@
             text-align: center;
             margin-top: 15px;
         }
+
+        /* Rocket Animation */
+        .rocket {
+            position: absolute;
+            width: 150px;
+            animation: orbit 10s linear infinite;
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg) translateX(150px) rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg) translateX(150px) rotate(-360deg);
+            }
+        }
+
+        .rocket1 {
+            top: 20%;
+            left: 80%;
+            animation-delay: 0s;
+        }
+
+        .rocket2 {
+            top: 30%;
+            left: 5%;
+            animation-delay: 3s;
+        }
+
+        .rocket3 {
+            top: 50%;
+            left: 50%;
+            animation-delay: 6s;
+        }
     </style>
 </head>
+
 <body>
-   
+
     <div class="container">
         <header class="page-header">
             <h1>Explore Planets</h1>
             <p>Learn fascinating facts about planets, play a fun quiz, and challenge yourself!</p>
         </header>
 
+        <!-- Three Rockets Animation -->
+        <div class="rocket rocket1">
+            <img src="../icon/planet.png" alt="Rocket 1" />
+        </div>
+        <div class="rocket rocket2">
+            <img src="../icon/planet.png" alt="Rocket 2" />
+        </div>
+        <div class="rocket rocket3">
+            <img src="../icon/planet.png" alt="Rocket 3" />
+        </div>
+
         <!-- Planet Information in Flexboxes -->
         <section class="planet-info">
             <div class="flex-container">
                 <div class="flex-item">
                     <h2>Mercury</h2>
-                    <p>Mercury is the closest planet to the Sun, with surface temperatures soaring above 800°F during the day and plummeting to -330°F at night. It has no atmosphere, leading to extreme temperature variations. Mercury was discovered by ancient astronomers, and its name comes from the Roman messenger god.</p>
+                    <p>Mercury is the closest planet to the Sun, with surface temperatures soaring above 800°F during
+                        the day and plummeting to -330°F at night. It has no atmosphere, leading to extreme temperature
+                        variations. Mercury was discovered by ancient astronomers, and its name comes from the Roman
+                        messenger god.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Venus</h2>
-                    <p>Venus is the hottest planet in our solar system due to its thick atmosphere filled with carbon dioxide, trapping heat. Its surface is covered with volcanoes and it rotates backward compared to other planets. Venus has been observed since ancient times, often called the Morning Star or Evening Star.</p>
+                    <p>Venus is the hottest planet in our solar system due to its thick atmosphere filled with carbon
+                        dioxide, trapping heat. Its surface is covered with volcanoes and it rotates backward compared
+                        to other planets. Venus has been observed since ancient times, often called the Morning Star or
+                        Evening Star.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Earth</h2>
-                    <p>Earth is the only planet known to support life, with diverse ecosystems and a balance of land and water. Its atmosphere protects living beings from harmful solar radiation and helps maintain a stable climate. Earth has been studied by humans for millennia, and it is the only planet with known civilizations.</p>
+                    <p>Earth is the only planet known to support life, with diverse ecosystems and a balance of land and
+                        water. Its atmosphere protects living beings from harmful solar radiation and helps maintain a
+                        stable climate. Earth has been studied by humans for millennia, and it is the only planet with
+                        known civilizations.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Mars</h2>
-                    <p>Mars, known as the Red Planet, is home to the tallest volcano in the solar system, Olympus Mons, and has the largest canyon, Valles Marineris. Scientists are studying its surface for signs of past life. Mars has been observed since ancient times and has been visited by numerous spacecraft.</p>
+                    <p>Mars, known as the Red Planet, is home to the tallest volcano in the solar system, Olympus Mons,
+                        and has the largest canyon, Valles Marineris. Scientists are studying its surface for signs of
+                        past life. Mars has been observed since ancient times and has been visited by numerous
+                        spacecraft.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Jupiter</h2>
-                    <p>Jupiter is the largest planet, famous for its Great Red Spot, a giant storm larger than Earth. It has a thick atmosphere composed mainly of hydrogen and helium, and its many moons are fascinating to study. Discovered by Galileo Galilei in 1610, Jupiter is a prominent fixture in the night sky.</p>
+                    <p>Jupiter is the largest planet, famous for its Great Red Spot, a giant storm larger than Earth. It
+                        has a thick atmosphere composed mainly of hydrogen and helium, and its many moons are
+                        fascinating to study. Discovered by Galileo Galilei in 1610, Jupiter is a prominent fixture in
+                        the night sky.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Saturn</h2>
-                    <p>Saturn is renowned for its stunning rings made of ice and rock particles. It has a low density, which means it could float in water, and it boasts numerous moons, including the intriguing Titan. Saturn has been known since ancient times, with its rings first observed by Galileo.</p>
+                    <p>Saturn is renowned for its stunning rings made of ice and rock particles. It has a low density,
+                        which means it could float in water, and it boasts numerous moons, including the intriguing
+                        Titan. Saturn has been known since ancient times, with its rings first observed by Galileo.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Uranus</h2>
-                    <p>Uranus is unique for its tilted rotation, causing extreme seasons. It has a blue-green color due to methane in its atmosphere and is classified as an ice giant with a cold atmosphere. Discovered by Sir William Herschel in 1781, it was the first planet found with a telescope.</p>
+                    <p>Uranus is unique for its tilted rotation, causing extreme seasons. It has a blue-green color due
+                        to methane in its atmosphere and is classified as an ice giant with a cold atmosphere.
+                        Discovered by Sir William Herschel in 1781, it was the first planet found with a telescope.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Neptune</h2>
-                    <p>Neptune is the farthest planet from the Sun, known for its intense winds, reaching speeds of over 1,200 mph. Its deep blue color is due to the absorption of red light by methane in the atmosphere. Discovered in 1846, Neptune's position was predicted mathematically before it was observed.</p>
+                    <p>Neptune is the farthest planet from the Sun, known for its intense winds, reaching speeds of over
+                        1,200 mph. Its deep blue color is due to the absorption of red light by methane in the
+                        atmosphere. Discovered in 1846, Neptune's position was predicted mathematically before it was
+                        observed.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Pluto</h2>
-                    <p>Though reclassified as a dwarf planet, Pluto has a complex atmosphere and is known for its large moon, Charon. Its distance from the Sun makes it one of the coldest places in our solar system. Discovered by Clyde Tombaugh in 1930, Pluto sparked debates about planetary classification.</p>
+                    <p>Though reclassified as a dwarf planet, Pluto has a complex atmosphere and is known for its large
+                        moon, Charon. Its distance from the Sun makes it one of the coldest places in our solar system.
+                        Discovered by Clyde Tombaugh in 1930, Pluto sparked debates about planetary classification.</p>
                 </div>
             </div>
         </section>
@@ -314,4 +392,5 @@
         loadQuestion();
     </script>
 </body>
+
 </html>

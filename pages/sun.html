@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,21 +6,23 @@
     <title>The Sun | Future ISROs</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* General Page Styling */
+        
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #000000; /* Black background to mimic space */
+            background-color: #000000;
             color: #f1f1f1;
             margin: 0;
             padding: 0;
             text-align: center;
         }
 
-        .sun-section {
+        .sun-section, .quiz-section {
             padding: 50px 20px;
         }
 
         h1 {
-            color: #ffdd00; /* Bright yellow color for the Sun */
+            color: #ff6f61;
             text-shadow: 3px 3px #000;
             font-size: 3rem;
             margin-bottom: 20px;
@@ -30,13 +30,14 @@
 
         .fact-box {
             background: #1e1e1e;
-            border: 3px solid #ffdd00; /* Border matching the Sun color */
+            color: #ff6f61;
+            border: 3px solid;
             border-radius: 10px;
             padding: 20px;
             margin: 20px auto;
             width: 80%;
             max-width: 700px;
-            box-shadow: 0 5px 15px rgba(255, 221, 0, 0.5);
+            box-shadow: 0 5px 15px #ff6f61;
             transition: transform 0.3s ease-in-out;
         }
 
@@ -45,18 +46,18 @@
         }
 
         .fact-box h2 {
-            color: #ffdd00;
+            color: #ff6f61;
             font-size: 2rem;
         }
 
-        .fact-box p {
+        .fact-box p, .quiz-question, .quiz-option {
             font-size: 1.3rem;
             line-height: 1.8;
             color: #fff;
         }
 
-        #learnMore {
-            background-color: #ffdd00;
+        #learnMore, #backToExplore {
+            background-color: #fe4c3c;
             color: #121212;
             border: none;
             padding: 15px 30px;
@@ -67,20 +68,27 @@
             margin-top: 40px;
         }
 
-        #learnMore:hover {
-            background-color: #ffcc00;
+        #learnMore:hover, #backToExplore:hover {
             transform: scale(1.05);
+        }
+        
+        /* Sun Image Styling */
+        .sun-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
         }
 
         .sun-image {
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             background: url('https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg') no-repeat center center;
             background-size: cover;
             border-radius: 50%;
             margin: 30px auto;
-            box-shadow: 0 10px 20px rgba(255, 221, 0, 0.5);
-            animation: rotateSun 10s linear infinite; /* Add rotation animation */
+            box-shadow: 0 10px 20px #ff4f3b;
+            animation: rotateSun 15s linear infinite;
         }
 
         @keyframes rotateSun {
@@ -91,43 +99,185 @@
                 transform: rotate(360deg);
             }
         }
+
+        /* Quiz Section Styling */
+        .quiz-section {
+            background-color: #1b1b1b;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 5px 15px rgba(255, 79, 59, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .quiz-question {
+            font-size: 1.5rem;
+            color: #ff4f3b;
+            margin-bottom: 20px;
+        }
+
+        /* Flexbox for Quiz Options */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .quiz-option {
+            background-color: #333;
+            color: #ff4f3b;
+            padding: 15px;
+            margin: 10px 0;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background-color: #ff4f3b;
+            color: #121212;
+            transform: scale(1.05);
+        }
+
+        /* Feedback Styling */
+        #feedback {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            color: #ff4f3b;
+        }
+
     </style>
 </head>
 <body>
 
     <section class="sun-section">
         <h1>The Amazing Sun!</h1>
-
         <div class="sun-image"></div>
-
-        <div class="fact-box">
-            <h2>☀️ What is the Sun?</h2>
-            <p>The Sun is a huge ball of hot, glowing gases at the center of our solar system. It’s so big that more than 1 million Earths could fit inside it!</p>
-        </div>
-
-        <div class="fact-box">
-            <h2>🔥 How Hot is the Sun?</h2>
-            <p>The Sun’s surface is about 5,500°C, but its core can reach temperatures of 15 million degrees Celsius! That’s hotter than a million ovens!</p>
-        </div>
-
-        <div class="fact-box">
-            <h2>🌞 How Does the Sun Help Us?</h2>
-            <p>The Sun gives us light and heat, which helps plants grow, keeps us warm, and makes life possible on Earth. Without the Sun, life couldn’t exist!</p>
-        </div>
-
-        <button id="learnMore">Learn More About the Sun</button>
     </section>
 
-<<<<<<< HEAD
+    <div class="fact-box">
+        <h2>☀️ What is the Sun?</h2>
+        <p>The Sun is a huge ball of hot, glowing gases at the center of our solar system. It’s so big that more than 1 million Earths could fit inside it!</p>
+    </div>
+
+    <div class="fact-box">
+        <h2>🔥 How Hot is the Sun?</h2>
+        <p>The Sun’s surface is about 5,500°C, but its core can reach temperatures of 15 million degrees Celsius! That’s hotter than a million ovens!</p>
+    </div>
+
+    <div class="fact-box">
+        <h2>🌞 How Does the Sun Help Us?</h2>
+        <p>The Sun gives us light and heat, which helps plants grow, keeps us warm, and makes life possible on Earth. Without the Sun, life couldn’t exist!</p>
+    </div>
+
+    <section class="quiz-section">
+        <h2 class="quiz-question" id="question-text">What type of star is the Sun?</h2>
+        
+        <div class="options">
+            <button class="quiz-option" onclick="checkAnswer('Red Dwarf')">Red Dwarf</button>
+            <button class="quiz-option" onclick="checkAnswer('White Dwarf')">White Dwarf</button>
+            <button class="quiz-option" onclick="checkAnswer('Yellow Dwarf')">Yellow Dwarf</button>
+            <button class="quiz-option" onclick="checkAnswer('Blue Giant')">Blue Giant</button>
+        </div>
+        
+        <div id="feedback"></div>
+    </section>
+
+    <button id="backToExplore">Back to Explore Page</button>
+
     <script>
-        document.getElementById('learnMore').addEventListener('click', function() {
-            window.location.href = 'explore-sun.html'; // Link to a page with more detailed info if available
+        document.getElementById('backToExplore').addEventListener('click', function() {
+            window.location.href = 'explore.html';
         });
+
+        const questions = [
+            {
+                question: "What type of star is the Sun?",
+                options: ["Red Dwarf", "White Dwarf", "Yellow Dwarf", "Blue Giant"],
+                answer: "Yellow Dwarf",
+            },
+            {
+                question: "What is the surface temperature of the Sun?",
+                options: ["5,500°C", "15 million °C", "100°C", "1,000°C"],
+                answer: "5,500°C",
+            },
+            {
+                question: "What element is the Sun mostly made of?",
+                options: ["Oxygen", "Carbon", "Hydrogen", "Iron"],
+                answer: "Hydrogen",
+            },
+            {
+                question: "What phenomenon causes the Sun’s surface to appear spotty?",
+                options: ["Solar Wind", "Sunspots", "Solar Flares", "Solar Eclipse"],
+                answer: "Sunspots",
+            },
+            {
+                question: "What layer of the Sun do we see from Earth?",
+                options: ["Core", "Photosphere", "Corona", "Chromosphere"],
+                answer: "Photosphere",
+            },
+            {
+                question: "How old is the Sun?",
+                options: ["4.6 billion years", "10 million years", "500,000 years", "1 trillion years"],
+                answer: "4.6 billion years",
+            },
+            {
+                question: "What force keeps the Sun and planets together?",
+                options: ["Magnetism", "Gravity", "Electricity", "Friction"],
+                answer: "Gravity",
+            },
+            {
+                question: "What will the Sun become after it exhausts its fuel?",
+                options: ["Black Hole", "White Dwarf", "Supernova", "Red Giant"],
+                answer: "White Dwarf",
+            },
+            {
+                question: "How much of the solar system’s mass does the Sun contain?",
+                options: ["25%", "75%", "99.8%", "50%"],
+                answer: "99.8%",
+            },
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function checkAnswer(selectedIndex) {
+            const feedback = document.getElementById('feedback');
+            const selectedAnswer = questions[currentQuestionIndex].options[selectedIndex];
+            if (selectedAnswer === questions[currentQuestionIndex].answer) {
+                feedback.innerHTML = "Correct!";
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    loadNextQuestion();
+                } else {
+                    feedback.innerHTML = "Congratulations, you completed the quiz!";
+                }
+            } else {
+                feedback.innerHTML = "Incorrect. Try again!";
+            }
+        }
+
+        function loadNextQuestion() {
+            const questionText = document.getElementById('question-text');
+            questionText.textContent = questions[currentQuestionIndex].question;
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach((option, index) => {
+                option.textContent = questions[currentQuestionIndex].options[index];
+                option.onclick = () => checkAnswer(index);
+            });
+            document.getElementById('feedback').innerHTML = "";
+        }
+
+        // Load the first question when the page loads
+        loadNextQuestion();
     </script>
 
 </body>
 </html>
-=======
-</html>
->>>>>>> f14b6a4b89f59efac895f105dc61a65076560712
->>>>>>> f3b6b16aab55d72f5f6b4e5f8e2163c37b2d9501

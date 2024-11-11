@@ -65,3 +65,16 @@ function releaseFlowers() {
         }, 5000);
     }
 }
+document.getElementById('feedbackForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent actual form submission
+    
+    // Get the user's name from the form
+    const name = document.getElementById('name').value;
+    
+    // Display the certificate
+    document.getElementById('userName').textContent = name;
+    document.getElementById('certificateContainer').style.display = 'block';
+
+    // Hide the form after submission
+    document.querySelector('.feedback-form').style.display = 'none';
+});

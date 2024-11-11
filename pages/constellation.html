@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Constellations</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b1b3f;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            margin: 40px auto;
+            padding: 0 20px;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            color: #ffd700;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Constellation Information */
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #1f2a5c;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            border: 3px solid #ffd700;
+            transition: transform 0.3s ease;
+        }
+
+        .info-section:hover {
+            transform: scale(1.05);
+        }
+
+        .info-section h2 {
+            color: #ffd700;
+            text-align: center;
+            font-size: 2.2em;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: #1f2a5c;
+            border: 3px solid #ffd700;
+        }
+
+        .quiz-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .quiz-question p {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option {
+            margin: 12px 0;
+            padding: 15px;
+            background-color: #5ec4ff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #4ea1cc;
+            transform: scale(1.05);
+        }
+
+        .feedback {
+            font-size: 20px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Moving Constellation Animation */
+        @keyframes constellationMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -500px 0;
+            }
+        }
+
+        .constellation-animation {
+            margin: 40px auto;
+            width: 300px;
+            height: 300px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Orion_constellation_map.svg/1024px-Orion_constellation_map.svg.png') no-repeat center;
+            background-size: contain;
+            animation: constellationMove 8s linear infinite;
+        }
+
+        /* Moving Stars Background */
+        .moving-stars {
+            background: url('https://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA23645-1920x1200.jpg') repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            z-index: -1;
+            opacity: 0.2;
+            animation: starScroll 20s linear infinite;
+        }
+
+        @keyframes starScroll {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* Additional Constellation Animation */
+        .constellation-animation-2 {
+            margin: 40px auto;
+            width: 300px;
+            height: 300px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Cassiopeia_constellation_map.svg/1280px-Cassiopeia_constellation_map.svg.png') no-repeat center;
+            background-size: contain;
+            animation: constellationMove 10s linear infinite;
+        }
+
+        /* Kid-friendly Constellation Animation */
+        .kids-constellation {
+            position: relative;
+            margin: 40px auto;
+            width: 200px;
+            height: 200px;
+            background: transparent;
+        }
+
+        .star {
+            width: 12px;
+            height: 12px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            position: absolute;
+            animation: twinkle 1.5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Specific star positions for Orion constellation */
+        .orion-star-1 { top: 10%; left: 40%; }
+        .orion-star-2 { top: 30%; left: 50%; }
+        .orion-star-3 { top: 50%; left: 60%; }
+        .orion-star-4 { top: 70%; left: 45%; }
+        .orion-star-5 { top: 90%; left: 55%; }
+
+        /* Specific star positions for Cassiopeia constellation */
+        .cassiopeia-star-1 { top: 10%; left: 20%; }
+        .cassiopeia-star-2 { top: 30%; left: 30%; }
+        .cassiopeia-star-3 { top: 50%; left: 40%; }
+        .cassiopeia-star-4 { top: 30%; left: 60%; }
+        .cassiopeia-star-5 { top: 10%; left: 70%; }
+
+        /* Back to Explore Button */
+        .back-button {
+            display: block;
+            margin: 0 auto;
+            padding: 15px 25px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #e65c53;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Moving Stars Background -->
+    <div class="moving-stars"></div>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Page Header -->
+        <header>
+            <h1>Explore the Constellations</h1>
+            <p>Learn about the stars, enjoy an interactive quiz, and discover the wonders of constellations!</p>
+        </header>
+
+        <!-- Moving Constellation Animations -->
+        <div class="constellation-animation"></div>
+        <div class="constellation-animation-2"></div>
+
+        <!-- Kid-Friendly Constellation Animation -->
+        <h2 style="text-align: center; color: #ffd700;">Constellations for Kids!</h2>
+        <div class="kids-constellation">
+            <h3 style="text-align: center; color: #ffcb6e;">Orion</h3>
+            <div class="star orion-star-1"></div>
+            <div class="star orion-star-2"></div>
+            <div class="star orion-star-3"></div>
+            <div class="star orion-star-4"></div>
+            <div class="star orion-star-5"></div>
+        </div>
+        <div class="kids-constellation">
+            <h3 style="text-align: center; color: #ffcb6e;">Cassiopeia</h3>
+            <div class="star cassiopeia-star-1"></div>
+            <div class="star cassiopeia-star-2"></div>
+            <div class="star cassiopeia-star-3"></div>
+            <div class="star cassiopeia-star-4"></div>
+            <div class="star cassiopeia-star-5"></div>
+        </div>
+
+        <!-- Information about Constellations -->
+        <section class="info-section">
+            <h2>What are Constellations?</h2>
+            <p>Constellations are groups of stars that form patterns in the night sky. Since ancient times, humans have looked up to the stars and recognized familiar shapes. These patterns have helped people navigate, mark the passage of time, and tell stories. Today, 88 official constellations are recognized by astronomers worldwide. Some of the most famous constellations include Orion, Ursa Major, and Cassiopeia.</p>
+        </section>
+
+        <!-- Types of Constellations -->
+        <section class="info-section">
+            <h2>Types of Constellations</h2>
+            <p>Constellations are generally categorized into three main types based on their location and visibility:</p>
+
+            <h3>Zodiac Constellations</h3>
+            <p>The Zodiac constellations are a group of constellations that the Sun appears to pass through during the year. These constellations are associated with astrology and include Aries, Taurus, Gemini, and more.</p>
+
+            <h3>Circumpolar Constellations</h3>
+            <p>Circumpolar constellations are visible all year round in the Northern or Southern Hemisphere. In the northern sky, constellations like Ursa Major and Ursa Minor are always visible.</p>
+
+            <h3>Equatorial Constellations</h3>
+            <p>Equatorial constellations are located near the celestial equator, making them visible from both hemispheres at different times of the year. Some examples include Orion and Aquarius.</p>
+        </section>
+
+        <!-- Who Discovered the Constellations -->
+        <section class="info-section">
+            <h2>Who Discovered Constellations?</h2>
+            <p>The recognition of constellations has roots in various ancient civilizations. The ancient Greeks, Babylonians, and Egyptians are known for their contributions to the identification of constellations. Greek astronomer Ptolemy compiled a list of 48 constellations in his work "Almagest" around 150 AD, many of which are still recognized today. However, modern constellations were officially defined by the International Astronomical Union in the 20th century, making a total of 88 recognized constellations.</p>
+        </section>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>Constellation Quiz</h2>
+            <div class="quiz-question">
+                <p id="question-text">What is the largest constellation in the night sky?</p>
+            </div>
+            <div class="options">
+                <button class="option" onclick="checkAnswer('Orion')">Orion</button>
+                <button class="option" onclick="checkAnswer('Hydra')">Hydra</button>
+                <button class="option" onclick="checkAnswer('Cassiopeia')">Cassiopeia</button>
+                <button class="option" onclick="checkAnswer('Leo')">Leo</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- Back to Explore Button -->
+        <a href="explore.html" class="back-button">Back to Explore Page</a>
+
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the largest constellation in the night sky?",
+                options: ["Orion", "Hydra", "Cassiopeia", "Leo"],
+                answer: "Hydra",
+            },
+            {
+                question: "Which constellation is also known as the hunter?",
+                options: ["Orion", "Taurus", "Scorpius", "Libra"],
+                answer: "Orion",
+            },
+            {
+                question: "Which constellation represents a bull?",
+                options: ["Taurus", "Pisces", "Virgo", "Gemini"],
+                answer: "Taurus",
+            },
+            {
+                question: "Which constellation has a famous three-star belt?",
+                options: ["Orion", "Scorpius", "Leo", "Pisces"],
+                answer: "Orion",
+            },
+            {
+                question: "Which constellation represents a lion?",
+                options: ["Leo", "Taurus", "Sagittarius", "Aquarius"],
+                answer: "Leo",
+            },
+            {
+                question: "Which constellation represents the mythological twins Castor and Pollux?",
+                options: ["Gemini", "Sagittarius", "Cancer", "Pisces"],
+                answer: "Gemini",
+            },
+            {
+                question: "Which is the brightest star in the sky and belongs to the Canis Major constellation?",
+                options: ["Sirius", "Betelgeuse", "Vega", "Aldebaran"],
+                answer: "Sirius",
+            },
+            {
+                question: "Which of the following is a circumpolar constellation?",
+                options: ["Ursa Major", "Orion", "Pegasus", "Andromeda"],
+                answer: "Ursa Major",
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function loadQuestion() {
+            const questionElement = document.getElementById('question-text');
+            const options = document.querySelectorAll('.option');
+            const feedbackElement = document.getElementById('feedback');
+            feedbackElement.textContent = '';
+            questionElement.textContent = questions[currentQuestion].question;
+            options.forEach((option, index) => {
+                option.textContent = questions[currentQuestion].options[index];
+                option.onclick = () => checkAnswer(questions[currentQuestion].options[index]);
+            });
+        }
+
+        function checkAnswer(answer) {
+            const feedbackElement = document.getElementById('feedback');
+            if (answer === questions[currentQuestion].answer) {
+                feedbackElement.textContent = 'Correct! 🌟';
+                feedbackElement.style.color = 'lightgreen';
+            } else {
+                feedbackElement.innerHTML = `Incorrect! ❌ <br> Correct answer: ${questions[currentQuestion].answer}`;
+                feedbackElement.style.color = 'red';
+            }
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                setTimeout(loadQuestion, 3000); // Move to next question after 3 seconds
+            } else {
+                setTimeout(() => {
+                    feedbackElement.textContent = 'Quiz Completed! 🎉';
+                }, 3000); // End of quiz message
+            }
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

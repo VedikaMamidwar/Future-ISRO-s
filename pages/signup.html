@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Sign Up</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Sign-Up Box */
+        .signup-box {
+            background-color: #2b2b2b;
+            padding: 40px;
+            width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            position: relative;
+        }
+
+        .signup-box h2 {
+            color: #ff6f61;
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .signup-box input {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            border-radius: 10px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .signup-box input:focus {
+            border-color: #ff6f61;
+            outline: none;
+        }
+
+        .signup-box button {
+            width: 100%;
+            padding: 14px;
+            background-color: #ff6f61;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-box button:hover {
+            background-color: #e6554f;
+        }
+
+        .signup-box .login-link {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .signup-box .login-link a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+
+        .signup-box .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hidden site content */
+        .site-content {
+            display: none;
+            text-align: center;
+        }
+
+        .site-content h1 {
+            font-size: 3rem;
+            color: #ff6f61;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sign Up Box -->
+    <div class="signup-box" id="signupBox">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Create Account</button>
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Site content after sign up -->
+    <div class="site-content" id="siteContent">
+        <h1>Welcome to Future ISROs!</h1>
+        <p>Explore the amazing world of space with ISRO. Learn, play, and discover the universe!</p>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Basic validation
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // If sign-up is successful, hide the signup box and show the site content
+            document.getElementById("signupBox").style.display = "none";
+            document.getElementById("siteContent").style.display = "block";
+
+            alert("Sign-up successful! Welcome to Future ISROs!");
+        });
+    </script>
+
+</body>
+
+</html>

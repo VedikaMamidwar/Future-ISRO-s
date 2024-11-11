@@ -1,184 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future ISROs - Rocket Page</title>
-  <style>
-    /* General Styles */
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background: #1a1a1a;
-        color: white;
-        overflow-x: hidden;
-    }
-
-    @keyframes headerGlow {
-        0% { color: #ff6f61; }
-        100% { color: #ff6f61; }
-    }
-
-    .container {
-        margin-top: 40px;
-        padding: 0 20px;
-    }
-
-    /* Rocket Information Flexboxes */
-    .flex-container {
-        display: flex;
-        justify-content: space-around;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin: 40px 0;
-    }
-
-    .flex-item {
-        background: #1e1e1e;
-        border: 3px solid #ff6f61;
-        padding: 30px;
-        width: 30%;
-        border-radius: 15px;
-        text-align: center;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .flex-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .flex-item:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
-    }
-
-    .flex-item:hover::before {
-        opacity: 1;
-    }
-
-    h2 {
-        font-size: 2.2em;
-        color: #ff6f61;
-        margin-bottom: 15px;
-    }
-
-    p {
-        font-size: 1.3em;
-        line-height: 1.8;
-    }
-
-    /* Quiz Section */
-    .quiz-section {
-        margin: 50px auto;
-        max-width: 700px;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .quiz-section h2 {
-        font-size: 2.5em;
-        text-align: center;
-        align-items: center;
-        margin-bottom: 20px;
-        color: #ff6f61;
-    }
-
-    .quiz-question p {
-        font-size: 1.6em;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .options {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .option {
-        margin: 12px 0;
-        padding: 15px;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        font-size: 1.3em;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .option:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
-
-    .back-button {
-        text-align: center;
-        margin: 30px 0;
-    }
-
-    .back-button button {
-        padding: 12px 25px;
-        font-size: 1.2em;
-        color: white;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .back-button button:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
-
-    /* Rocket Animation */
-    .rocket {
-        position: absolute;
-        width: 150px;
-        animation: orbit 10s linear infinite;
-    }
-
-    @keyframes orbit {
-        0% {
-            transform: rotate(0deg) translateX(150px) rotate(0deg);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Rocket Page</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
         }
-        100% {
-            transform: rotate(360deg) translateX(150px) rotate(-360deg);
+
+        @keyframes headerGlow {
+            0% {
+                color: #ff6f61;
+            }
+
+            100% {
+                color: #ff6f61;
+            }
         }
-    }
 
-    .rocket1 {
-        top: 20%;
-        left: 80%;
-        animation-delay: 0s;
-    }
+        .container {
+            margin-top: 40px;
+            padding: 0 20px;
+        }
 
-    .rocket2 {
-        top: 30%;
-        left: 5%;
-        animation-delay: 3s;
-    }
+        /* Rocket Information Flexboxes */
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
 
-    .rocket3 {
-        top: 50%;
-        left: 50%;
-        animation-delay: 6s;
-    }
-  </style>
+        .flex-item {
+            background: #1e1e1e;
+            border: 3px solid #ff6f61;
+            padding: 30px;
+            width: 30%;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flex-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .flex-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+        }
+
+        .flex-item:hover::before {
+            opacity: 1;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #ff6f61;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .quiz-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+
+        .quiz-question p {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option {
+            margin: 12px 0;
+            padding: 15px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .back-button button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+        /* Certificate Styles */
+        .certificate {
+            display: none;
+            width: 80%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: #ff6f61;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+            animation: popIn 0.5s ease-in-out;
+        }
+
+        .certificate p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        /* Rocket Animation */
+        .rocket {
+            position: absolute;
+            width: 150px;
+            animation: orbit 10s linear infinite;
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg) translateX(150px) rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg) translateX(150px) rotate(-360deg);
+            }
+        }
+
+        .rocket1 {
+            top: 20%;
+            left: 80%;
+            animation-delay: 0s;
+        }
+
+        .rocket2 {
+            top: 30%;
+            left: 5%;
+            animation-delay: 3s;
+        }
+
+        .rocket3 {
+            top: 50%;
+            left: 50%;
+            animation-delay: 6s;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <header class="page-header">
@@ -191,10 +222,10 @@
             <img src="../icon/rocket.png" alt="Rocket 1" />
         </div>
         <div class="rocket rocket2">
-            <img src="../icon/rocket-technology.png" alt="Rocket 2" />
+            <img src="../icon/rocket.png" alt="Rocket 2" />
         </div>
         <div class="rocket rocket3">
-            <img src="../icon/rocket-launch.png" alt="Rocket 3" />
+            <img src="../icon/rocket.png" alt="Rocket 3" />
         </div>
 
         <!-- Rocket Information in Flexboxes -->
@@ -202,15 +233,18 @@
             <div class="flex-container">
                 <div class="flex-item">
                     <h2>What is a Rocket?</h2>
-                    <p>Rockets are vehicles used to carry payloads into space, powered by engines that generate thrust through high-speed exhaust gases.</p>
+                    <p>Rockets are vehicles used to carry payloads into space, powered by engines that generate thrust
+                        through high-speed exhaust gases.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Rocket Uses</h2>
-                    <p>Rockets are used for space exploration, launching satellites, and carrying astronauts and cargo to space stations and beyond.</p>
+                    <p>Rockets are used for space exploration, launching satellites, and carrying astronauts and cargo
+                        to space stations and beyond.</p>
                 </div>
                 <div class="flex-item">
                     <h2>ISRO's PSLV</h2>
-                    <p>The Polar Satellite Launch Vehicle (PSLV) is one of ISRO's most successful rockets, used for launching satellites into polar orbits.</p>
+                    <p>The Polar Satellite Launch Vehicle (PSLV) is one of ISRO's most successful rockets, used for
+                        launching satellites into polar orbits.</p>
                 </div>
             </div>
         </section>
@@ -227,21 +261,34 @@
                 <button class="option" onclick="checkAnswer('Carbon Dioxide')">Carbon Dioxide</button>
                 <button class="option" onclick="checkAnswer('Nitrogen')">Nitrogen</button>
             </div>
-            <div class="feedback" id="feedback"></div>
         </div>
 
-        <!-- Back to Explore Page Button -->
+        <!-- Back Button -->
         <div class="back-button">
             <button id="backToExplore">Back to Explore Page</button>
         </div>
+
+        <!-- Certificate Section -->
+        <div class="certificate" id="certificate">
+            <p id="certificate-name">Name: User</p>
+            <p id="certificate-score">Score: 0/10</p>
+            <p>Congratulations! You have completed the quiz!</p>
+        </div>
+
     </div>
 
     <script>
-        // Add event listener for back button
-        document.getElementById('backToExplore').addEventListener('click', function() {
-            window.location.href = 'explore.html';
+        // Event listener for back button
+        document.getElementById('backToExplore').addEventListener('click', function () {
+            window.location.href = 'explore.html'; // Redirect to the Explore page
         });
 
+      
+
+
+     
+
+        // Array to store quiz questions and answers
         const questions = [
             {
                 question: "Which gas is commonly used in rocket engines?",
@@ -254,73 +301,101 @@
                 answer: "Apollo 11",
             },
             {
-                question: "Which country was the first to send a human into space?",
-                options: ["USA", "Russia", "China", "India"],
-                answer: "Russia",
+                question: "Who was the first person to travel into space?",
+                options: ["Neil Armstrong", "Yuri Gagarin", "Buzz Aldrin", "John Glenn"],
+                answer: "Yuri Gagarin",
             },
             {
                 question: "What does ISRO stand for?",
-                options: ["Indian Space Research Organization", "International Space Research Organization", "Indian Satellite Research Organization", "International Satellite Research Organization"],
+                options: ["Indian Space Research Organization", "Indian Satellite Research Organization", "International Space Research Organization", "Indian Space Rover Organization"],
                 answer: "Indian Space Research Organization",
             },
             {
-                question: "What is the name of the first artificial satellite launched by ISRO?",
-                options: ["Aryabhata", "Rohini", "Bhaskara", "INSAT"],
-                answer: "Aryabhata",
-            },
-            {
-                question: "Which ISRO rocket is known as the 'Workhorse'?",
-                options: ["PSLV", "GSLV", "ASLV", "SSLV"],
+                question: "Which Indian rocket was used to launch the Mars Orbiter Mission?",
+                options: ["PSLV", "GSLV", "RS-25", "Mangalyaan"],
                 answer: "PSLV",
             },
             {
-                question: "What is the escape velocity required to leave Earth's atmosphere?",
-                options: ["11.2 km/s", "15.2 km/s", "8.4 km/s", "20.5 km/s"],
-                answer: "11.2 km/s",
+                question: "What is the primary purpose of satellites?",
+                options: ["Weather forecasting", "Communication", "Navigation", "All of the above"],
+                answer: "All of the above",
             },
             {
-                question: "Who was the first Indian astronaut to go to space?",
-                options: ["Kalpana Chawla", "Rakesh Sharma", "Sunita Williams", "Yuri Gagarin"],
-                answer: "Rakesh Sharma",
+                question: "Which planet is known as the 'Red Planet'?",
+                options: ["Mars", "Venus", "Saturn", "Jupiter"],
+                answer: "Mars",
             },
             {
-                question: "What is the name of the rocket launched by ISRO that put Chandrayaan-2 into orbit?",
-                options: ["GSLV Mk III", "PSLV-C40", "SSLV-D1", "ASLV"],
-                answer: "GSLV Mk III",
+                question: "What is the name of the satellite launched by ISRO for GPS services?",
+                options: ["NavIC", "INSAT", "GSAT", "PSLV"],
+                answer: "NavIC",
             },
             {
-                question: "Which ISRO mission was India's first interplanetary mission to Mars?",
-                options: ["Mangalyaan", "Chandrayaan", "Gaganyaan", "Astrosat"],
-                answer: "Mangalyaan",
+                question: "Who is known as the Father of the Indian Space Program?",
+                options: ["Dr. Vikram Sarabhai", "Dr. A.P.J. Abdul Kalam", "Dr. Satish Dhawan", "Dr. Sivan K"],
+                answer: "Dr. Vikram Sarabhai",
             },
+            {
+                question: "What is the name of ISRO’s space station?",
+                options: ["Salyut", "Mir", "Tiangong", "None"],
+                answer: "None",
+            }
         ];
 
         let currentQuestionIndex = 0;
+        let score = 0;
 
-        function checkAnswer(selectedAnswer) {
-            const feedback = document.getElementById('feedback');
-            if (selectedAnswer === questions[currentQuestionIndex].answer) {
-                feedback.innerHTML = "Correct!";
-                currentQuestionIndex++;
-                if (currentQuestionIndex < questions.length) {
-                    loadNextQuestion();
-                } else {
-                    feedback.innerHTML = "You completed the quiz!";
-                }
-            } else {
-                feedback.innerHTML = "Incorrect. Try again!";
-            }
+         // Function to load question and options
+    function loadQuestion() {
+        const questionText = document.getElementById('question-text');
+        const options = document.querySelectorAll('.option');
+
+        // Display current question
+        questionText.innerText = questions[currentQuestionIndex].question;
+        
+        // Display options
+        options.forEach((option, index) => {
+            option.innerText = questions[currentQuestionIndex].options[index];
+            option.onclick = () => checkAnswer(option.innerText);
+        });
+    }
+
+    // Function to check answer and go to the next question
+    function checkAnswer(selectedOption) {
+        const correctAnswer = questions[currentQuestionIndex].answer;
+
+        // Check if the selected answer is correct
+        if (selectedOption === correctAnswer) {
+            score++;
         }
 
-        function loadNextQuestion() {
-            const questionText = document.getElementById('question-text');
-            questionText.textContent = questions[currentQuestionIndex].question;
-            const options = document.querySelectorAll('.option');
-            options.forEach((option, index) => {
-                option.textContent = questions[currentQuestionIndex].options[index];
-            });
-            document.getElementById('feedback').innerHTML = "";
+        // Move to the next question or show certificate if quiz is complete
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < questions.length) {
+            loadQuestion(); // Load next question
+        } else {
+            showCertificate(); // Show certificate after quiz completion
         }
+    }
+
+    // Function to show the certificate
+    function showCertificate() {
+        document.querySelector('.quiz-section').style.display = 'none'; // Hide quiz section
+        const certificate = document.getElementById('certificate');
+        document.getElementById('certificate-name').innerText = `Name: User`;
+        document.getElementById('certificate-score').innerText = `Score: ${score}/${questions.length}`;
+        certificate.style.display = 'block'; // Show certificate
+    }
+
+    // Initial call to load the first question
+    loadQuestion();
+
+       
+
+       
+
     </script>
 </body>
+
 </html>

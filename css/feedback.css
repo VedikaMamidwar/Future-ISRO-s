@@ -194,3 +194,27 @@ footer {
     position: relative; /* Relative positioning for footer */
     z-index: 1; /* Ensure footer is above other elements */
 }
+.certificate-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.certificate {
+    border: 2px solid #ff6f61;
+    padding: 20px;
+    background-color: #fff;
+    color: #333;
+    width: 80%;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.certificate h2 {
+    color: #ff6f61;
+}
+
+.certificate p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}

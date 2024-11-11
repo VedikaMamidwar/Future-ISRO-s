@@ -1,184 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future ISROs - Satellite Page</title>
-  <style>
-    /* General Styles */
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background: #1a1a1a;
-        color: white;
-        overflow-x: hidden;
-    }
-
-    @keyframes headerGlow {
-        0% { color: #ff6f61; }
-        100% { color: #ff6f61; }
-    }
-
-    .container {
-        margin-top: 40px;
-        padding: 0 20px;
-    }
-
-    /* Satellite Information Flexboxes */
-    .flex-container {
-        display: flex;
-        justify-content: space-around;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin: 40px 0;
-    }
-
-    .flex-item {
-        background: #1e1e1e;
-        border: 3px solid #ff6f61;
-        padding: 30px;
-        width: 30%;
-        border-radius: 15px;
-        text-align: center;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .flex-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .flex-item:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
-    }
-
-    .flex-item:hover::before {
-        opacity: 1;
-    }
-
-    h2 {
-        font-size: 2.2em;
-        color: #ff6f61;
-        margin-bottom: 15px;
-    }
-
-    p {
-        font-size: 1.3em;
-        line-height: 1.8;
-    }
-
-    /* Quiz Section */
-    .quiz-section {
-        margin: 50px auto;
-        max-width: 700px;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .quiz-section h2 {
-        font-size: 2.5em;
-        text-align: center;
-        align-items: center;
-        margin-bottom: 20px;
-        color: #ff6f61;
-    }
-
-    .quiz-question p {
-        font-size: 1.6em;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .options {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .option {
-        margin: 12px 0;
-        padding: 15px;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        font-size: 1.3em;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .option:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
-
-    .back-button {
-        text-align: center;
-        margin: 30px 0;
-    }
-
-    .back-button button {
-        padding: 12px 25px;
-        font-size: 1.2em;
-        color: white;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .back-button button:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
-
-    /* Satellite Animation */
-    .satellite {
-        position: absolute;
-        width: 150px;
-        animation: orbit 10s linear infinite;
-    }
-
-    @keyframes orbit {
-        0% {
-            transform: rotate(0deg) translateX(150px) rotate(0deg);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Satellite Page</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
         }
-        100% {
-            transform: rotate(360deg) translateX(150px) rotate(-360deg);
+
+        @keyframes rocketLaunch {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                transform: translateY(-10px) scale(1.1);
+            }
         }
-    }
 
-    .satellite1 {
-        top: 20%;
-        left: 80%;
-        animation-delay: 0s;
-    }
+        .container {
+            margin-top: 40px;
+            padding: 0 20px;
+        }
 
-    .satellite2 {
-        top: 30%;
-        left: 5%;
-        animation-delay: 3s;
-    }
+        /* Satellite Information Flexboxes */
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
 
-    .satellite3 {
-        top: 50%;
-        left: 50%;
-        animation-delay: 6s;
-    }
-  </style>
+        .flex-item {
+            background: #1e1e1e;
+            border: 3px solid #ff6f61;
+            padding: 30px;
+            width: 30%;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flex-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #ff6f61;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+
+        /* Quiz Section - Rocket Themed */
+        .quiz-section {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .quiz-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+
+        .quiz-question p {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option {
+            margin: 12px 0;
+            padding: 15px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+        .option::before {
+            content: url('rocket-icon.png'); /* Add your rocket image here */
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+        }
+
+        .option:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+            animation: rocketLaunch 0.5s ease-out;
+        }
+
+        .back-button {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .back-button button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+        /* Certificate Styles */
+        .certificate {
+            display: none;
+            width: 80%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: #ff6f61;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+            animation: popIn 0.5s ease-in-out;
+        }
+
+        .certificate p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <header class="page-header">
@@ -186,131 +180,160 @@
             <p>Learn about satellites, their functions, and take a fun quiz to test your knowledge!</p>
         </header>
 
-        <!-- Three Satellites Animation -->
-        <div class="satellite satellite1">
-            <img src="../icon/satellite.png" alt="Satellite 1" />
-        </div>
-        <div class="satellite satellite2">
-            <img src="../icon/satellite-technology.png" alt="Satellite 2" />
-        </div>
-        <div class="satellite satellite3">
-            <img src="../icon/satellite-launch.png" alt="Satellite 3" />
-        </div>
-
         <!-- Satellite Information in Flexboxes -->
         <section class="satellite-info">
             <div class="flex-container">
                 <div class="flex-item">
                     <h2>What is a Satellite?</h2>
-                    <p>Satellites are objects placed into orbit around Earth or other celestial bodies for purposes such as communication, weather monitoring, and scientific research.</p>
+                    <p>Satellites are objects placed into orbit around Earth or other celestial bodies for purposes such
+                        as communication, weather monitoring, and scientific research.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Types of Satellites</h2>
-                    <p>There are various types of satellites including communication satellites, weather satellites, and reconnaissance satellites.</p>
+                    <p>There are various types of satellites including communication satellites, weather satellites, and
+                        reconnaissance satellites.</p>
                 </div>
                 <div class="flex-item">
                     <h2>ISRO's Satellites</h2>
-                    <p>ISRO has launched numerous satellites for various purposes, including the GSAT series for communication and the INSAT series for meteorology.</p>
+                    <p>ISRO has launched numerous satellites for various purposes, including the GSAT series for
+                        communication and the INSAT series for meteorology.</p>
                 </div>
             </div>
         </section>
 
         <!-- Quiz Section -->
+<<<<<<< HEAD
         
         <!-- Back to Explore Page Button -->
+=======
+        <div id="quiz-section" class="quiz-section">
+            <h2>Satellite Quiz</h2>
+            <div class="quiz-question">
+                <p id="question-text">What type of satellite is used for weather monitoring?</p>
+            </div>
+            <div class="options">
+                <button class="option" onclick="checkAnswer('Weather Satellite')">Weather Satellite</button>
+                <button class="option" onclick="checkAnswer('GSAT')">GSAT</button>
+                <button class="option" onclick="checkAnswer('Surveillance')">Surveillance</button>
+                <button class="option" onclick="checkAnswer('Navigation Satellite')">Navigation Satellite</button>
+            </div>
+            <div id="feedback" class="feedback"></div>
+        </div>
+
+        <!-- Certificate Section -->
+        <div class="certificate" id="certificate">
+            <p id="certificate-name">Name: User</p>
+            <p id="certificate-score">Score: 0/10</p>
+            <p>Congratulations! You have completed the quiz!</p>
+        </div>
+
+>>>>>>> 91428b0ac062db3fb884c08c5a1bbd561a499810
         <div class="back-button">
             <button id="backToExplore">Back to Explore Page</button>
         </div>
     </div>
 
     <script>
-        // Add event listener for back button
-        document.getElementById('backToExplore').addEventListener('click', function() {
-            window.location.href = 'explore.html';
+        // Event listener for back button
+        document.getElementById('backToExplore').addEventListener('click', function () {
+            window.location.href = 'explore.html';  // Replace with your actual explore page URL
         });
 
+        
+        // Event listener for back button
+        document.getElementById('backToExplore').addEventListener('click', function () {
+            window.location.href = 'explore.html';  // Replace with your actual explore page URL
+        });
+
+        // Array of questions and options
         const questions = [
             {
                 question: "What type of satellite is used for weather monitoring?",
-                options: ["Communication Satellite", "Weather Satellite", "Reconnaissance Satellite", "Navigation Satellite"],
-                answer: "Weather Satellite",
+                options: ["Weather Satellite", "GSAT", "Surveillance", "Navigation Satellite"],
+                correctAnswer: "Weather Satellite"
             },
             {
                 question: "Which ISRO satellite is used for communication?",
-                options: ["GSAT", "INSAT", "NavIC", "Chandrayaan"],
-                answer: "GSAT",
+                options: ["GSAT", "INSAT", "NavIC", "Research Satellite"],
+                correctAnswer: "GSAT"
             },
             {
-                question: "What is the primary purpose of reconnaissance satellites?",
-                options: ["Weather Monitoring", "Communication", "Military Surveillance", "Scientific Research"],
-                answer: "Military Surveillance",
+                question: "What is the main purpose of reconnaissance satellites?",
+                options: ["Surveillance", "Communication", "Scientific Research", "Weather Monitoring"],
+                correctAnswer: "Surveillance"
             },
             {
-                question: "Which satellite helps in disaster management?",
-                options: ["GSAT", "INSAT", "Cartosat", "NavIC"],
-                answer: "Cartosat",
+                question: "What is the name of ISRO's Mars Orbiter Mission?",
+                options: ["Chandrayaan-2", "Mangalyaan", "NavIC", "INSAT"],
+                correctAnswer: "Mangalyaan"
             },
             {
-                question: "What is the primary function of navigation satellites?",
-                options: ["Communication", "Weather Monitoring", "Global Positioning", "Scientific Research"],
-                answer: "Global Positioning",
+                question: "Which satellite is used for GPS navigation?",
+                options: ["GPS", "NavIC", "GSAT", "INSAT"],
+                correctAnswer: "NavIC"
             },
             {
-                question: "Which satellite is used to track cyclones?",
-                options: ["INSAT", "GSAT", "Cartosat", "NavIC"],
-                answer: "INSAT",
+                question: "Which satellite is responsible for monitoring Earth's atmosphere?",
+                options: ["INSAT", "GSAT", "Mangalyaan", "Weather Satellite"],
+                correctAnswer: "INSAT"
             },
             {
-                question: "What do communication satellites primarily do?",
-                options: ["Transmit Data", "Monitor Weather", "Take Pictures", "Help Navigation"],
-                answer: "Transmit Data",
+                question: "Which is India's first dedicated Earth Observation satellite?",
+                options: ["Cartosat", "RISAT", "INSAT", "GSAT"],
+                correctAnswer: "Cartosat"
             },
             {
-                question: "What is the lifespan of a typical satellite?",
-                options: ["1-2 Years", "5-10 Years", "15-20 Years", "30+ Years"],
-                answer: "5-10 Years",
+                question: "Which satellite is used for scientific research?",
+                options: ["Astrosat", "RISAT", "GSAT", "NavIC"],
+                correctAnswer: "Astrosat"
             },
             {
-                question: "What is the term for the area of space around Earth where satellites orbit?",
-                options: ["Lunar Orbit", "Geostationary Orbit", "Magnetosphere", "Satellite Zone"],
-                answer: "Geostationary Orbit",
+                question: "Which satellite series is dedicated to meteorology in India?",
+                options: ["INSAT", "GSAT", "Mangalyaan", "Cartosat"],
+                correctAnswer: "INSAT"
             },
             {
-                question: "Which satellite system is used for mobile communications?",
-                options: ["INSAT", "GSAT", "NavIC", "IRNSS"],
-                answer: "GSAT",
-            },
+                question: "What is the purpose of communication satellites?",
+                options: ["Telecommunication", "Weather Monitoring", "Space Exploration", "GPS Navigation"],
+                correctAnswer: "Telecommunication"
+            }
         ];
 
         let currentQuestionIndex = 0;
+        let score = 0;
 
-        function displayQuestion() {
-            const question = questions[currentQuestionIndex];
-            const questionText = document.getElementById('question-text');
-            questionText.textContent = question.question;
-            const options = document.querySelectorAll('.option');
-            options.forEach((option, index) => {
-                option.textContent = question.options[index];
-            });
-        }
-
+        // Function to check answer
         function checkAnswer(selectedAnswer) {
-            const feedback = document.getElementById('feedback');
-            const correctAnswer = questions[currentQuestionIndex].answer;
+            const correctAnswer = questions[currentQuestionIndex].correctAnswer;
             if (selectedAnswer === correctAnswer) {
-                feedback.textContent = "Correct! 🎉";
+                score++;
+                document.getElementById('feedback').innerText = "Correct! Well done.";
             } else {
-                feedback.textContent = `Wrong! The correct answer is: ${correctAnswer}.`;
+                document.getElementById('feedback').innerText = "Oops! The correct answer was: " + correctAnswer;
             }
-            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length; // Cycle through questions
-            setTimeout(() => {
-                feedback.textContent = ""; // Clear feedback
-                displayQuestion(); // Show next question
-            }, 2000);
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(loadNextQuestion, 1000);
+            } else {
+                setTimeout(showCertificate, 1000);
+            }
         }
 
-        // Initialize the first question
-        displayQuestion();
+        // Function to load next question
+        function loadNextQuestion() {
+            document.getElementById('feedback').innerText = '';
+            document.getElementById('question-text').innerText = questions[currentQuestionIndex].question;
+        }
+
+        // Function to show certificate
+        function showCertificate() {
+            document.getElementById('quiz-section').style.display = 'none';
+            document.getElementById('certificate').style.display = 'block';
+            document.getElementById('certificate-name').innerText = `Name: User`;
+            document.getElementById('certificate-score').innerText = `Score: ${score}/10`;
+        }
     </script>
 </body>
+
 </html>

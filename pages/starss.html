@@ -209,6 +209,28 @@
             transform: scale(1.05);
         }
 
+        /* Certificate Styles */
+        .certificate {
+            display: none;
+            width: 80%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: #ff6f61;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+            animation: popIn 0.5s ease-in-out;
+        }
+
+        .certificate p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
         .back-button {
             text-align: center;
             margin: 30px 0;
@@ -299,6 +321,17 @@
             <div class="feedback" id="feedback"></div>
         </div>
 
+        <!-- Certificate Section -->
+        <div class="certificate" id="certificate">
+            <p id="certificate-name">Name: User</p>
+            <p id="certificate-score">Score: 0/10</p>
+            <p>Congratulations! You have completed the quiz!</p>
+        </div>
+        <!-- Certificate -->
+        <div class="certificate">
+            <p>Congratulations, [User Name]! Your Score: [Score]</p>
+        </div>
+
         <!-- Back to Explore Page Button -->
         <div class="back-button">
             <button id="backToExplore">Back to Explore Page</button>
@@ -310,6 +343,7 @@
         document.getElementById('backToExplore').addEventListener('click', function () {
             window.location.href = 'explore.html';
         });
+
         // Function to show info section
         function showInfo(infoId) {
             const infoSections = document.querySelectorAll('.info-section');
@@ -322,9 +356,6 @@
             const infoSections = document.querySelectorAll('.info-section');
             infoSections.forEach(section => section.style.display = 'none');
         }
-
-
-
 
         // Function to show stars info again
         function showStars() {
@@ -347,52 +378,54 @@
 
         createFallingStars();
 
-        const questions = [
+        // Define the star-related questions
+        const starQuestions = [
             {
                 question: "What type of star is our Sun?",
-                options: ["Red Dwarf", "Yellow Dwarf", "Blue Giant", "Supergiant"],
-                answer: "Yellow Dwarf"
+                options: ["Yellow Dwarf", "Red Giant", "White Dwarf", "Supernova"],
+                correctAnswer: "Yellow Dwarf"
             },
-            {
-                question: "What is the largest type of star?",
-                options: ["Red Dwarf", "Yellow Dwarf", "Blue Giant", "Supergiant"],
-                answer: "Supergiant"
-            },
-            {
-                question: "Which star is known for its brightness?",
-                options: ["Sirius", "Polaris", "Betelgeuse", "Alpha Centauri"],
-                answer: "Sirius"
-            }
+            { question: "Which is the hottest type of star?", options: ["Blue Giant", "Red Giant", "Yellow Dwarf", "White Dwarf"], correctAnswer: "Blue Giant" },
+            { question: "Which star is known for its brightness?", options: ["Sirius", "Alpha Centauri", "Betelgeuse", "Rigel"], correctAnswer: "Sirius" },
+            { question: "What is the largest type of star?", options: ["Supergiant", "Giant", "White Dwarf", "Dwarf"], correctAnswer: "Supergiant" },
+            { question: "Which star is the closest to Earth?", options: ["Proxima Centauri", "Sirius", "Alpha Centauri", "Betelgeuse"], correctAnswer: "Proxima Centauri" },
+            { question: "What star is at the center of our solar system?", options: ["The Sun", "Alpha Centauri", "Sirius", "Proxima Centauri"], correctAnswer: "The Sun" },
+            { question: "What is the name of the biggest star discovered?", options: ["UY Scuti", "Betelgeuse", "Sirius", "Alpha Centauri"], correctAnswer: "UY Scuti" },
+            { question: "Which type of star is most common in the universe?", options: ["Red Dwarf", "Blue Giant", "Yellow Dwarf", "White Dwarf"], correctAnswer: "Red Dwarf" },
+            { question: "Which star system has a well-known binary star?", options: ["Alpha Centauri", "Sirius", "Rigel", "Betelgeuse"], correctAnswer: "Alpha Centauri" },
+            { question: "What is the main element that stars are made of?", options: ["Hydrogen", "Oxygen", "Helium", "Carbon"], correctAnswer: "Hydrogen" }
         ];
 
         let currentQuestionIndex = 0;
 
-        function displayQuestion() {
-            const question = questions[currentQuestionIndex];
-            const questionText = document.getElementById('question-text');
-            questionText.textContent = question.question;
-            const options = document.querySelectorAll('.option');
-            options.forEach((option, index) => {
-                option.textContent = question.options[index];
-            });
+function checkAnswer(selectedAnswer) {
+    const feedback = document.getElementById('feedback');
+    if (selectedAnswer === questions[currentQuestionIndex].answer) {
+        feedback.innerHTML = "<p style='color: green;'>Correct! Let's move to the next question.</p>";
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            loadNextQuestion();
+        } else {
+            feedback.innerHTML = "<p style='color: green;'>Congratulations! You've completed the quiz.</p>";
         }
+    } else {
+        feedback.innerHTML = "<p style='color: red;'>Oops! That's not correct. Try again.</p>";
+    }
+}
 
-        function checkAnswer(selectedAnswer) {
-            const feedback = document.getElementById('feedback');
-            const correctAnswer = questions[currentQuestionIndex].answer;
-            if (selectedAnswer === correctAnswer) {
-                feedback.textContent = "Correct! 🎉";
-            } else {
-                feedback.textContent = `Wrong! The correct answer is: ${correctAnswer}.`;
-            }
-            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length; // Cycle through questions
-            setTimeout(() => {
-                feedback.textContent = ""; // Clear feedback
-                displayQuestion(); // Show next question
-            }, 2000);
-        }
+function loadNextQuestion() {
+    const questionText = document.getElementById('question-text');
+    const options = document.querySelectorAll('.option');
+    questionText.textContent = questions[currentQuestionIndex].question;
+    options.forEach((option, index) => {
+        option.textContent = questions[currentQuestionIndex].options[index];
+    });
+}
 
     </script>
+
+
+
 </body>
 
 </html>

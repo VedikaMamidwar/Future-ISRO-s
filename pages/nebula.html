@@ -135,8 +135,6 @@
         background-color: #ff4f3b;
         transform: scale(1.05);
     }
-
-
   </style>
 </head>
 <body>
@@ -146,7 +144,6 @@
             <p>Discover the beauty and mysteries of nebulae, their types, and take a fun quiz to test your knowledge!</p>
         </header>
 
-       
         <!-- Nebula Information in Flexboxes -->
         <section class="nebula-info">
             <div class="flex-container">
@@ -211,33 +208,81 @@
                 options: ["Emission Nebula", "Planetary Nebula", "Reflection Nebula", "Supernova Remnant"],
                 answer: "Reflection Nebula",
             },
+            {
+                question: "What is the main component of a nebula?",
+                options: ["Gas and dust", "Stars", "Planets", "Asteroids"],
+                answer: "Gas and dust",
+            },
+            {
+                question: "Which nebula is a remnant of a supernova explosion?",
+                options: ["Orion Nebula", "Crab Nebula", "Ring Nebula", "Horsehead Nebula"],
+                answer: "Crab Nebula",
+            },
+            {
+                question: "Which type of nebula is created by the death of a star?",
+                options: ["Planetary Nebula", "Emission Nebula", "Reflection Nebula", "Supernova Remnant"],
+                answer: "Planetary Nebula",
+            },
+            {
+                question: "Where can you find the famous Horsehead Nebula?",
+                options: ["Milky Way", "Andromeda Galaxy", "Orion Constellation", "Sirius Constellation"],
+                answer: "Orion Constellation",
+            },
+            {
+                question: "Which nebula is known for being the site of a famous star-forming region?",
+                options: ["Orion Nebula", "Carina Nebula", "Crab Nebula", "Ring Nebula"],
+                answer: "Orion Nebula",
+            },
+            {
+                question: "What is the Ring Nebula a remnant of?",
+                options: ["A dying star", "A supernova", "A planet formation", "A new star birth"],
+                answer: "A dying star",
+            },
+            {
+                question: "What is the typical color of an emission nebula?",
+                options: ["Red", "Blue", "Green", "Yellow"],
+                answer: "Red",
+            }
         ];
 
-        let currentQuestionIndex = 0;
+        let currentQuestion = 0;
+
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById("question-text").textContent = question.question;
+            const buttons = document.querySelectorAll(".option");
+            question.options.forEach((option, index) => {
+                buttons[index].textContent = option;
+            });
+        }
 
         function checkAnswer(selectedAnswer) {
-            const feedback = document.getElementById('feedback');
-            if (selectedAnswer === questions[currentQuestionIndex].answer) {
-                feedback.innerHTML = "<p style='color: green;'>Correct! Let's move to the next question.</p>";
-                currentQuestionIndex++;
-                if (currentQuestionIndex < questions.length) {
-                    loadNextQuestion();
-                } else {
-                    feedback.innerHTML = "<p style='color: green;'>Congratulations! You've completed the quiz.</p>";
-                }
+            const correctAnswer = questions[currentQuestion].answer;
+            const feedback = document.getElementById("feedback");
+            if (selectedAnswer === correctAnswer) {
+                feedback.textContent = "Correct!";
+                feedback.style.color = "green";
             } else {
-                feedback.innerHTML = "<p style='color: red;'>Oops! That's not correct. Try again.</p>";
+                feedback.textContent = "Wrong answer. The correct answer is: " + correctAnswer;
+                feedback.style.color = "red";
+            }
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                setTimeout(() => {
+                    feedback.textContent = "";
+                    loadQuestion();
+                }, 1500);
+            } else {
+                setTimeout(() => {
+                    alert("You have completed the quiz!");
+                    currentQuestion = 0;
+                    loadQuestion();
+                }, 1500);
             }
         }
 
-        function loadNextQuestion() {
-            const questionText = document.getElementById('question-text');
-            const options = document.querySelectorAll('.option');
-            questionText.textContent = questions[currentQuestionIndex].question;
-            options.forEach((option, index) => {
-                option.textContent = questions[currentQuestionIndex].options[index];
-            });
-        }
+        // Load the first question
+        loadQuestion();
     </script>
 </body>
 </html>

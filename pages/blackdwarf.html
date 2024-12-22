@@ -1,151 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future ISROs - Black Dwarf Page</title>
-  <style>
-    /* General Styles */
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background: #1a1a1a;
-        color: white;
-        overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Black Dwarf Page</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
+        }
 
-    @keyframes headerGlow {
-        0% { color: #ff6f61; }
-        100% { color: #ff6f61; }
-    }
+        @keyframes headerGlow {
+            0% {
+                color: #ff6f61;
+            }
 
-    .container {
-        margin-top: 40px;
-        padding: 0 20px;
-    }
+            100% {
+                color: #ff6f61;
+            }
+        }
 
-    /* Black Dwarf Information Flexboxes */
-    .flex-container {
-        display: flex;
-        justify-content: space-around;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin: 40px 0;
-    }
+        .container {
+            margin-top: 40px;
+            padding: 0 20px;
+        }
 
-    .flex-item {
-        background: #1e1e1e;
-        border: 3px solid #ff6f61;
-        padding: 30px;
-        width: 30%;
-        border-radius: 15px;
-        text-align: center;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-    }
+        /* Black Dwarf Information Flexboxes */
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
 
-    .flex-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
+        .flex-item {
+            background: #1e1e1e;
+            border: 3px solid #ff6f61;
+            padding: 30px;
+            width: 30%;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .flex-item:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
-    }
+        .flex-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-    .flex-item:hover::before {
-        opacity: 1;
-    }
+        .flex-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+        }
 
-    h2 {
-        font-size: 2.2em;
-        color: #ff6f61;
-        margin-bottom: 15px;
-    }
+        .flex-item:hover::before {
+            opacity: 1;
+        }
 
-    p {
-        font-size: 1.3em;
-        line-height: 1.8;
-    }
+        h2 {
+            font-size: 2.2em;
+            color: #ff6f61;
+            margin-bottom: 15px;
+        }
 
-    /* Quiz Section */
-    .quiz-section {
-        margin: 50px auto;
-        max-width: 700px;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-    }
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
 
-    .quiz-section h2 {
-        font-size: 2.5em;
-        text-align: center;
-        margin-bottom: 20px;
-        color: #ff6f61;
-    }
+        /* Quiz Section */
+        .quiz-section {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        }
 
-    .quiz-question p {
-        font-size: 1.6em;
-        margin-bottom: 20px;
-        text-align: center;
-    }
+        .quiz-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
 
-    .options {
-        display: flex;
-        flex-direction: column;
-    }
+        .quiz-question p {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-    .option {
-        margin: 12px 0;
-        padding: 15px;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        font-size: 1.3em;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .option:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
+        .option {
+            margin: 12px 0;
+            padding: 15px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-    .back-button {
-        text-align: center;
-        margin: 30px 0;
-    }
+        .option:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
 
-    .back-button button {
-        padding: 12px 25px;
-        font-size: 1.2em;
-        color: white;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+        .back-button {
+            text-align: center;
+            margin: 30px 0;
+        }
 
-    .back-button button:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
+        .back-button button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-    
-  </style>
+        .back-button button:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+         /* Certificate Styles */
+         .certificate {
+            display: none;
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 20px;
+            border: 3px solid #ff6f61;
+            border-radius: 15px;
+            text-align: center;
+            background: #1e1e1e;
+        }
+
+        .certificate h2 {
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .certificate p {
+            font-size: 1.5em;
+        }
+
+         /* Certificate Styles */
+         .certificate {
+            display: none;
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 20px;
+            border: 3px solid #ff6f61;
+            border-radius: 15px;
+            text-align: center;
+            background: #1e1e1e;
+        }
+
+        .certificate h2 {
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .certificate p {
+            font-size: 1.5em;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <header class="page-header">
@@ -153,22 +200,25 @@
             <p>Learn about black dwarfs, their characteristics, and take a fun quiz to test your knowledge!</p>
         </header>
 
-       
+
 
         <!-- Black Dwarf Information in Flexboxes -->
         <section class="black-dwarf-info">
             <div class="flex-container">
                 <div class="flex-item">
                     <h2>What is a Black Dwarf?</h2>
-                    <p>A black dwarf is a theoretical stellar remnant that is the final stage of a white dwarf, having cooled to the point where it no longer emits significant heat or light.</p>
+                    <p>A black dwarf is a theoretical stellar remnant that is the final stage of a white dwarf, having
+                        cooled to the point where it no longer emits significant heat or light.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Characteristics</h2>
-                    <p>Black dwarfs are extremely cold, and since the universe is not old enough for any black dwarfs to exist, their properties are largely theoretical.</p>
+                    <p>Black dwarfs are extremely cold, and since the universe is not old enough for any black dwarfs to
+                        exist, their properties are largely theoretical.</p>
                 </div>
                 <div class="flex-item">
                     <h2>Formation</h2>
-                    <p>It is theorized that a black dwarf forms after a white dwarf cools for billions of years, eventually reaching a temperature close to absolute zero.</p>
+                    <p>It is theorized that a black dwarf forms after a white dwarf cools for billions of years,
+                        eventually reaching a temperature close to absolute zero.</p>
                 </div>
             </div>
         </section>
@@ -188,70 +238,108 @@
             <div class="feedback" id="feedback"></div>
         </div>
 
+         <!-- Certificate Section -->
+         <div class="certificate" id="certificate">
+            <h2>Certificate of Completion</h2>
+            <p id="certificate-score">Your Score: 0 out of 0</p>
+            <p>Thank you for participating!</p>
+        </div>
+
         <!-- Back to Explore Page Button -->
         <div class="back-button">
             <button id="backToExplore">Back to Explore Page</button>
         </div>
     </div>
 
+
     <script>
-        // Add event listener for back button
-        document.getElementById('backToExplore').addEventListener('click', function() {
+       // Add event listener for back button
+       document.getElementById('backToExplore').addEventListener('click', function () {
             window.location.href = 'explore.html';
         });
 
         const questions = [
             {
-                question: "What is a black dwarf?",
-                options: ["A cold star", "A red giant", "A neutron star", "A black hole"],
-                answer: "A cold star",
+                question: "What is a white dwarf?",
+                options: ["A stellar remnant", "A type of black hole", "A main sequence star", "A red giant"],
+                answer: "A stellar remnant",
             },
             {
-                question: "How does a black dwarf form?",
-                options: ["From a supernova explosion", "From a white dwarf cooling", "From a giant star collapsing", "From a neutron star merging"],
-                answer: "From a white dwarf cooling",
+                question: "What elements are mainly found in white dwarfs?",
+                options: ["Hydrogen", "Helium", "Carbon and oxygen", "Iron"],
+                answer: "Carbon and oxygen",
             },
             {
-                question: "What temperature does a black dwarf reach?",
-                options: ["Very high temperatures", "Around absolute zero", "Similar to the Sun", "No temperature limit"],
-                answer: "Around absolute zero",
-            },
-            {
-                question: "Are there any known black dwarfs in the universe?",
-                options: ["Yes", "No", "Only one", "Many"],
+                question: "Do white dwarfs undergo fusion?",
+                options: ["Yes", "No", "Only initially", "Sometimes"],
                 answer: "No",
+            },
+            {
+                question: "How do white dwarfs cool over time?",
+                options: ["They heat up", "They remain constant", "They cool gradually", "They explode"],
+                answer: "They cool gradually",
+            },
+            {
+                question: "What happens to a white dwarf after it cools down?",
+                options: ["It becomes a black dwarf", "It turns into a supernova", "It becomes a neutron star", "It collapses into a black hole"],
+                answer: "It becomes a black dwarf",
+            },
+            {
+                question: "What is the typical size of a white dwarf?",
+                options: ["Similar to the Sun", "About the size of Earth", "Much larger than the Sun", "As large as Jupiter"],
+                answer: "About the size of Earth",
+            },
+            {
+                question: "How long does it take for a white dwarf to cool significantly?",
+                options: ["A few years", "A few thousand years", "A few million years", "A few billion years"],
+                answer: "A few billion years",
+            },
+            {
+                question: "What is the temperature of a typical white dwarf?",
+                options: ["Around 1,000 K", "Around 10,000 K", "Around 100,000 K", "Around 1,000,000 K"],
+                answer: "Around 100,000 K",
+            },
+            {
+                question: "Can white dwarfs be part of a binary system?",
+                options: ["Yes", "No", "Only in clusters", "Only when they are young"],
+                answer: "Yes",
+            },
+            {
+                question: "What is the end state of a white dwarf?",
+                options: ["Black dwarf", "Neutron star", "Black hole", "Red giant"],
+                answer: "Black dwarf",
             },
         ];
 
-        let currentQuestionIndex = 0;
+        let currentQuestion = 0;
+        let score = 0;
 
-        function displayQuestion() {
-            const question = questions[currentQuestionIndex];
-            const questionText = document.getElementById('question-text');
-            questionText.textContent = question.question;
-            const options = document.querySelectorAll('.option');
-            options.forEach((option, index) => {
-                option.textContent = question.options[index];
-            });
-        }
-
-        function checkAnswer(selectedAnswer) {
+        function checkAnswer(selectedOption) {
             const feedback = document.getElementById('feedback');
-            const correctAnswer = questions[currentQuestionIndex].answer;
-            if (selectedAnswer === correctAnswer) {
-                feedback.textContent = "Correct! 🎉";
+            if (selectedOption === questions[currentQuestion].answer) {
+                feedback.innerHTML = "Correct!";
+                score++;
             } else {
-                feedback.textContent = `Wrong! The correct answer is: ${correctAnswer}.`;
+                feedback.innerHTML = "Wrong! The correct answer is: " + questions[currentQuestion].answer;
             }
-            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length; // Cycle through questions
-            setTimeout(() => {
-                feedback.textContent = ""; // Clear feedback
-                displayQuestion(); // Show next question
-            }, 2000);
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                setTimeout(nextQuestion, 2000);
+            } else {
+                displayCertificate();
+            }
         }
 
-        // Initialize the first question
-        displayQuestion();
+        function nextQuestion() {
+            document.getElementById('feedback').innerHTML = '';
+            document.getElementById('question-text').innerHTML = questions[currentQuestion].question;
+        }
+
+        function displayCertificate() {
+            document.getElementById('certificate').style.display = 'block';
+            document.getElementById('score-display').innerHTML = "Your score: " + score + " out of " + questions.length;
+        }
     </script>
 </body>
+
 </html>

@@ -2,163 +2,7 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future ISROs - Rocket Page</title>
-  <style>
-    /* General Styles */
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background: #1a1a1a;
-        color: white;
-        overflow-x: hidden;
-    }
 
-    @keyframes headerGlow {
-        0% { color: #ff6f61; }
-        100% { color: #ff6f61; }
-    }
-
-    .container {
-        margin-top: 40px;
-        padding: 0 20px;
-    }
-
-    /* Rocket Information Flexboxes */
-    .flex-container {
-        display: flex;
-        justify-content: space-around;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin: 40px 0;
-    }
-
-    .flex-item {
-        background: #1e1e1e;
-        border: 3px solid #ff6f61;
-        padding: 30px;
-        width: 30%;
-        border-radius: 15px;
-        text-align: center;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .flex-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .flex-item:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
-    }
-
-    .flex-item:hover::before {
-        opacity: 1;
-    }
-
-    h2 {
-        font-size: 2.2em;
-        color: #ff6f61;
-        margin-bottom: 15px;
-        
-
-    }
-
-    p {
-        font-size: 1.3em;
-        line-height: 1.8;
-    }
-
-    /* Quiz Section */
-    .quiz-section {
-        margin: 50px auto;
-        max-width: 700px;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .quiz-section h2 {
-        font-size: 2.5em;
-        text-align: center;
-        align-items: center;
-        margin-bottom: 20px;
-        color: #ff6f61;
-    }
-
-    .quiz-question p {
-        font-size: 1.6em;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .options {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .option {
-        margin: 12px 0;
-        padding: 15px;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        font-size: 1.3em;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .option:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
-
-    .back-button {
-        text-align: center;
-        margin: 30px 0;
-    }
-
-    .back-button button {
-        padding: 12px 25px;
-        font-size: 1.2em;
-        color: white;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .back-button button:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
-
-    /* Rocket Animation */
-    .rocket {
-        position: absolute;
-        width: 150px;
-        animation: orbit 10s linear infinite;
-    }
-
-    @keyframes orbit {
-        0% {
-            transform: rotate(0deg) translateX(150px) rotate(0deg);
-=======
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Future ISROs - Rocket Page</title>
@@ -171,7 +15,162 @@
             background: #1a1a1a;
             color: white;
             overflow-x: hidden;
->>>>>>> 91428b0ac062db3fb884c08c5a1bbd561a499810
+        }
+
+        @keyframes headerGlow {
+            0% {
+                color: #ff6f61;
+            }
+
+            100% {
+                color: #ff6f61;
+            }
+        }
+
+        .container {
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+
+        /* Rocket Information Flexboxes */
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .flex-item {
+            background: #1e1e1e;
+            border: 3px solid #ff6f61;
+            padding: 30px;
+            width: 30%;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flex-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .flex-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+        }
+
+        .flex-item:hover::before {
+            opacity: 1;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #ff6f61;
+            margin-bottom: 15px;
+
+
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .quiz-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+
+        .quiz-question p {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option {
+            margin: 12px 0;
+            padding: 15px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .back-button button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+        /* Rocket Animation */
+        .rocket {
+            position: absolute;
+            width: 150px;
+            animation: orbit 10s linear infinite;
+        }
+
+
+        <style>
+
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
         }
 
         @keyframes headerGlow {
@@ -421,6 +420,13 @@
             </div>
         </div>
 
+          <!-- Certificate Section -->
+          <div class="certificate" id="certificate" style="display: none;">
+            <p id="certificate-name">Name: User</p>
+            <p id="certificate-score">Score: 0/10</p>
+            <p>Congratulations! You have completed the quiz!</p>
+        </div>
+
         <!-- Back Button -->
         <div class="back-button">
             <button id="backToExplore">Back to Explore Page</button>
@@ -440,11 +446,6 @@
         document.getElementById('backToExplore').addEventListener('click', function () {
             window.location.href = 'explore.html'; // Redirect to the Explore page
         });
-
-      
-
-
-     
 
         // Array to store quiz questions and answers
         const questions = [
@@ -497,61 +498,72 @@
                 question: "What is the name of ISRO’s space station?",
                 options: ["Salyut", "Mir", "Tiangong", "None"],
                 answer: "None",
+                correctAnswer: 3
             }
         ];
 
         let currentQuestionIndex = 0;
         let score = 0;
 
-         // Function to load question and options
-    function loadQuestion() {
-        const questionText = document.getElementById('question-text');
-        const options = document.querySelectorAll('.option');
+        // Function to load question and options
+        function loadQuestion() {
+            const questionText = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+            const currentQuestion = questions[currentQuestionIndex];
 
-        // Display current question
-        questionText.innerText = questions[currentQuestionIndex].question;
-        
-        // Display options
-        options.forEach((option, index) => {
-            option.innerText = questions[currentQuestionIndex].options[index];
-            option.onclick = () => checkAnswer(option.innerText);
-        });
-    }
+            // Display current question
+            questionText.innerText = currentQuestion.question;
 
-    // Function to check answer and go to the next question
-    function checkAnswer(selectedOption) {
-        const correctAnswer = questions[currentQuestionIndex].answer;
+            // Clear previous options
+            optionsContainer.innerHTML = '';
 
-        // Check if the selected answer is correct
-        if (selectedOption === correctAnswer) {
-            score++;
+            // Display options
+            currentQuestion.options.forEach((option) => {
+                const button = document.createElement('button');
+                button.classList.add('option');
+                button.innerText = option;
+                button.onclick = () => checkAnswer(option);
+                optionsContainer.appendChild(button);
+            });
         }
 
-        // Move to the next question or show certificate if quiz is complete
-        currentQuestionIndex++;
+        // Function to check answer and go to the next question
+        function checkAnswer(selectedOption) {
+            const correctAnswer = questions[currentQuestionIndex].answer;
 
-        if (currentQuestionIndex < questions.length) {
-            loadQuestion(); // Load next question
-        } else {
-            showCertificate(); // Show certificate after quiz completion
+            // Check if the selected answer is correct
+            if (selectedOption === correctAnswer) {
+                score++;
+                document.getElementById('feedback').innerText = "Correct! Well done.";
+            } else {
+                document.getElementById('feedback').innerText = `Oops! The correct answer was: ${correctAnswer}`;
+            }
+
+            // Move to the next question or show certificate if quiz is complete
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(() => {
+                    document.getElementById('feedback').innerText = ''; // Clear feedback
+                    loadQuestion(); // Load next question
+                }, 1000);
+            } else {
+                setTimeout(showCertificate, 1000); // Show certificate after quiz completion
+            }
         }
-    }
 
-    // Function to show the certificate
-    function showCertificate() {
-        document.querySelector('.quiz-section').style.display = 'none'; // Hide quiz section
-        const certificate = document.getElementById('certificate');
-        document.getElementById('certificate-name').innerText = `Name: User`;
-        document.getElementById('certificate-score').innerText = `Score: ${score}/${questions.length}`;
-        certificate.style.display = 'block'; // Show certificate
-    }
+        // Function to show certificate
+        function showCertificate() {
+            document.getElementById('quiz-section').style.display = 'none';
+            document.getElementById('certificate').style.display = 'block';
+            document.getElementById('certificate-name').innerText = `Name: Vedika`; // Replace with actual user name
+            document.getElementById('certificate-score').innerText = `Score: ${score}/${questions.length}`;
+        }
 
-    // Initial call to load the first question
-    loadQuestion();
+        // Initial call to load the first question
+        loadQuestion();
 
-       
 
-       
 
     </script>
 </body>

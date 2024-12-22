@@ -312,7 +312,7 @@
             <div class="quiz-question">
                 <p id="question-text">What type of star is our Sun?</p>
             </div>
-            <div class="options">
+            <div class="quiz-section" id="quiz-section">
                 <button class="option" onclick="checkAnswer('Red Dwarf')">Red Dwarf</button>
                 <button class="option" onclick="checkAnswer('Yellow Dwarf')">Yellow Dwarf</button>
                 <button class="option" onclick="checkAnswer('Blue Giant')">Blue Giant</button>
@@ -327,10 +327,7 @@
             <p id="certificate-score">Score: 0/10</p>
             <p>Congratulations! You have completed the quiz!</p>
         </div>
-        <!-- Certificate -->
-        <div class="certificate">
-            <p>Congratulations, [User Name]! Your Score: [Score]</p>
-        </div>
+        
 
         <!-- Back to Explore Page Button -->
         <div class="back-button">
@@ -380,47 +377,104 @@
 
         // Define the star-related questions
         const starQuestions = [
+
             {
                 question: "What type of star is our Sun?",
                 options: ["Yellow Dwarf", "Red Giant", "White Dwarf", "Supernova"],
                 correctAnswer: "Yellow Dwarf"
             },
-            { question: "Which is the hottest type of star?", options: ["Blue Giant", "Red Giant", "Yellow Dwarf", "White Dwarf"], correctAnswer: "Blue Giant" },
-            { question: "Which star is known for its brightness?", options: ["Sirius", "Alpha Centauri", "Betelgeuse", "Rigel"], correctAnswer: "Sirius" },
-            { question: "What is the largest type of star?", options: ["Supergiant", "Giant", "White Dwarf", "Dwarf"], correctAnswer: "Supergiant" },
-            { question: "Which star is the closest to Earth?", options: ["Proxima Centauri", "Sirius", "Alpha Centauri", "Betelgeuse"], correctAnswer: "Proxima Centauri" },
-            { question: "What star is at the center of our solar system?", options: ["The Sun", "Alpha Centauri", "Sirius", "Proxima Centauri"], correctAnswer: "The Sun" },
-            { question: "What is the name of the biggest star discovered?", options: ["UY Scuti", "Betelgeuse", "Sirius", "Alpha Centauri"], correctAnswer: "UY Scuti" },
-            { question: "Which type of star is most common in the universe?", options: ["Red Dwarf", "Blue Giant", "Yellow Dwarf", "White Dwarf"], correctAnswer: "Red Dwarf" },
-            { question: "Which star system has a well-known binary star?", options: ["Alpha Centauri", "Sirius", "Rigel", "Betelgeuse"], correctAnswer: "Alpha Centauri" },
-            { question: "What is the main element that stars are made of?", options: ["Hydrogen", "Oxygen", "Helium", "Carbon"], correctAnswer: "Hydrogen" }
+            {
+                question: "Which is the hottest type of star?",
+                options: ["Blue Giant", "Red Giant", "Yellow Dwarf", "White Dwarf"],
+                correctAnswer: "Blue Giant"
+            },
+            {
+                question: "Which star is known for its brightness?",
+                options: ["Sirius", "Alpha Centauri", "Betelgeuse", "Rigel"],
+                correctAnswer: "Sirius"
+            },
+            {
+                question: "What is the largest type of star?",
+                options: ["Supergiant", "Giant", "White Dwarf", "Dwarf"],
+                correctAnswer: "Supergiant"
+            },
+            {
+                question: "Which star is the closest to Earth?",
+                options: ["Proxima Centauri", "Sirius", "Alpha Centauri", "Betelgeuse"],
+                correctAnswer: "Proxima Centauri"
+            },
+            {
+                question: "What star is at the center of our solar system?",
+                options: ["The Sun", "Alpha Centauri", "Sirius", "Proxima Centauri"],
+                correctAnswer: "The Sun"
+            },
+            {
+                question: "What is the name of the biggest star discovered?",
+                options: ["UY Scuti", "Betelgeuse", "Sirius", "Alpha Centauri"],
+                correctAnswer: "UY Scuti"
+            },
+            {
+                question: "Which type of star is most common in the universe?",
+                options: ["Red Dwarf", "Blue Giant", "Yellow Dwarf", "White Dwarf"],
+                correctAnswer: "Red Dwarf"
+            },
+            {
+                question: "Which star system has a well-known binary star?",
+                options: ["Alpha Centauri", "Sirius", "Rigel", "Betelgeuse"],
+                correctAnswer: "Alpha Centauri"
+            },
+            {
+                question: "What is the main element that stars are made of?",
+                options: ["Hydrogen", "Oxygen", "Helium", "Carbon"],
+                correctAnswer: "Hydrogen"
+            }
         ];
 
-        let currentQuestionIndex = 0;
 
-function checkAnswer(selectedAnswer) {
-    const feedback = document.getElementById('feedback');
-    if (selectedAnswer === questions[currentQuestionIndex].answer) {
-        feedback.innerHTML = "<p style='color: green;'>Correct! Let's move to the next question.</p>";
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            loadNextQuestion();
-        } else {
-            feedback.innerHTML = "<p style='color: green;'>Congratulations! You've completed the quiz.</p>";
+        // Variables for score tracking
+        let score = 0;
+        let questionIndex = 0;
+
+        // Function to check the answer
+        function checkAnswer(selectedAnswer) {
+            const currentQuestion = starQuestions[questionIndex];
+            if (selectedAnswer === currentQuestion.correctAnswer) {
+                score++;
+                document.getElementById('feedback').innerText = "Correct! 🎉";
+            } else {
+                document.getElementById('feedback').innerText = "Wrong! Try again.";
+            }
+
+            questionIndex++;
+            if (questionIndex < starQuestions.length) {
+                setTimeout(loadNextQuestion, 1500);
+            } else {
+                setTimeout(showCertificate, 1500);
+            }
         }
-    } else {
-        feedback.innerHTML = "<p style='color: red;'>Oops! That's not correct. Try again.</p>";
-    }
-}
 
-function loadNextQuestion() {
-    const questionText = document.getElementById('question-text');
-    const options = document.querySelectorAll('.option');
-    questionText.textContent = questions[currentQuestionIndex].question;
-    options.forEach((option, index) => {
-        option.textContent = questions[currentQuestionIndex].options[index];
-    });
-}
+        // Function to load the next question
+        function loadNextQuestion() {
+            document.getElementById('feedback').innerText = '';
+            document.getElementById('question-text').innerText = starQuestions[questionIndex].question;
+
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.innerText = starQuestions[questionIndex].options[index];
+            });
+        }
+
+        // Function to show the certificate
+        function showCertificate() {
+            document.getElementById('quiz-section').style.display = 'none'; // Hide quiz section
+            document.getElementById('certificate-name').innerText = "Name: Vedika"; // Replace with actual user name
+            document.getElementById('certificate-score').innerText = `Score: ${score}/${starQuestions.length}`;
+            document.getElementById('certificate').style.display = 'block'; // Show certificate
+        }
+
+        // Initialize the first question
+        loadNextQuestion();
+
 
     </script>
 

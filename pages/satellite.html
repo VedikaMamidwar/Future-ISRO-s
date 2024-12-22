@@ -148,42 +148,28 @@
             background-color: #ff4f3b;
             transform: scale(1.05);
         }
-
-     /* Certificate Styles */
+/* Certificate Styles */
 .certificate {
-    display: none;
-    width: 80%;
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px;
-    background: linear-gradient(145deg, #ff6f61, #ff8a75);
-    border-radius: 25px;
-    text-align: center;
-    color: #ffffff;
-    font-size: 2em;
-    font-weight: bold;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-    animation: popIn 0.7s ease-in-out;
-}
+            display: none;
+            width: 80%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: #ff6f61;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+            animation: popIn 0.5s ease-in-out;
+        }
 
+        .certificate p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
 
-
-.certificate p {
-    font-size: 1.3em;
-    margin: 15px 0;
-    color: #ffe0dc;
-}
-
-.certificate .user-name {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.certificate .score {
-    font-size: 1.5em;
-    color: #ffdac7;
-}
 
 /* Animation */
 @keyframes popIn {
@@ -196,6 +182,8 @@
         transform: scale(1);
     }
 }
+
+
 
     </style>
 </head>
@@ -227,140 +215,149 @@
                 </div>
             </div>
         </section>
-
-        <!-- Quiz Section -->
-<<<<<<< HEAD
-        
-        <!-- Back to Explore Page Button -->
-=======
         <div id="quiz-section" class="quiz-section">
             <h2>Satellite Quiz</h2>
             <div class="quiz-question">
                 <p id="question-text">What type of satellite is used for weather monitoring?</p>
             </div>
-            <div class="options">
-                <button class="option" onclick="checkAnswer('Weather Satellite')">Weather Satellite</button>
-                <button class="option" onclick="checkAnswer('GSAT')">GSAT</button>
-                <button class="option" onclick="checkAnswer('Surveillance')">Surveillance</button>
-                <button class="option" onclick="checkAnswer('Navigation Satellite')">Navigation Satellite</button>
+            <div class="options" id="options-container">
+                <button class="option" onclick="checkAnswer(0)">Weather Satellite</button>
+                <button class="option" onclick="checkAnswer(1)">GSAT</button>
+                <button class="option" onclick="checkAnswer(2)">Surveillance</button>
+                <button class="option" onclick="checkAnswer(3)">Navigation Satellite</button>
             </div>
             <div id="feedback" class="feedback"></div>
         </div>
-
+        
         <!-- Certificate Section -->
-        <div class="certificate" id="certificate">
+        <div class="certificate" id="certificate" style="display: none;">
             <p id="certificate-name">Name: User</p>
             <p id="certificate-score">Score: 0/10</p>
             <p>Congratulations! You have completed the quiz!</p>
         </div>
-
->>>>>>> 91428b0ac062db3fb884c08c5a1bbd561a499810
+        
         <div class="back-button">
             <button id="backToExplore">Back to Explore Page</button>
         </div>
-    </div>
-
-    <script>
-        // Event listener for back button
-        document.getElementById('backToExplore').addEventListener('click', function () {
-            window.location.href = 'explore.html';  // Replace with your actual explore page URL
-        });
-
         
-        // Event listener for back button
-        document.getElementById('backToExplore').addEventListener('click', function () {
-            window.location.href = 'explore.html';  // Replace with your actual explore page URL
-        });
-
-        // Array of questions and options
-        const questions = [
-            {
-                question: "What type of satellite is used for weather monitoring?",
-                options: ["Weather Satellite", "GSAT", "Surveillance", "Navigation Satellite"],
-                correctAnswer: "Weather Satellite"
-            },
-            {
-                question: "Which ISRO satellite is used for communication?",
-                options: ["GSAT", "INSAT", "NavIC", "Research Satellite"],
-                correctAnswer: "GSAT"
-            },
-            {
-                question: "What is the main purpose of reconnaissance satellites?",
-                options: ["Surveillance", "Communication", "Scientific Research", "Weather Monitoring"],
-                correctAnswer: "Surveillance"
-            },
-            {
-                question: "What is the name of ISRO's Mars Orbiter Mission?",
-                options: ["Chandrayaan-2", "Mangalyaan", "NavIC", "INSAT"],
-                correctAnswer: "Mangalyaan"
-            },
-            {
-                question: "Which satellite is used for GPS navigation?",
-                options: ["GPS", "NavIC", "GSAT", "INSAT"],
-                correctAnswer: "NavIC"
-            },
-            {
-                question: "Which satellite is responsible for monitoring Earth's atmosphere?",
-                options: ["INSAT", "GSAT", "Mangalyaan", "Weather Satellite"],
-                correctAnswer: "INSAT"
-            },
-            {
-                question: "Which is India's first dedicated Earth Observation satellite?",
-                options: ["Cartosat", "RISAT", "INSAT", "GSAT"],
-                correctAnswer: "Cartosat"
-            },
-            {
-                question: "Which satellite is used for scientific research?",
-                options: ["Astrosat", "RISAT", "GSAT", "NavIC"],
-                correctAnswer: "Astrosat"
-            },
-            {
-                question: "Which satellite series is dedicated to meteorology in India?",
-                options: ["INSAT", "GSAT", "Mangalyaan", "Cartosat"],
-                correctAnswer: "INSAT"
-            },
-            {
-                question: "What is the purpose of communication satellites?",
-                options: ["Telecommunication", "Weather Monitoring", "Space Exploration", "GPS Navigation"],
-                correctAnswer: "Telecommunication"
+        <script>
+            // Event listener for back button
+            document.getElementById('backToExplore').addEventListener('click', function () {
+                window.location.href = 'explore.html'; // Replace with your actual explore page URL
+            });
+        
+            // Array of questions and options
+            const questions = [
+                {
+                    question: "What type of satellite is used for weather monitoring?",
+                    options: ["Weather Satellite", "GSAT", "Surveillance", "Navigation Satellite"],
+                    correctAnswer: 0 // Index of the correct option
+                },
+                {
+                    question: "Which ISRO satellite is used for communication?",
+                    options: ["GSAT", "INSAT", "NavIC", "Research Satellite"],
+                    correctAnswer: 0
+                },
+                {
+                    question: "What is the main purpose of reconnaissance satellites?",
+                    options: ["Surveillance", "Communication", "Scientific Research", "Weather Monitoring"],
+                    correctAnswer: 0
+                },
+                {
+                    question: "What is the name of ISRO's Mars Orbiter Mission?",
+                    options: ["Chandrayaan-2", "Mangalyaan", "NavIC", "INSAT"],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which satellite is used for GPS navigation?",
+                    options: ["GPS", "NavIC", "GSAT", "INSAT"],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which satellite is responsible for monitoring Earth's atmosphere?",
+                    options: ["INSAT", "GSAT", "Mangalyaan", "Weather Satellite"],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which is India's first dedicated Earth Observation satellite?",
+                    options: ["Cartosat", "RISAT", "INSAT", "GSAT"],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which satellite is used for scientific research?",
+                    options: ["Astrosat", "RISAT", "GSAT", "NavIC"],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which satellite series is dedicated to meteorology in India?",
+                    options: ["INSAT", "GSAT", "Mangalyaan", "Cartosat"],
+                    correctAnswer: 0
+                },
+                {
+                    question: "What is the purpose of communication satellites?",
+                    options: ["Telecommunication", "Weather Monitoring", "Space Exploration", "GPS Navigation"],
+                    correctAnswer: 0
+                }
+            ];
+        
+            let currentQuestionIndex = 0;
+            let score = 0;
+        
+            // Function to check answer
+            function checkAnswer(selectedIndex) {
+                const correctIndex = questions[currentQuestionIndex].correctAnswer;
+                const feedback = document.getElementById('feedback');
+        
+                if (selectedIndex === correctIndex) {
+                    score++;
+                    feedback.innerText = "Correct! Well done.";
+                } else {
+                    feedback.innerText = `Oops! The correct answer was: ${questions[currentQuestionIndex].options[correctIndex]}`;
+                }
+        
+                currentQuestionIndex++;
+        
+                if (currentQuestionIndex < questions.length) {
+                    setTimeout(loadNextQuestion, 1000);
+                } else {
+                    setTimeout(showCertificate, 1000);
+                }
             }
-        ];
-
-        let currentQuestionIndex = 0;
-        let score = 0;
-
-        // Function to check answer
-        function checkAnswer(selectedAnswer) {
-            const correctAnswer = questions[currentQuestionIndex].correctAnswer;
-            if (selectedAnswer === correctAnswer) {
-                score++;
-                document.getElementById('feedback').innerText = "Correct! Well done.";
-            } else {
-                document.getElementById('feedback').innerText = "Oops! The correct answer was: " + correctAnswer;
+        
+            // Function to load next question
+            function loadNextQuestion() {
+                const questionText = document.getElementById('question-text');
+                const optionsContainer = document.getElementById('options-container');
+                const feedback = document.getElementById('feedback');
+        
+                feedback.innerText = '';
+                const currentQuestion = questions[currentQuestionIndex];
+        
+                questionText.innerText = currentQuestion.question;
+                optionsContainer.innerHTML = '';
+        
+                currentQuestion.options.forEach((option, index) => {
+                    const button = document.createElement('button');
+                    button.classList.add('option');
+                    button.innerText = option;
+                    button.onclick = () => checkAnswer(index);
+                    optionsContainer.appendChild(button);
+                });
             }
-
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                setTimeout(loadNextQuestion, 1000);
-            } else {
-                setTimeout(showCertificate, 1000);
+        
+            // Function to show certificate
+            function showCertificate() {
+                document.getElementById('quiz-section').style.display = 'none';
+                document.getElementById('certificate').style.display = 'block';
+                document.getElementById('certificate-name').innerText = `Name: Vedika`;
+                document.getElementById('certificate-score').innerText = `Score: ${score}/10`;
             }
-        }
-
-        // Function to load next question
-        function loadNextQuestion() {
-            document.getElementById('feedback').innerText = '';
-            document.getElementById('question-text').innerText = questions[currentQuestionIndex].question;
-        }
-
-        // Function to show certificate
-        function showCertificate() {
-            document.getElementById('quiz-section').style.display = 'none';
-            document.getElementById('certificate').style.display = 'block';
-            document.getElementById('certificate-name').innerText = `Name: User`;
-            document.getElementById('certificate-score').innerText = `Score: ${score}/10`;
-        }
-    </script>
+        
+            // Initialize quiz
+            loadNextQuestion();
+        </script>
+        
 </body>
 
 </html>
+

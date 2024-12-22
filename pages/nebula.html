@@ -135,6 +135,26 @@
         background-color: #ff4f3b;
         transform: scale(1.05);
     }
+
+    /* Certificate Section */
+    .certificate {
+        display: none;
+        text-align: center;
+        margin: 50px auto;
+        padding: 20px;
+        border: 2px solid #ff6f61;
+        border-radius: 15px;
+        background-color: #1e1e1e;
+        max-width: 500px;
+    }
+
+    .certificate h2 {
+        color: #ff6f61;
+    }
+
+    .certificate p {
+        font-size: 1.5em;
+    }
   </style>
 </head>
 <body>
@@ -179,6 +199,14 @@
             </div>
             <div class="feedback" id="feedback"></div>
         </div>
+
+         <!-- Certificate Section -->
+         <div class="certificate" id="certificate">
+            <h2>Congratulations!</h2>
+            <p id="certificate-name">Name: Vedika</p> <!-- Replace with actual user name -->
+            <p id="certificate-score"></p>
+        </div>
+
 
         <!-- Back to Explore Page Button -->
         <div class="back-button">
@@ -245,44 +273,41 @@
             }
         ];
 
-        let currentQuestion = 0;
-
-        function loadQuestion() {
-            const question = questions[currentQuestion];
-            document.getElementById("question-text").textContent = question.question;
-            const buttons = document.querySelectorAll(".option");
-            question.options.forEach((option, index) => {
-                buttons[index].textContent = option;
-            });
-        }
+        let currentQuestionIndex = 0;
+        let score = 0;
 
         function checkAnswer(selectedAnswer) {
-            const correctAnswer = questions[currentQuestion].answer;
-            const feedback = document.getElementById("feedback");
-            if (selectedAnswer === correctAnswer) {
+            const feedback = document.getElementById('feedback');
+            if (selectedAnswer === questions[currentQuestionIndex].answer) {
+                score++;
                 feedback.textContent = "Correct!";
-                feedback.style.color = "green";
             } else {
-                feedback.textContent = "Wrong answer. The correct answer is: " + correctAnswer;
-                feedback.style.color = "red";
+                feedback.textContent = "Incorrect. The correct answer is: " + questions[currentQuestionIndex].answer;
             }
-            currentQuestion++;
-            if (currentQuestion < questions.length) {
-                setTimeout(() => {
-                    feedback.textContent = "";
-                    loadQuestion();
-                }, 1500);
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
             } else {
-                setTimeout(() => {
-                    alert("You have completed the quiz!");
-                    currentQuestion = 0;
-                    loadQuestion();
-                }, 1500);
+                displayCertificate();
             }
         }
 
-        // Load the first question
-        loadQuestion();
+        function displayQuestion() {
+            const questionText = document.getElementById('question-text');
+            questionText.textContent = questions[currentQuestionIndex].question;
+        }
+
+        function displayCertificate() {
+            const certificate = document.getElementById('certificate');
+            const certificateScore = document.getElementById('certificate-score');
+            certificateScore.textContent = "Your Score: " + score + " out of " + questions.length;
+            certificate.style.display = 'block';
+            document.querySelector('.quiz-section').style.display = 'none'; // Hide quiz section
+        }
+
+        // Initialize the quiz with the first question
+        displayQuestion();
     </script>
 </body>
 </html>

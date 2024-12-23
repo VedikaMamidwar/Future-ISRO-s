@@ -1,177 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future ISROs - Cosmic Dust Page</title>
-  <style>
-    /* General Styles */
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background: url('../images/cosmosicdust.jpg') no-repeat center center fixed;
-        background-size: cover;
-        color: white;
-        overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future ISROs - Cosmic Dust Page</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('../images/cosmosicdust.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow-x: hidden;
+        }
 
-    @keyframes headerGlow {
-        0% { color: #ff6f61; }
-        100% { color: #ff6f61; }
-    }
+        @keyframes headerGlow {
+            0% {
+                color: #ff6f61;
+            }
 
-    .container {
-        margin-top: 40px;
-        padding: 0 20px;
-    }
+            100% {
+                color: #ff6f61;
+            }
+        }
 
-    /* Cosmic Dust Information Flexboxes */
-    .flex-container {
-        display: flex;
-        justify-content: space-around;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin: 40px 0;
-    }
+        .container {
+            margin-top: 40px;
+            padding: 0 20px;
+        }
 
-    .flex-item {
-        background: rgba(30, 30, 30, 0.8);
-        border: 3px solid #ff6f61;
-        padding: 30px;
-        width: 30%;
-        border-radius: 15px;
-        text-align: center;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-    }
+        /* Cosmic Dust Information Flexboxes */
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
 
-    .flex-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
+        .flex-item {
+            background: rgba(30, 30, 30, 0.8);
+            border: 3px solid #ff6f61;
+            padding: 30px;
+            width: 30%;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .flex-item:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
-    }
+        .flex-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-    .flex-item:hover::before {
-        opacity: 1;
-    }
+        .flex-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.8);
+        }
 
-    h2 {
-        font-size: 2.2em;
-        color: #ff6f61;
-        margin-bottom: 15px;
-    }
+        .flex-item:hover::before {
+            opacity: 1;
+        }
 
-    p {
-        font-size: 1.3em;
-        line-height: 1.8;
-    }
+        h2 {
+            font-size: 2.2em;
+            color: #ff6f61;
+            margin-bottom: 15px;
+        }
 
-    /* Quiz Section */
-    .quiz-section {
-        margin: 50px auto;
-        max-width: 700px;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-        background: rgba(30, 30, 30, 0.9);
-    }
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
 
-    .quiz-section h2 {
-        font-size: 2.5em;
-        text-align: center;
-        margin-bottom: 20px;
-        color: #ff6f61;
-    }
+        /* Quiz Section */
+        .quiz-section {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+            background: rgba(30, 30, 30, 0.9);
+        }
 
-    .quiz-question p {
-        font-size: 1.6em;
-        margin-bottom: 20px;
-        text-align: center;
-    }
+        .quiz-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
 
-    .options {
-        display: flex;
-        flex-direction: column;
-    }
+        .quiz-question p {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-    .option {
-        margin: 12px 0;
-        padding: 15px;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        font-size: 1.3em;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .option:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
+        .option {
+            margin: 12px 0;
+            padding: 15px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-    .back-button {
-        text-align: center;
-        margin: 30px 0;
-    }
+        .option:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
 
-    .back-button button {
-        padding: 12px 25px;
-        font-size: 1.2em;
-        color: white;
-        background-color: #ff6f61;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
 
-    .back-button button:hover {
-        background-color: #ff4f3b;
-        transform: scale(1.05);
-    }
+        .back-button {
+            text-align: center;
+            margin: 30px 0;
+        }
 
-   
+        .back-button button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-  </style>
+        .back-button button:hover {
+            background-color: #ff4f3b;
+            transform: scale(1.05);
+        }
+
+        /* Certificate Section */
+        .certificate {
+            display: none;
+            text-align: center;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #ff6f61;
+            border-radius: 15px;
+            background-color: #1e1e1e;
+            max-width: 500px;
+        }
+
+        .certificate h2 {
+            color: #ff6f61;
+        }
+
+        .certificate p {
+            font-size: 1.5em;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <header class="page-header">
             <h1>Explore Cosmic Dust</h1>
-            <p>Learn about the fascinating particles that form the universe, their origins, and how they affect everything around us.</p>
+            <p>Learn about the fascinating particles that form the universe, their origins, and how they affect
+                everything around us.</p>
         </header>
 
-        
+
 
         <!-- Cosmic Dust Information in Flexboxes -->
         <section class="dust-info">
             <div class="flex-container">
                 <div class="flex-item">
                     <h2>What is Cosmic Dust?</h2>
-                    <p>Cosmic dust consists of tiny particles found throughout space, originating from stars, comets, and planets. They play a key role in the formation of new stars and planets.</p>
+                    <p>Cosmic dust consists of tiny particles found throughout space, originating from stars, comets,
+                        and planets. They play a key role in the formation of new stars and planets.</p>
                 </div>
                 <div class="flex-item">
                     <h2>The Role of Cosmic Dust</h2>
-                    <p>Cosmic dust particles help in cooling gas clouds, triggering the collapse that leads to star formation. Without dust, galaxies and solar systems wouldn't exist!</p>
+                    <p>Cosmic dust particles help in cooling gas clouds, triggering the collapse that leads to star
+                        formation. Without dust, galaxies and solar systems wouldn't exist!</p>
                 </div>
                 <div class="flex-item">
                     <h2>Detecting Cosmic Dust</h2>
-                    <p>Space telescopes like Hubble capture the light scattered by cosmic dust. ISRO uses advanced instruments to study these particles and understand the early universe.</p>
+                    <p>Space telescopes like Hubble capture the light scattered by cosmic dust. ISRO uses advanced
+                        instruments to study these particles and understand the early universe.</p>
                 </div>
             </div>
         </section>
@@ -190,6 +219,14 @@
             </div>
             <div class="feedback" id="feedback"></div>
         </div>
+        <!-- Certificate Section -->
+        <div class="certificate" id="certificate">
+            <p id="certificate-name">Name: User</p>
+            <p id="certificate-score">Score: 0/10</p>
+            <p>Congratulations! You have completed the quiz!</p>
+        </div>
+
+
 
         <!-- Back to Explore Page Button -->
         <div class="back-button">
@@ -198,77 +235,76 @@
     </div>
 
     <script>
+
         // Add event listener for back button
-        document.getElementById('backToExplore').addEventListener('click', function() {
+        document.getElementById('backToExplore').addEventListener('click', function () {
             window.location.href = 'explore.html';
         });
 
         const questions = [
-            {
-                question: "What is the main source of cosmic dust?",
-                options: ["Stars", "Planets", "Comets", "Asteroids"],
-                answer: "Stars",
-            },
-            {
-                question: "What is cosmic dust mainly made of?",
-                options: ["Carbon", "Hydrogen", "Oxygen", "Silicate"],
-                answer: "Silicate",
-            },
-            {
-                question: "How does cosmic dust affect starlight?",
-                options: ["It blocks it", "It scatters it", "It absorbs it", "It magnifies it"],
-                answer: "It scatters it",
-            },
-            {
-                question: "Which ISRO mission studies cosmic dust?",
-                options: ["Astrosat", "Mangalyaan", "Chandrayaan", "Gaganyaan"],
-                answer: "Astrosat",
-            },
-            {
-                question: "Cosmic dust is crucial for the formation of which cosmic object?",
-                options: ["Planets", "Moons", "Stars", "Galaxies"],
-                answer: "Stars",
-            }
+            { question: "What is the main source of cosmic dust?", options: ["Stars", "Planets", "Comets", "Asteroids"], correctAnswer: 0 },
+            { question: "What is cosmic dust mainly made of?", options: ["Carbon", "Hydrogen", "Oxygen", "Silicate"], correctAnswer: 3 },
+            { question: "How does cosmic dust affect starlight?", options: ["It blocks it", "It scatters it", "It absorbs it", "It magnifies it"], correctAnswer: 1 },
+            { question: "Which ISRO mission studies cosmic dust?", options: ["Astrosat", "Mangalyaan", "Chandrayaan", "Gaganyaan"], correctAnswer: 0 },
+            { question: "Cosmic dust is crucial for the formation of which cosmic object?", options: ["Planets", "Moons", "Stars", "Galaxies"], correctAnswer: 2 },
+            { question: "Cosmic dust originates from?", options: ["Supernovae", "Meteorites", "Planets", "Comets"], correctAnswer: 0 },
+            { question: "Cosmic dust particles are mostly?", options: ["Organic", "Metallic", "Silicates", "Carbonates"], correctAnswer: 2 },
+            { question: "What instrument detects cosmic dust?", options: ["Microscope", "Telescope", "Spectrometer", "Radar"], correctAnswer: 2 },
+            { question: "Cosmic dust affects?", options: ["Solar Flares", "Light Waves", "Gravity", "Wind Patterns"], correctAnswer: 1 },
+            { question: "Cosmic dust is essential for?", options: ["Cloud formation", "Planet cooling", "Galactic structure", "Star lifecycle"], correctAnswer: 3 }
         ];
 
         let currentQuestionIndex = 0;
+        let score = 0;
 
         function loadNextQuestion() {
-            const questionElement = document.getElementById('question-text');
-            const currentQuestion = questions[currentQuestionIndex];
-            questionElement.textContent = currentQuestion.question;
+            const questionText = document.getElementById("question-text");
+            const optionsContainer = document.getElementById("options-container");
 
-            const optionButtons = document.querySelectorAll('.option');
-            optionButtons.forEach((button, index) => {
-                button.textContent = currentQuestion.options[index];
+            const currentQuestion = questions[currentQuestionIndex];
+            questionText.innerText = currentQuestion.question;
+            optionsContainer.innerHTML = "";
+
+            currentQuestion.options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.classList.add("option");
+                button.innerText = option;
+                button.onclick = () => checkAnswer(index);
+                optionsContainer.appendChild(button);
             });
         }
 
-        function checkAnswer(selectedOption) {
-            const currentQuestion = questions[currentQuestionIndex];
-            const feedbackElement = document.getElementById('feedback');
-            
-            if (selectedOption === currentQuestion.answer) {
-                feedbackElement.textContent = "Correct! Well done!";
-                feedbackElement.style.color = "green";
-                currentQuestionIndex++;
+        function checkAnswer(selectedIndex) {
+            const correctIndex = questions[currentQuestionIndex].correctAnswer;
 
-                if (currentQuestionIndex < questions.length) {
-                    setTimeout(() => {
-                        loadNextQuestion();
-                        feedbackElement.textContent = "";
-                    }, 1000);
-                } else {
-                    feedbackElement.textContent = "Congratulations! You've completed the quiz.";
-                }
+            if (selectedIndex === correctIndex) {
+                score++;
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                loadNextQuestion();
             } else {
-                feedbackElement.textContent = "Oops! Try again.";
-                feedbackElement.style.color = "red";
+                showCertificate();
             }
         }
 
-        // Initial question load
+        function showCertificate() {
+            document.querySelector(".quiz-section").style.display = "none";
+            const certificate = document.getElementById("certificate");
+            certificate.style.display = "block";
+            document.getElementById("certificate-name").innerText = `Name: ${userName}`;
+            document.getElementById("certificate-score").innerText = `Score: ${score}/10`;
+        }
+
+        // Initialize quiz
         loadNextQuestion();
+
+
+
+
     </script>
 </body>
+
 </html>

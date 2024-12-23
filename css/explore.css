@@ -147,21 +147,20 @@ header {
 }
 
 .explore-button {
-    background-color: #ff6f61;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s ease-in-out;
+    background-color: #ff6f61; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
 }
 
 .explore-button:hover {
-    background-color: #ff8b80;
-    transform: scale(1.1);
+    background-color: #ff3d3d; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
-
 /* Animation Effects for Cards */
 .card .card-image {
     width: 100px;
@@ -223,6 +222,7 @@ footer {
 footer p {
     margin: 0;
 }
+
 /* Keyframes for twinkling stars */
 @keyframes twinklingStars {
     from {
@@ -232,6 +232,7 @@ footer p {
         background-position: -10000px 5000px;
     }
 }
+
 /* Sun Rotation */
 .sun-movement {
     background-image: url('../icon/sunshine.png'); /* Add the Sun image */
@@ -271,39 +272,46 @@ footer p {
     background-image: url('../icon/star.png');
     animation: rotate 15s infinite linear;
 }
+
 .nebula-movement {
     background-image: url('../icon/nebula.png');
     animation: rotate 15s infinite linear;
 }
+
 .whitedwarf-movement {
-    background-image: url('../images/white\ dwarf.jpeg');
+    background-image: url('../images/white dwarf.jpeg');
     animation: rotate 15s infinite linear;
 }
+
 .blackdwarf-movement {
-    background-image: url('../images/black\ dwarf.jpeg');
+    background-image: url('../images/black dwarf.jpeg');
     animation: rotate 15s infinite linear;
 }
+
 .Constellation-movement {
     background-image: url('../icon/big-dipper.png');
     animation: rotate 15s infinite linear;
 }
+
 .blackhole-movement {
     background-image: url('../icon/black-hole.png');
     animation: rotate 15s infinite linear;
 }
+
 .milkyway-movement {
-    background-image: url('../icon/universe\ \(1\).png');
+    background-image: url('../icon/universe (1).png');
     animation: rotate 15s infinite linear;
 }
+
 .cosmosicdust-movement {
     background-image: url('../images/cosmosicdust.jpg');
     animation: rotate 15s infinite linear;
 }
+
 .astronaut-movement {
     background-image: url('../icon/astranaut.jpg');
     animation: rotate 15s infinite linear;
 }
-
 
 /* General styles for the card images */
 .event-image {
@@ -313,6 +321,7 @@ footer p {
     margin: 0 auto 15px;
     border-radius: 50%; /* Make the images circular */
 }
+
 /* Animation for rotating elements */
 @keyframes rotate {
     from {
@@ -336,63 +345,12 @@ footer p {
 /* Animation for rocket launching up */
 @keyframes rocket-launch {
     0% {
-        transform: translateY(20px);
+        transform: translateY(0);
     }
     50% {
         transform: translateY(-20px);
     }
     100% {
-        transform: translateY(20px);
+        transform: translateY(0);
     }
-}
-
-/* Animation for the moon's movement */
-@keyframes moon-move {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(20px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-.certificate-modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-}
-
-.certificate-content {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 40px;
-    text-align: center;
-    position: relative;
-    max-width: 600px;
-    width: 90%;
-}
-
-.certificate-border {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-}
-
-.certificate-content h1 {
-    color: #ff6f61;
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.certificate-content p {
-    font-size: 1.2em;
-    color: #333;
 }

@@ -123,6 +123,7 @@
         transform: scale(1.05);
     }
 
+   
     .back-button {
         text-align: center;
         margin: 30px 0;
@@ -144,7 +145,25 @@
         transform: scale(1.05);
     }
 
-    
+    /* Certificate Section */
+    .certificate {
+        display: none;
+        text-align: center;
+        margin: 50px auto;
+        padding: 20px;
+        border: 2px solid #ff6f61;
+        border-radius: 15px;
+        background-color: #1e1e1e;
+        max-width: 500px;
+    }
+
+    .certificate h2 {
+        color: #ff6f61;
+    }
+
+    .certificate p {
+        font-size: 1.5em;
+    }
   </style>
 </head>
 <body>
@@ -189,6 +208,15 @@
             <div class="feedback" id="feedback"></div>
         </div>
 
+        
+        <!-- Certificate Section -->
+        <div class="certificate" id="certificate">
+            <p id="certificate-name">Name: User</p>
+            <p id="certificate-score">Score: 0/10</p>
+            <p>Congratulations! You have completed the quiz!</p>
+        </div>
+        
+
         <!-- Back to Explore Page Button -->
         <div class="back-button">
             <button id="backToExplore">Back to Explore Page</button>
@@ -196,68 +224,97 @@
     </div>
 
     <script>
-        // Add event listener for back button
-        document.getElementById('backToExplore').addEventListener('click', function() {
-            window.location.href = 'explore.html';
+      // Add event listener for back button
+    document.getElementById('backToExplore').addEventListener('click', function() {
+        window.location.href = 'explore.html';
+    });
+
+    const questions = [
+        {
+            question: "What is the name of our galaxy?",
+            options: ["Andromeda Galaxy", "Milky Way Galaxy", "Sombrero Galaxy", "Whirlpool Galaxy"],
+            answer: "Milky Way Galaxy",
+        },
+        {
+            question: "What type of galaxy is characterized by spiral arms?",
+            options: ["Elliptical Galaxy", "Spiral Galaxy", "Irregular Galaxy", "Lenticular Galaxy"],
+            answer: "Spiral Galaxy",
+        },
+        {
+            question: "Which galaxy is closest to the Milky Way?",
+            options: ["Andromeda Galaxy", "Triangulum Galaxy", "Sombrero Galaxy", "Whirlpool Galaxy"],
+            answer: "Andromeda Galaxy",
+        },
+        {
+            question: "What galaxy is known for its prominent dust lanes?",
+            options: ["Milky Way Galaxy", "Andromeda Galaxy", "Whirlpool Galaxy", "Sombrero Galaxy"],
+            answer: "Whirlpool Galaxy",
+        },
+        {
+            question: "What is the primary component of galaxies?",
+            options: ["Planets", "Stars", "Comets", "Dust"],
+            answer: "Stars",
+        },
+    ];
+
+    let score = 0; // Variable to keep track of the score
+    let currentQuestionIndex = 0; // Initialize current question index
+
+    // Function to display the current question
+    function displayQuestion() {
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.querySelector('.options');
+        questionText.textContent = questions[currentQuestionIndex].question;
+
+        // Clear previous options
+        optionsContainer.innerHTML = '';
+
+        // Display the options for the current question
+        questions[currentQuestionIndex].options.forEach(option => {
+            const button = document.createElement('button');
+            button.className = 'option';
+            button.textContent = option;
+            button.onclick = () => checkAnswer(option); // Bind the click event
+            optionsContainer.appendChild(button);
         });
+    }
 
-        const questions = [
-            {
-                question: "What is the name of our galaxy?",
-                options: ["Andromeda Galaxy", "Milky Way Galaxy", "Sombrero Galaxy", "Whirlpool Galaxy"],
-                answer: "Milky Way Galaxy",
-            },
-            {
-                question: "What type of galaxy is characterized by spiral arms?",
-                options: ["Elliptical Galaxy", "Spiral Galaxy", "Irregular Galaxy", "Lenticular Galaxy"],
-                answer: "Spiral Galaxy",
-            },
-            {
-                question: "Which galaxy is closest to the Milky Way?",
-                options: ["Andromeda Galaxy", "Triangulum Galaxy", "Sombrero Galaxy", "Whirlpool Galaxy"],
-                answer: "Andromeda Galaxy",
-            },
-            {
-                question: "What galaxy is known for its prominent dust lanes?",
-                options: ["Milky Way Galaxy", "Andromeda Galaxy", "Whirlpool Galaxy", "Sombrero Galaxy"],
-                answer: "Whirlpool Galaxy",
-            },
-            {
-                question: "What is the primary component of galaxies?",
-                options: ["Planets", "Stars", "Comets", "Dust"],
-                answer: "Stars",
-            },
-        ];
+    function checkAnswer(selectedAnswer) {
+        const feedback = document.getElementById('feedback');
+        const correctAnswer = questions[currentQuestionIndex].answer;
 
-        let currentQuestionIndex = 0;
-
-        function displayQuestion() {
-            const question = questions[currentQuestionIndex];
-            const questionText = document.getElementById('question-text');
-            questionText.textContent = question.question;
-            const options = document.querySelectorAll('.option');
-            options.forEach((option, index) => {
-                option.textContent = question.options[index];
-            });
+        if (selectedAnswer === correctAnswer) {
+            feedback.textContent = "Correct! 🎉";
+            score++; // Increment score for correct answer
+        } else {
+            feedback.textContent = `Wrong! The correct answer is: ${correctAnswer}.`;
         }
 
-        function checkAnswer(selectedAnswer) {
-            const feedback = document.getElementById('feedback');
-            const correctAnswer = questions[currentQuestionIndex].answer;
-            if (selectedAnswer === correctAnswer) {
-                feedback.textContent = "Correct! 🎉";
-            } else {
-                feedback.textContent = `Wrong! The correct answer is: ${correctAnswer}.`;
-            }
-            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length; // Cycle through questions
+        currentQuestionIndex++;
+        
+        // Check if all questions have been answered
+        if (currentQuestionIndex >= questions.length) {
+            // Show the certificate
+            showCertificate();
+        } else {
+            // Proceed to the next question after 2 seconds
             setTimeout(() => {
                 feedback.textContent = ""; // Clear feedback
                 displayQuestion(); // Show next question
             }, 2000);
         }
+    }
 
-        // Initialize the first question
-        displayQuestion();
+    // Function to show the certificate
+    function showCertificate() {
+        document.querySelector('.quiz-section').style.display = 'none'; // Hide quiz section
+        document.getElementById('certificate-name').innerText = "Name: Vedika"; // Replace with actual user name
+        document.getElementById('certificate-score').innerText = `Score: ${score}/${questions.length}`; // Show the score out of total questions
+        document.getElementById('certificate').style.display = 'block'; // Show certificate
+    }
+
+    // Display the first question when the page loads
+    displayQuestion();
     </script>
 </body>
 </html>

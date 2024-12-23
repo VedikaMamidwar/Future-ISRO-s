@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +31,7 @@
       from {
         text-shadow: 0 0 20px #ff6f61;
       }
+
       to {
         text-shadow: 0 0 40px #ff4f3b;
       }
@@ -127,13 +129,55 @@
       background-color: #ff4f3b;
       transform: scale(1.05);
     }
+
+    .back-button {
+      text-align: center;
+      margin: 30px 0;
+    }
+/*back button*/
+    .back-button button {
+      padding: 12px 25px;
+      font-size: 1.2em;
+      color: white;
+      background-color: #ff6f61;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button button:hover {
+      background-color: #ff4f3b;
+      transform: scale(1.05);
+    }
+    /* Certificate Section */
+    .certificate {
+        display: none;
+        text-align: center;
+        margin: 50px auto;
+        padding: 20px;
+        border: 2px solid #ff6f61;
+        border-radius: 15px;
+        background-color: #1e1e1e;
+        max-width: 500px;
+    }
+
+    .certificate h2 {
+        color: #ff6f61;
+    }
+
+    .certificate p {
+        font-size: 1.5em;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <header>
       <h1>Astronauts: The Heroes of Space</h1>
-      <p>Astronauts play a key role in space exploration, pushing the boundaries of human knowledge and capability. Explore the journey of astronauts, their missions, and challenges in space.</p>
+      <p>Astronauts play a key role in space exploration, pushing the boundaries of human knowledge and capability.
+        Explore the journey of astronauts, their missions, and challenges in space.</p>
       <img src="../icon/astranaut.jpg" alt="Astronaut Image" class="astronaut-image">
     </header>
 
@@ -141,30 +185,36 @@
     <section class="flex-container">
       <div class="flex-item">
         <h2>Training for Space</h2>
-        <p>Astronauts undergo rigorous training for months or even years. They learn how to operate spacecraft, perform spacewalks, and survive in extreme conditions.</p>
+        <p>Astronauts undergo rigorous training for months or even years. They learn how to operate spacecraft, perform
+          spacewalks, and survive in extreme conditions.</p>
       </div>
       <div class="flex-item">
         <h2>Challenges in Space</h2>
-        <p>Space missions involve many challenges, including zero gravity, radiation exposure, and confined living spaces. Astronauts must be physically and mentally prepared.</p>
+        <p>Space missions involve many challenges, including zero gravity, radiation exposure, and confined living
+          spaces. Astronauts must be physically and mentally prepared.</p>
       </div>
       <div class="flex-item">
         <h2>Famous Missions</h2>
-        <p>From Apollo 11 to ISRO’s Gaganyaan, astronauts have been part of numerous groundbreaking missions. Each mission adds to our understanding of the universe.</p>
+        <p>From Apollo 11 to ISRO’s Gaganyaan, astronauts have been part of numerous groundbreaking missions. Each
+          mission adds to our understanding of the universe.</p>
       </div>
     </section>
 
     <!-- Canva Scientific Animation Section -->
     <section class="animation-container">
       <h2>Scientific Animation</h2>
-      <p>Watch this animation to understand how astronauts prepare for space missions and their journey to the stars.</p>
+      <p>Watch this animation to understand how astronauts prepare for space missions and their journey to the stars.
+      </p>
       <!-- Canva animation iframe -->
-      <iframe src="https://youtu.be/vUpPi0kKT8g" title="Astronaut Animation"></iframe>
+      <iframe src="../videos/as video.mp4" title="Astronaut Animation"></iframe>
     </section>
 
     <!-- Quiz Section -->
     <section class="quiz-section">
       <h2>Test Your Knowledge</h2>
-      <p>How well do you know about astronauts? Take this quiz to find out!</p>
+      <div class="quiz-question">
+        <p id="question-text">How well do you know about astronauts? Take this quiz to find out!</p>
+      </div>
       <div class="options">
         <button class="option">What is the minimum age to become an astronaut?</button>
         <button class="option">Which country sent the first human to space?</button>
@@ -172,15 +222,83 @@
         <button class="option">Who was the first person to walk on the moon?</button>
       </div>
     </section>
+
+    <!-- Certificate Section -->
+    <div class="certificate" id="certificate">
+      <h2>Certificate of Completion</h2>
+      <p id="certificate-score">Your Score: 0 out of 0</p>
+      <p>Thank you for participating!</p>
+    </div>
+
+    <!-- Back to Explore Page Button -->
+    <div class="back-button">
+      <button id="backToExplore">Back to Explore Page</button>
+    </div>
   </div>
 
+
+
+
   <script>
-    const options = document.querySelectorAll('.option');
-    options.forEach(option => {
-      option.addEventListener('click', () => {
-        alert("Great choice! Learn more about astronauts in the quiz section.");
-      });
+    // Add event listener for back button
+    document.getElementById('backToExplore').addEventListener('click', function () {
+      window.location.href = 'explore.html';
     });
+
+    const quizQuestions = [
+    { question: "What is the minimum age to become an astronaut?", options: ["18", "21", "25", "30"], correct: 1 },
+    { question: "Which country sent the first human to space?", options: ["USA", "Russia", "China", "India"], correct: 1 },
+    { question: "How long do astronauts stay on the ISS?", options: ["6 months", "1 year", "3 months", "2 years"], correct: 0 },
+    { question: "Who was the first person to walk on the moon?", options: ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "John Glenn"], correct: 0 },
+    { question: "What is the primary food for astronauts in space?", options: ["Dehydrated food", "Fresh food", "Canned food", "Frozen food"], correct: 0 },
+    { question: "What is the name of India’s first manned mission?", options: ["Chandrayaan", "Gaganyaan", "Mangalyaan", "Vikram"], correct: 1 },
+    { question: "How do astronauts exercise in space?", options: ["Running", "Cycling", "Using special equipment", "Swimming"], correct: 2 },
+    { question: "Who was the first woman in space?", options: ["Valentina Tereshkova", "Kalpana Chawla", "Sally Ride", "Peggy Whitson"], correct: 0 },
+    { question: "What protects astronauts from radiation in space?", options: ["Spacecraft walls", "Special suits", "Radiation shields", "All of the above"], correct: 3 },
+    { question: "What is the main role of astronauts?", options: ["Exploring space", "Operating spacecraft", "Conducting research", "All of the above"], correct: 3 },
+  ];
+
+  let currentQuestion = 0;
+  let score = 0;
+
+  const questionText = document.getElementById("question-text");
+  const options = document.querySelectorAll(".option");
+  const certificate = document.getElementById("certificate");
+  const certificateScore = document.getElementById("certificate-score");
+
+  // Display Quiz Question
+  function displayQuestion() {
+    const question = quizQuestions[currentQuestion];
+    questionText.textContent = question.question;
+    options.forEach((option, index) => {
+      option.textContent = question.options[index];
+      option.onclick = () => handleAnswer(index);
+    });
+  }
+
+  // Handle Answer Selection
+  function handleAnswer(selected) {
+    if (selected === quizQuestions[currentQuestion].correct) {
+      score++;
+    }
+    currentQuestion++;
+    if (currentQuestion < quizQuestions.length) {
+      displayQuestion();
+    } else {
+      showCertificate();
+    }
+  }
+
+  // Show Certificate
+  function showCertificate() {
+    document.querySelector(".quiz-section").style.display = "none";
+    certificate.style.display = "block";
+    certificateScore.textContent = `Your Score: ${score} out of ${quizQuestions.length}`;
+  }
+
+  // Start Quiz
+  displayQuestion();
   </script>
+
 </body>
 </html>

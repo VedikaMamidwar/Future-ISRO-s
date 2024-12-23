@@ -161,7 +161,7 @@
         }
 
 
-        <style>
+
 
         /* General Styles */
         body {
@@ -286,49 +286,43 @@
             transform: scale(1.05);
         }
 
-        /* Back Button */
-        .back-button {
-            text-align: center;
-            margin: 30px 0;
-        }
+        
+    /*back button*/
+    .back-button button {
+      padding: 12px 25px;
+      font-size: 1.2em;
+      color: white;
+      background-color: #ff6f61;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
 
-        .back-button button {
-            padding: 12px 25px;
-            font-size: 1.2em;
-            color: white;
-            background-color: #ff6f61;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+    .back-button button:hover {
+      background-color: #ff4f3b;
+      transform: scale(1.05);
+    }
 
-        .back-button button:hover {
-            background-color: #ff4f3b;
-            transform: scale(1.05);
-        }
+/* Certificate Section */
+.certificate {
+        display: none;
+        text-align: center;
+        margin: 50px auto;
+        padding: 20px;
+        border: 2px solid #ff6f61;
+        border-radius: 15px;
+        background-color: #1e1e1e;
+        max-width: 500px;
+    }
 
-        /* Certificate Styles */
-        .certificate {
-            display: none;
-            width: 80%;
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 25px;
-            background-color: #ff6f61;
-            border-radius: 20px;
-            text-align: center;
-            color: white;
-            font-size: 1.8em;
-            font-weight: bold;
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-            animation: popIn 0.5s ease-in-out;
-        }
+    .certificate h2 {
+        color: #ff6f61;
+    }
 
-        .certificate p {
-            font-size: 1.2em;
-            margin: 10px 0;
-        }
+    .certificate p {
+        font-size: 1.5em;
+    }
 
         /* Rocket Animation */
         .rocket {
@@ -442,6 +436,8 @@
     </div>
 
     <script>
+   
+
         // Event listener for back button
         document.getElementById('backToExplore').addEventListener('click', function () {
             window.location.href = 'explore.html'; // Redirect to the Explore page
@@ -502,68 +498,50 @@
             }
         ];
 
+       
         let currentQuestionIndex = 0;
         let score = 0;
 
-        // Function to load question and options
         function loadQuestion() {
-            const questionText = document.getElementById('question-text');
-            const optionsContainer = document.getElementById('options-container');
             const currentQuestion = questions[currentQuestionIndex];
-
-            // Display current question
-            questionText.innerText = currentQuestion.question;
-
-            // Clear previous options
-            optionsContainer.innerHTML = '';
-
-            // Display options
-            currentQuestion.options.forEach((option) => {
+            document.getElementById('question-text').innerText = currentQuestion.question;
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = ''; // Clear previous options
+            currentQuestion.options.forEach(option => {
                 const button = document.createElement('button');
-                button.classList.add('option');
                 button.innerText = option;
+                button.className = 'option';
                 button.onclick = () => checkAnswer(option);
                 optionsContainer.appendChild(button);
             });
         }
 
-        // Function to check answer and go to the next question
-        function checkAnswer(selectedOption) {
-            const correctAnswer = questions[currentQuestionIndex].answer;
-
-            // Check if the selected answer is correct
-            if (selectedOption === correctAnswer) {
+        function checkAnswer(selectedAnswer) {
+            const currentQuestion = questions[currentQuestionIndex];
+            if (selectedAnswer === currentQuestion.answer) {
                 score++;
-                document.getElementById('feedback').innerText = "Correct! Well done.";
-            } else {
-                document.getElementById('feedback').innerText = `Oops! The correct answer was: ${correctAnswer}`;
             }
-
-            // Move to the next question or show certificate if quiz is complete
             currentQuestionIndex++;
-
             if (currentQuestionIndex < questions.length) {
-                setTimeout(() => {
-                    document.getElementById('feedback').innerText = ''; // Clear feedback
-                    loadQuestion(); // Load next question
-                }, 1000);
+                loadQuestion(); // Load the next question
             } else {
-                setTimeout(showCertificate, 1000); // Show certificate after quiz completion
+                displayCertificate(); // Show certificate after the last question
             }
         }
 
-        // Function to show certificate
-        function showCertificate() {
-            document.getElementById('quiz-section').style.display = 'none';
+        function displayCertificate() {
             document.getElementById('certificate').style.display = 'block';
-            document.getElementById('certificate-name').innerText = `Name: Vedika`; // Replace with actual user name
-            document.getElementById('certificate-score').innerText = `Score: ${score}/${questions.length}`;
+            document.getElementById('certificate-name').innerText = 'Name: User'; // Replace 'User' with actual user name
+            document.getElementById('certificate-score').innerText = 'Score: ' + score + '/' + questions.length;
+            document.querySelector('.quiz-section').style.display = 'none'; // Hide quiz section
         }
 
-        // Initial call to load the first question
+        document.getElementById('backToExplore').addEventListener('click', function() {
+            window.location.href = 'explore.html'; // Adjust the path as needed
+        });
+
+        // Load the first question when the page loads
         loadQuestion();
-
-
 
     </script>
 </body>

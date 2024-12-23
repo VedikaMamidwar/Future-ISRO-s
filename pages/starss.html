@@ -178,6 +178,7 @@
         .quiz-section h2 {
             font-size: 2.5em;
             text-align: center;
+            align-items: center;
             margin-bottom: 20px;
             color: #ff6f61;
         }
@@ -209,27 +210,26 @@
             transform: scale(1.05);
         }
 
-        /* Certificate Styles */
-        .certificate {
-            display: none;
-            width: 80%;
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 25px;
-            background-color: #ff6f61;
-            border-radius: 20px;
-            text-align: center;
-            color: white;
-            font-size: 1.8em;
-            font-weight: bold;
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-            animation: popIn 0.5s ease-in-out;
-        }
 
-        .certificate p {
-            font-size: 1.2em;
-            margin: 10px 0;
-        }
+        /* Certificate Section */
+    .certificate {
+        display: none;
+        text-align: center;
+        margin: 50px auto;
+        padding: 20px;
+        border: 2px solid #ff6f61;
+        border-radius: 15px;
+        background-color: #1e1e1e;
+        max-width: 500px;
+    }
+
+    .certificate h2 {
+        color: #ff6f61;
+    }
+
+    .certificate p {
+        font-size: 1.5em;
+    }
 
         .back-button {
             text-align: center;
@@ -312,7 +312,7 @@
             <div class="quiz-question">
                 <p id="question-text">What type of star is our Sun?</p>
             </div>
-            <div class="quiz-section" id="quiz-section">
+            <div class="options">
                 <button class="option" onclick="checkAnswer('Red Dwarf')">Red Dwarf</button>
                 <button class="option" onclick="checkAnswer('Yellow Dwarf')">Yellow Dwarf</button>
                 <button class="option" onclick="checkAnswer('Blue Giant')">Blue Giant</button>
@@ -327,7 +327,7 @@
             <p id="certificate-score">Score: 0/10</p>
             <p>Congratulations! You have completed the quiz!</p>
         </div>
-        
+
 
         <!-- Back to Explore Page Button -->
         <div class="back-button">
@@ -431,50 +431,62 @@
         ];
 
 
-        // Variables for score tracking
+        let currentQuestionIndex = 0;
         let score = 0;
-        let questionIndex = 0;
 
         // Function to check the answer
         function checkAnswer(selectedAnswer) {
-            const currentQuestion = starQuestions[questionIndex];
+            const feedbackElement = document.getElementById('feedback');
+            const currentQuestion = starQuestions[currentQuestionIndex];
+
             if (selectedAnswer === currentQuestion.correctAnswer) {
                 score++;
-                document.getElementById('feedback').innerText = "Correct! 🎉";
+                feedbackElement.innerHTML = "<p style='color: green;'>Correct!</p>";
             } else {
-                document.getElementById('feedback').innerText = "Wrong! Try again.";
+                feedbackElement.innerHTML = "<p style='color: red;'>Wrong! The correct answer is: " + currentQuestion.correctAnswer + "</p>";
             }
 
-            questionIndex++;
-            if (questionIndex < starQuestions.length) {
-                setTimeout(loadNextQuestion, 1500);
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < starQuestions.length) {
+                setTimeout(() => {
+                    displayNextQuestion();
+                }, 2000);
             } else {
-                setTimeout(showCertificate, 1500);
+                showCertificate();
             }
         }
 
-        // Function to load the next question
-        function loadNextQuestion() {
-            document.getElementById('feedback').innerText = '';
-            document.getElementById('question-text').innerText = starQuestions[questionIndex].question;
+        // Function to display the next question
+        function displayNextQuestion() {
+            const questionText = document.getElementById('question-text');
+            const quizSection = document.getElementById('quiz-section');
+            feedbackElement.innerHTML = ""; // Clear feedback
 
-            const options = document.querySelectorAll('.option');
-            options.forEach((option, index) => {
-                option.innerText = starQuestions[questionIndex].options[index];
-            });
+            if (currentQuestionIndex < starQuestions.length) {
+                const nextQuestion = starQuestions[currentQuestionIndex];
+                questionText.innerText = nextQuestion.question;
+                // Update the options dynamically
+                const options = document.querySelectorAll('.option');
+                options.forEach((option, index) => {
+                    option.innerText = nextQuestion.options[index];
+                });
+            } else {
+                quizSection.style.display = 'none'; // Hide quiz section
+                showCertificate();
+            }
         }
 
         // Function to show the certificate
         function showCertificate() {
-            document.getElementById('quiz-section').style.display = 'none'; // Hide quiz section
-            document.getElementById('certificate-name').innerText = "Name: Vedika"; // Replace with actual user name
-            document.getElementById('certificate-score').innerText = `Score: ${score}/${starQuestions.length}`;
-            document.getElementById('certificate').style.display = 'block'; // Show certificate
+            const certificate = document.getElementById('certificate');
+            const certificateName = document.getElementById('certificate-name');
+            const certificateScore = document.getElementById('certificate-score');
+
+            certificateName.innerText = "Name: User"; // Replace 'User' with actual user name
+            certificateScore.innerText = "Score: " + score + "/" + starQuestions.length;
+            certificate.style.display = 'block'; // Show certificate
         }
-
-        // Initialize the first question
-        loadNextQuestion();
-
 
     </script>
 
